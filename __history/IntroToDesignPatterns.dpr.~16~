@@ -1,0 +1,21 @@
+program IntroToDesignPatterns;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils, DuckU;
+
+begin
+  try
+    var Mallard: TDuck := TMallardDuck.Create;
+    Mallard.PerformQuack;
+    Mallard.PerformFly;
+    Readln;
+  except
+    on E: Exception do
+
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+end.

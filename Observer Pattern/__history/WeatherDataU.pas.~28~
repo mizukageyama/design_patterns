@@ -1,0 +1,117 @@
+unit WeatherDataU;
+
+interface
+
+uses
+  System.Classes, System.SysUtils, System.Generics.Collections;
+
+type
+  TObserver = interface
+    procedure Update(Temp, Humidity, Pressure: Double);
+  end;
+
+  TSubject = interface
+    procedure RegisterObserver(O: TObserver);
+    procedure RemoveObserver(O: TObserver);
+    procedure NotifyObservers;
+  end;
+
+  TDisplayElement = interface
+    procedure Display;
+  end;
+
+  TWeatherData = class(TInterfacedObject, TSubject)
+  private
+    FObservers: TList<TObserver>;
+    FTemperature: Double;
+    FHumidity: Double;
+    FPressure: Double;
+  public
+    procedure RegisterObserver(O: TObserver);
+    procedure RemoveObserver(O: TObserver);
+    procedure NotifyObservers;
+    procedure SetMeasurements(Temperature, Humidity, Pressure: Double);
+    procedure MeasurementsChanged;
+    procedure Create;
+  end;
+
+  TCurrentConditionsDisplay = class(TInterfacedObject, TObserver,
+    TDisplayElement)
+  private
+    FTemperature: Double;
+    FHumidity: Double;
+    FWeatherData: TSubject;
+  public
+    procedure Update(Temperature, Humidity, Pressure: Double);
+    procedure Display;
+    procedure Create(AWeatherData: TSubject);
+  end;
+
+
+implementation
+
+{ TWeatherData }
+
+procedure TWeatherData.Create;
+begin
+  FObservers := TList<TObserver>.Create;
+end;
+
+procedure TWeatherData.MeasurementsChanged;
+begin
+  NotifyObservers;
+end;
+
+procedure TWeatherData.NotifyObservers;
+var
+  I: Integer;
+begin
+  for I := 0 to FObservers.Count do
+  begin
+    var Observer: TObserver := FObservers[i];
+    Observer.Update(FTemperature, FHumidity, FPressure);
+  end;
+end;
+
+procedure TWeatherData.RegisterObserver(O: TObserver);
+begin
+  FObservers.Add(O);
+end;
+
+procedure TWeatherData.RemoveObserver(O: TObserver);
+begin
+  FObservers.Remove(O);
+end;
+
+procedure TWeatherData.SetMeasurements(Temperature, Humidity, Pressure: Double);
+begin
+  FTemperature := Temperature;
+  FHumidity := Humidity;
+  FPressure := Pressure;
+  MeasurementsChanged;
+end;
+
+{ TCurrentConditionsDisplay }
+
+procedure TCurrentConditionsDisplay.Create(AWeatherData: TSubject);
+begin
+  FWeatherData := AWeatherData;
+  FWeatherData.RegisterObserver(Self);
+end;
+
+procedure TCurrentConditionsDisplay.Display;
+begin
+  var ConditionStr := Format('Current conditions: %dF degrees and %dhumidity',
+    [FTemperature, FHumidity]);
+  WriteLn(ConditionStr);
+end;
+
+procedure TCurrentConditionsDisplay.Update(Temperature, Humidity,
+  Pressure: Double);
+begin
+  FTemperature := Temperature;
+  FHumidity := Humidity;
+  Display;
+end;
+
+end.
