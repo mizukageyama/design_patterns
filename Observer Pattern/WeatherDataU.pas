@@ -90,14 +90,10 @@ end;
 
 procedure TWeatherData.NotifyObservers;
 var
-  I: Integer;
+  Observer: TObserver;
 begin
-  WriteLn('??');
-  for I := 0 to FObservers.Count do
-  begin
-    var Observer: TObserver := FObservers[i];
+  for Observer in FObservers do
     Observer.Update(FTemperature, FHumidity, FPressure);
-  end;
 end;
 
 procedure TWeatherData.RegisterObserver(O: TObserver);
@@ -128,7 +124,7 @@ end;
 
 procedure TCurrentConditionsDisplay.Display;
 begin
-  var ConditionStr := Format('Current conditions: %dF degrees and %dhumidity',
+  var ConditionStr := Format('Current conditions: %fF degrees and %f humidity',
     [FTemperature, FHumidity]);
   WriteLn(ConditionStr);
 end;
@@ -189,13 +185,10 @@ procedure TStatisticsDisplay.Update(Temperature, Humidity, Pressure: Double);
 begin
   FTempSum := FTempSum + Temperature;
   FNumReadings := FNumReadings + 1;
-
   if (Temperature > FMaxTemp) then
     FMaxTemp := Temperature;
-
   if (Temperature < FMinTemp) then
     FMinTemp := Temperature;
-
   Display;
 end;
 

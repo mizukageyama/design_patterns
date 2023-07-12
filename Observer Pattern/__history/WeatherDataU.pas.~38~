@@ -32,7 +32,7 @@ type
     procedure NotifyObservers;
     procedure SetMeasurements(Temperature, Humidity, Pressure: Double);
     procedure MeasurementsChanged;
-    procedure Create;
+    constructor Create;
   end;
 
   TCurrentConditionsDisplay = class(TInterfacedObject, TObserver,
@@ -44,7 +44,33 @@ type
   public
     procedure Update(Temperature, Humidity, Pressure: Double);
     procedure Display;
-    procedure Create(AWeatherData: TSubject);
+    constructor Create(AWeatherData: TSubject);
+  end;
+
+  TForecastDisplay = class(TInterfacedObject, TObserver,
+    TDisplayElement)
+  private
+    FCurrentPressure: Double;
+    FLastPressure: Double;
+    FWeatherData: TSubject;
+  public
+    procedure Update(Temperature, Humidity, Pressure: Double);
+    procedure Display;
+    constructor Create(AWeatherData: TSubject);
+  end;
+
+  TStatisticsDisplay = class(TInterfacedObject, TObserver,
+    TDisplayElement)
+  private
+    FMaxTemp: Double;
+    FMinTemp: Double;
+    FTempSum: Double;
+    FNumReadings: Integer;
+    FWeatherData: TSubject;
+  public
+    procedure Update(Temperature, Humidity, Pressure: Double);
+    procedure Display;
+    constructor Create(AWeatherData: TSubject);
   end;
 
 
@@ -52,7 +78,7 @@ implementation
 
 { TWeatherData }
 
-procedure TWeatherData.Create;
+constructor TWeatherData.Create;
 begin
   FObservers := TList<TObserver>.Create;
 end;
@@ -66,6 +92,7 @@ procedure TWeatherData.NotifyObservers;
 var
   I: Integer;
 begin
+  WriteLn('??');
   for I := 0 to FObservers.Count do
   begin
     var Observer: TObserver := FObservers[i];
@@ -93,7 +120,7 @@ end;
 
 { TCurrentConditionsDisplay }
 
-procedure TCurrentConditionsDisplay.Create(AWeatherData: TSubject);
+constructor TCurrentConditionsDisplay.Create(AWeatherData: TSubject);
 begin
   FWeatherData := AWeatherData;
   FWeatherData.RegisterObserver(Self);
@@ -111,6 +138,64 @@ procedure TCurrentConditionsDisplay.Update(Temperature, Humidity,
 begin
   FTemperature := Temperature;
   FHumidity := Humidity;
+  Display;
+end;
+
+{ TForecastDisplay }
+
+constructor TForecastDisplay.Create(AWeatherData: TSubject);
+begin
+  FWeatherData := AWeatherData;
+  FWeatherData.RegisterObserver(Self);
+  FCurrentPressure := 29.9;
+end;
+
+procedure TForecastDisplay.Display;
+begin
+  Write('Forecast: ');
+  if (FCurrentPressure > FLastPressure) then
+    WriteLn('Improving weather on the way!')
+  else if (FCurrentPressure = FLastPressure) then
+    WriteLn('More of the same')
+  else if (FCurrentPressure < FLastPressure) then
+    WriteLn('Watch out for cooler, rainy weather');
+end;
+
+procedure TForecastDisplay.Update(Temperature, Humidity, Pressure: Double);
+begin
+  FLastPressure := FCurrentPressure;
+	FCurrentPressure := Pressure;
+  Display();
+end;
+
+{ TStatisticsDisplay }
+
+constructor TStatisticsDisplay.Create(AWeatherData: TSubject);
+begin
+  FWeatherData := AWeatherData;
+  FWeatherData.RegisterObserver(Self);
+  FMaxTemp := 0.0;
+  FMinTemp := 200;
+  FTempSum := 0.0;
+end;
+
+procedure TStatisticsDisplay.Display;
+begin
+  WriteLn('Avg/Max/Min temperature = ' + (FTempSum / FNumReadings).ToString +
+    '/' + FMaxTemp.ToString + '/' + FMinTemp.ToString);
+end;
+
+procedure TStatisticsDisplay.Update(Temperature, Humidity, Pressure: Double);
+begin
+  FTempSum := FTempSum + Temperature;
+  FNumReadings := FNumReadings + 1;
+
+  if (Temperature > FMaxTemp) then
+    FMaxTemp := Temperature;
+
+  if (Temperature < FMinTemp) then
+    FMinTemp := Temperature;
+
   Display;
 end;
 
