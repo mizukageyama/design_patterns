@@ -1,0 +1,7 @@
+unit Singleton;
+
+interface
+
+implementation
+
+end.

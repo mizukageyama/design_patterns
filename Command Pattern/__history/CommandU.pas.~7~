@@ -1,0 +1,40 @@
+unit CommandU;
+
+interface
+
+uses
+  System.Classes, System.SysUtils, System.Generics.Collections;
+
+type
+  ICommand = interface
+    procedure Execute;
+  end;
+
+  TLight = class
+
+  end;
+
+  TLightOnCommand = class(TInterfacedObject, ICommand)
+  private
+    FLight: TLight;
+  public
+    procedure Execute;
+    constructor Create(ALight: TLight);
+  end;
+
+implementation
+
+{ TLightOnCommand }
+
+
+constructor TLightOnCommand.Create(ALight: TLight);
+begin
+  FLight := ALight;
+end;
+
+procedure TLightOnCommand.Execute;
+begin
+  FLight.On;
+end;
+
+end.

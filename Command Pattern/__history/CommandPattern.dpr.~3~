@@ -1,0 +1,18 @@
+program CommandPattern;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils,
+  CommandU in 'CommandU.pas';
+
+begin
+  try
+    ReadLn;
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+end.

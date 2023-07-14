@@ -12,10 +12,10 @@ type
     FSauce: String;
     FToppings: TList<String>;
   public
-    procedure Prepare;
-    procedure Bake;
-    procedure Cut;
-    procedure Box;
+    procedure Prepare; virtual;
+    procedure Bake; virtual;
+    procedure Cut; virtual;
+    procedure Box; virtual;
     function GetName: String;
   end;
 
@@ -36,22 +36,45 @@ type
     constructor Create;
   end;
 
-//  TNYStyleVeggiePizza = class(TPizza)
-//  public
-//    constructor Create;
-//  end;
-//
-//  TNYStyleClamPizza = class(TPizza)
-//  public
-//    constructor Create;
-//  end;
-//
-//  TNYStylePepperoniPizza = class(TPizza)
-//  public
-//    constructor Create;
-//  end;
+  TNYStyleVeggiePizza = class(TPizza)
+  public
+    constructor Create;
+  end;
+
+  TNYStyleClamPizza = class(TPizza)
+  public
+    constructor Create;
+  end;
+
+  TNYStylePepperoniPizza = class(TPizza)
+  public
+    constructor Create;
+  end;
 
   TChicagoPizzaStore = class(TPizzaStore)
+  public
+    function CreatePizza(PizzaType: String): TPizza; override;
+  end;
+
+  TChicagoStyleCheesePizza = class(TPizza)
+  public
+    constructor Create;
+    procedure Cut; override;
+  end;
+
+ TChicagoStyleVeggiePizza = class(TPizza)
+  public
+    constructor Create;
+  end;
+
+  TChicagoStyleClamPizza = class(TPizza)
+  public
+    constructor Create;
+  end;
+
+  TChicagoStylePepperoniPizza = class(TPizza)
+  public
+    constructor Create;
   end;
 
  implementation
@@ -107,28 +130,152 @@ end;
 
 function TNYPizzaStore.CreatePizza(PizzaType: String): TPizza;
 begin
-  if PizzaType = 'Cheese' then
+  if PizzaType = 'cheese' then
     Result := TNYStyleCheesePizza.Create
-//  else if PizzaType = 'Veggie' then
-//    Result := TNYStyleVeggiePizza.Create
-//  else if PizzaType = 'Clam' then
-//    Result := TNYStyleClamPizza.Create
-//  else if PizzaType = 'Pepperoni' then
-//    Result := TNYStylePepperoniPizza.Create
+  else if PizzaType = 'Veggie' then
+    Result := TNYStyleVeggiePizza.Create
+  else if PizzaType = 'Clam' then
+    Result := TNYStyleClamPizza.Create
+  else if PizzaType = 'Pepperoni' then
+    Result := TNYStylePepperoniPizza.Create
   else
     Result := nil;
-  end;
+end;
 
 { TNYStyleCheesePizza }
 
 constructor TNYStyleCheesePizza.Create;
 begin
   FName := 'NY Style Sauce and Cheese Pizza';
-  FDough := 'This Crust Dough';
+  FDough := 'Thin Crust Dough';
   FSauce := 'Marinara Sauce';
 
+  FToppings := TList<String>.Create;
   FToppings.Add('Grated Reggiano Cheese');
 end;
 
+{ TNYStyleClamPizza }
+
+constructor TNYStyleClamPizza.Create;
+begin
+  FName := 'NY Style Clam Pizza';
+  FDough := 'Thin Crust Dough';
+  FSauce := 'Marinara Sauce';
+
+  FToppings := TList<String>.Create;
+  FToppings.Add('Grated Reggiano Cheese');
+  FToppings.Add('Fresh Clams from Long Island Sound');
+end;
+
+{ TNYStyleVeggiePizza }
+
+constructor TNYStyleVeggiePizza.Create;
+begin
+  FName := 'NY Style Veggie Pizza';
+  FDough := 'Thin Crust Dough';
+  FSauce := 'Marinara Sauce';
+
+  FToppings := TList<String>.Create;
+  FToppings.Add('Grated Reggiano Cheese');
+  FToppings.Add('Garlic');
+  FToppings.Add('Onion');
+  FToppings.Add('Mushrooms');
+  FToppings.Add('Red Pepper');
+end;
+
+{ TNYStylePepperoniPizza }
+
+constructor TNYStylePepperoniPizza.Create;
+begin
+   FName := 'NY Style Pepperoni Pizza';
+  FDough := 'Thin Crust Dough';
+  FSauce := 'Marinara Sauce';
+
+  FToppings := TList<String>.Create;
+  FToppings.Add('Grated Reggiano Cheese');
+  FToppings.Add('Sliced Pepperoni');
+  FToppings.Add('Garlic');
+  FToppings.Add('Onion');
+  FToppings.Add('Mushrooms');
+  FToppings.Add('Red Pepper');
+end;
+
+{ TChicagoPizzaStore }
+
+function TChicagoPizzaStore.CreatePizza(PizzaType: String): TPizza;
+begin
+  if PizzaType = 'cheese' then
+    Result := TChicagoStyleCheesePizza.Create
+  else if PizzaType = 'Veggie' then
+    Result := TChicagoStyleVeggiePizza.Create
+  else if PizzaType = 'Clam' then
+    Result := TChicagoStyleClamPizza.Create
+  else if PizzaType = 'Pepperoni' then
+    Result := TChicagoStylePepperoniPizza.Create
+  else
+    Result := nil;
+end;
+
+{ TChicagoStyleCheesePizza }
+
+constructor TChicagoStyleCheesePizza.Create;
+begin
+  FName := 'Chicago Style Deep Dish Cheese Pizza';
+  FDough := 'Extra Thick Crust Dough';
+  FSauce := 'Plum Tomato Sauce';
+
+  FToppings := TList<String>.Create;
+  FToppings.Add('Shredded Mozzarella Cheese');
+end;
+
+procedure TChicagoStyleCheesePizza.Cut;
+begin
+  WriteLn('Cutting the pizza into square slices');
+end;
+
+
+{ TChicagoStyleVeggiePizza }
+
+constructor TChicagoStyleVeggiePizza.Create;
+begin
+  FName := 'Chicago Deep Dish Veggie Pizza';
+  FDough := 'Extra Thick Crust Dough';
+  FSauce := 'Plum Tomato Sauce';
+
+  FToppings := TList<String>.Create;
+  FToppings.Add('Shredded Mozzarella Cheese');
+  FToppings.Add('Black Olives');
+  FToppings.Add('Spinach');
+  FToppings.Add('Eggplant');
+end;
+
+{ TChicagoStylePepperoniPizza }
+
+constructor TChicagoStylePepperoniPizza.Create;
+begin
+  FName := 'Chicago Style Pepperoni Pizza';
+  FDough := 'Extra Thick Crust Dough';
+  FSauce := 'Plum Tomato Sauce';
+
+  FToppings := TList<String>.Create;
+  FToppings.Add('Shredded Mozzarella Cheese');
+  FToppings.Add('Black Olives');
+  FToppings.Add('Spinach');
+  FToppings.Add('Eggplant');
+  FToppings.Add('Sliced Pepperoni');
+end;
+
+{ TChicagoStyleClamPizza }
+
+constructor TChicagoStyleClamPizza.Create;
+begin
+  FName := 'Chicago Style Clam Pizza';
+  FDough := 'Extra Thick Crust Dough';
+  FSauce := 'Plum Tomato Sauce';
+
+  FToppings := TList<String>.Create;
+  FToppings.Add('Shredded Mozzarella Cheese');
+  FToppings.Add('Frozen Clams from Chesapeake Bay');
+end;
 
 end.

@@ -1,0 +1,70 @@
+unit ChocolateBoiler;
+
+interface
+
+uses
+  System.Classes, System.Generics.Collections, System.SysUtils;
+
+type
+  TChocolateBoiler = class
+  private
+    FEmpty: Boolean;
+    FBoiled: Boolean;
+  public
+    constructor Create;
+    procedure Fill;
+    procedure Drain;
+    procedure Boil;
+    function IsEmpty: Boolean;
+    function IsBoiled: Boolean;
+  end;
+
+implementation
+
+{ TChocolateBoiler }
+
+procedure TChocolateBoiler.Boil;
+begin
+  if (not IsEmpty) and (not IsBoiled) then
+  begin
+    //bring the contents to boil
+    FBoiled := True;
+  end;
+end;
+
+constructor TChocolateBoiler.Create;
+begin
+  FEmpty := True;
+  FBoiled := False;
+end;
+
+procedure TChocolateBoiler.Drain;
+begin
+  if (not IsEmpty) and IsBoiled then
+  begin
+    //drain the boiled milk and chocolate
+    FEmpty := True;
+  end;
+end;
+
+procedure TChocolateBoiler.Fill;
+begin
+  if IsEmpty then
+  begin
+    FEmpty := False;
+    FBoiled := False;
+    //Fil the boiler with a milk/chocolate mixture
+  end;
+end;
+
+function TChocolateBoiler.IsBoiled: Boolean;
+begin
+  Result := FBoiled;
+end;
+
+function TChocolateBoiler.IsEmpty: Boolean;
+begin
+  Result := FEmpty;
+end;
+
+end.

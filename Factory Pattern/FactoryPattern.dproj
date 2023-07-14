@@ -90,6 +90,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="PizzaStoreU.pas"/>
+        <DCCReference Include="PizzaIngredientU.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

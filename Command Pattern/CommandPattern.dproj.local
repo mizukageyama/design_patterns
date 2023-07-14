@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2023/07/14 16:20:52.512,C:\Users\User\Documents\GitHub\design_patterns\Command Pattern\CommandPattern.dproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2023/07/14 16:21:03.406,=C:\Users\User\Documents\GitHub\design_patterns\Command Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/14 16:21:10.859,C:\Users\User\Documents\GitHub\design_patterns\Command Pattern\CommandU.pas=C:\Users\User\Documents\GitHub\design_patterns\Command Pattern\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

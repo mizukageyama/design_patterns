@@ -1,0 +1,26 @@
+unit CommandU;
+
+interface
+
+uses
+  System.Classes, System.SysUtils, System.Generics.Collections;
+
+type
+  ICommand = interface
+    procedure Execute;
+  end;
+
+  TLight = class
+
+  end;
+
+  TLightOnCommand = class(TInterfacedObject, ICommand)
+  private
+    Light: TLight;
+  public
+    procedure Execute;
+  end;
+
+implementation
+
+end.
