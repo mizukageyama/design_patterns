@@ -1,0 +1,240 @@
+unit WeatherDataU;
+
+interface
+
+uses
+  System.Classes, System.SysUtils, System.Generics.Collections;
+
+type
+  IObserver = interface
+    procedure Update(Temp, Humidity, Pressure: Double);
+  end;
+
+  ISubject = interface
+    procedure RegisterObserver(O: IObserver);
+    procedure RemoveObserver(O: IObserver);
+    procedure NotifyObservers;
+  end;
+
+  IDisplayElement = interface
+    procedure Display;
+  end;
+
+  TWeatherData = class(TInterfacedObject, ISubject)
+  private
+    FObservers: TList<IObserver>;
+    FTemperature: Double;
+    FHumidity: Double;
+    FPressure: Double;
+  public
+    procedure RegisterObserver(O: IObserver);
+    procedure RemoveObserver(O: IObserver);
+    procedure NotifyObservers;
+    procedure SetMeasurements(Temperature, Humidity, Pressure: Double);
+    procedure MeasurementsChanged;
+    constructor Create;
+  end;
+
+  TCurrentConditionsDisplay = class(TInterfacedObject, IObserver,
+    IDisplayElement)
+  private
+    FTemperature: Double;
+    FHumidity: Double;
+    FWeatherData: ISubject;
+  public
+    procedure Update(Temperature, Humidity, Pressure: Double);
+    procedure Display;
+    constructor Create(AWeatherData: ISubject);
+  end;
+
+  TForecastDisplay = class(TInterfacedObject, IObserver,
+    IDisplayElement)
+  private
+    FCurrentPressure: Double;
+    FLastPressure: Double;
+    FWeatherData: ISubject;
+  public
+    procedure Update(Temperature, Humidity, Pressure: Double);
+    procedure Display;
+    constructor Create(AWeatherData: ISubject);
+  end;
+
+  TStatisticsDisplay = class(TInterfacedObject, IObserver,
+    IDisplayElement)
+  private
+    FMaxTemp: Double;
+    FMinTemp: Double;
+    FTempSum: Double;
+    FNumReadings: Integer;
+    FWeatherData: ISubject;
+  public
+    procedure Update(Temperature, Humidity, Pressure: Double);
+    procedure Display;
+    constructor Create(AWeatherData: ISubject);
+  end;
+
+  THeatIndexDisplay = class(TInterfacedObject, IObserver,
+    IDisplayElement)
+  private
+    FHeatIndex: Double;
+    FWeatherData: ISubject;
+  public
+    procedure Update(Temperature, RH, Pressure: Double);
+    procedure Display;
+    function ComputeHeatIndex(T, RH: Double): Double;
+    constructor Create(AWeatherData: ISubject);
+  end;
+
+
+implementation
+
+{ TWeatherData }
+
+constructor TWeatherData.Create;
+begin
+  FObservers := TList<IObserver>.Create;
+end;
+
+procedure TWeatherData.MeasurementsChanged;
+begin
+  NotifyObservers;
+end;
+
+procedure TWeatherData.NotifyObservers;
+var
+  Observer: IObserver;
+begin
+  for Observer in FObservers do
+    Observer.Update(FTemperature, FHumidity, FPressure);
+end;
+
+procedure TWeatherData.RegisterObserver(O: IObserver);
+begin
+  FObservers.Add(O);
+end;
+
+procedure TWeatherData.RemoveObserver(O: IObserver);
+begin
+  FObservers.Remove(O);
+end;
+
+procedure TWeatherData.SetMeasurements(Temperature, Humidity, Pressure: Double);
+begin
+  FTemperature := Temperature;
+  FHumidity := Humidity;
+  FPressure := Pressure;
+  MeasurementsChanged;
+end;
+
+{ TCurrentConditionsDisplay }
+
+constructor TCurrentConditionsDisplay.Create(AWeatherData: ISubject);
+begin
+  FWeatherData := AWeatherData;
+  FWeatherData.RegisterObserver(Self);
+end;
+
+procedure TCurrentConditionsDisplay.Display;
+begin
+  var ConditionStr := Format('Current conditions: %fF degrees and %f humidity',
+    [FTemperature, FHumidity]);
+  WriteLn(ConditionStr);
+end;
+
+procedure TCurrentConditionsDisplay.Update(Temperature, Humidity,
+  Pressure: Double);
+begin
+  FTemperature := Temperature;
+  FHumidity := Humidity;
+  Display;
+end;
+
+{ TForecastDisplay }
+
+constructor TForecastDisplay.Create(AWeatherData: ISubject);
+begin
+  FWeatherData := AWeatherData;
+  FWeatherData.RegisterObserver(Self);
+  FCurrentPressure := 29.9;
+end;
+
+procedure TForecastDisplay.Display;
+begin
+  Write('Forecast: ');
+  if (FCurrentPressure > FLastPressure) then
+    WriteLn('Improving weather on the way!')
+  else if (FCurrentPressure = FLastPressure) then
+    WriteLn('More of the same')
+  else if (FCurrentPressure < FLastPressure) then
+    WriteLn('Watch out for cooler, rainy weather');
+end;
+
+procedure TForecastDisplay.Update(Temperature, Humidity, Pressure: Double);
+begin
+  FLastPressure := FCurrentPressure;
+	FCurrentPressure := Pressure;
+  Display();
+end;
+
+{ TStatisticsDisplay }
+
+constructor TStatisticsDisplay.Create(AWeatherData: ISubject);
+begin
+  FWeatherData := AWeatherData;
+  FWeatherData.RegisterObserver(Self);
+  FMaxTemp := 0.0;
+  FMinTemp := 200;
+  FTempSum := 0.0;
+end;
+
+procedure TStatisticsDisplay.Display;
+begin
+  WriteLn('Avg/Max/Min temperature = ' + (FTempSum / FNumReadings).ToString +
+    '/' + FMaxTemp.ToString + '/' + FMinTemp.ToString);
+end;
+
+procedure TStatisticsDisplay.Update(Temperature, Humidity, Pressure: Double);
+begin
+  FTempSum := FTempSum + Temperature;
+  FNumReadings := FNumReadings + 1;
+  if (Temperature > FMaxTemp) then
+    FMaxTemp := Temperature;
+  if (Temperature < FMinTemp) then
+    FMinTemp := Temperature;
+  Display;
+end;
+
+{ THeatIndexDisplay }
+
+function THeatIndexDisplay.ComputeHeatIndex(T, RH: Double): Double;
+begin
+  var Index: Double := ((16.923 + (0.185212 * T) + (5.37941 * RH) -
+    (0.100254 * T * RH) + (0.00941695 * (T * T)) + (0.00728898 * (RH * RH)) +
+    (0.000345372 * (T * T * RH)) - (0.000814971 * (t * RH * RH)) +
+		(0.0000102102 * (T * T * RH * RH)) - (0.000038646 * (T * T * T)) +
+    (0.0000291583 * (RH * RH * RH)) + (0.00000142721 * (T * T * T * RH)) +
+		(0.000000197483 * (T * RH * RH * RH)) - (0.0000000218429 *
+    (T * T * T * rh * RH)) + 0.000000000843296 * (T * T * RH * RH * RH)) -
+		(0.0000000000481975 * (T * T * T * RH * RH * RH)));
+  Result := Index;
+end;
+
+constructor THeatIndexDisplay.Create(AWeatherData: ISubject);
+begin
+  FWeatherData := AWeatherData;
+  FWeatherData.RegisterObserver(Self);
+  FHeatIndex := 0.0;
+end;
+
+procedure THeatIndexDisplay.Display;
+begin
+  WriteLn('Heat index is ' + FloatToStrF(FHeatIndex, ffFixed, 15, 5));
+end;
+
+procedure THeatIndexDisplay.Update(Temperature, RH, Pressure: Double);
+begin
+  FHeatIndex := ComputeHeatIndex(Temperature, RH);
+  Display;
+end;
+
+end.

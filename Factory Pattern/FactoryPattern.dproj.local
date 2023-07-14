@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/07/13 15:25:57.000.894,C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\User\Documents\GitHub\design_patterns\Factory Pattern\FactoryPattern.dproj</Transaction>
+    <Transaction>2023/07/13 15:28:33.000.539,=C:\Users\User\Documents\GitHub\design_patterns\Factory Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/13 15:28:47.000.678,C:\Users\User\Documents\GitHub\design_patterns\Factory Pattern\PizzaStoreU.pas=C:\Users\User\Documents\GitHub\design_patterns\Factory Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/13 16:21:56.000.092,=C:\Users\User\Documents\GitHub\design_patterns\Factory Pattern\PizzaStoreU.pas</Transaction>
+    <Transaction>2023/07/13 16:26:02.000.572,=C:\Users\User\Documents\GitHub\design_patterns\Factory Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/13 16:26:09.000.441,C:\Users\User\Documents\GitHub\design_patterns\Factory Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Factory Pattern\TestU.pas</Transaction>
+    <Transaction>2023/07/13 16:28:30.000.499,C:\Users\User\Documents\GitHub\design_patterns\Factory Pattern\TestU.pas=C:\Users\User\Documents\GitHub\design_patterns\Factory Pattern\PizzaStoreU.pas</Transaction>
+  </Transactions>
+</BorlandProject>

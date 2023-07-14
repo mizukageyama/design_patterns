@@ -1,0 +1,35 @@
+program DecoratorPattern;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils,
+  StarbuzzU in 'StarbuzzU.pas';
+
+begin
+  try
+    var Beverage: TBeverage := TEspresso.Create;
+    WriteLn(Beverage.GetDescription + ' ' +
+      FloatToStrF(Beverage.Cost, ffCurrency, 15, 2));
+
+ //   var Beverage2: TBeverage := TDarkRoast.Create;
+//    Beverage2 := TMocha.Create(Beverage2);
+//    Beverage2 := TMocha.Create(Beverage2);
+//    Beverage2 := TWhip.Create(Beverage2);
+//    WriteLn(Beverage2.GetDescription + ' ' +
+//      FloatToStrF(Beverage2.Cost, ffCurrency, 15, 2));
+//
+//    var Beverage3: TBeverage := THouseBlend.Create;
+//    Beverage3 := TSoy.Create(Beverage3);
+//    Beverage3 := TMocha.Create(Beverage3);
+//    Beverage3 := TWhip.Create(Beverage3);
+//    WriteLn(Beverage3.GetDescription + ' ' +
+//      FloatToStrF(Beverage3.Cost, ffCurrency, 15, 2));
+    ReadLn;
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+end.

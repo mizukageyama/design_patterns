@@ -1,0 +1,23 @@
+program FactoryPattern;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils,
+  PizzaStoreU in 'PizzaStoreU.pas';
+
+begin
+  try
+    var NYPizzaStore: TPizzaStore := TNYPizzaStore.Create;
+    var ChicagoPizzaStore: TPizzaStore := TChicagoPizzaStore.Create;
+
+    var Pizza: TPizza := NYPizzaStore.OrderPizza('Cheese');
+    Pizza := TChicagoPizzaStore.OrderPizza('Cheese');
+    ReadLn;
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+end.

@@ -1,0 +1,13 @@
+unit TestU;
+
+interface
+uses
+  System.Classes;
+type
+  TTest = class
+
+  end;
+
+implementation
+
+end.

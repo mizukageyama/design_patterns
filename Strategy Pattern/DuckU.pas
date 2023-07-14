@@ -7,45 +7,45 @@ uses
 
 
 type
-  TQuackBehavior = interface
+  IQuackBehavior = interface
     procedure Quack;
   end;
 
-  TQuack = class(TInterfacedObject, TQuackBehavior)
+  TQuack = class(TInterfacedObject, IQuackBehavior)
     procedure Quack;
   end;
 
-  TMuteQuack = class(TInterfacedObject, TQuackBehavior)
+  TMuteQuack = class(TInterfacedObject, IQuackBehavior)
     procedure Quack;
   end;
 
-  TSqueak = class(TInterfacedObject, TQuackBehavior)
+  TSqueak = class(TInterfacedObject, IQuackBehavior)
     procedure Quack;
   end;
 
-  TFlyBehavior = interface
+  IFlyBehavior = interface
     procedure Fly;
   end;
 
-  TFlyWithWings = class(TInterfacedObject, TFlyBehavior)
+  TFlyWithWings = class(TInterfacedObject, IFlyBehavior)
     procedure Fly;
   end;
 
-  TFlyNoWay = class(TInterfacedObject, TFlyBehavior)
+  TFlyNoWay = class(TInterfacedObject, IFlyBehavior)
     procedure Fly;
   end;
 
-  TFlyRocketPowered = class(TInterfacedObject, TFlyBehavior)
+  TFlyRocketPowered = class(TInterfacedObject, IFlyBehavior)
     procedure Fly;
   end;
 
 
   TDuck = class abstract
   public
-    FFlyBehavior: TFlyBehavior;
-    FQuackBehavior: TQuackBehavior;
-    procedure SetFlyBehavior(FB: TFlyBehavior);
-    procedure SetQuackBehavior(QB: TQuackBehavior);
+    FFlyBehavior: IFlyBehavior;
+    FQuackBehavior: IQuackBehavior;
+    procedure SetFlyBehavior(FB: IFlyBehavior);
+    procedure SetQuackBehavior(QB: IQuackBehavior);
     procedure PerformFly;
     procedure PerformQuack;
     procedure Swim;
@@ -78,12 +78,12 @@ begin
   FQuackBehavior.Quack;
 end;
 
-procedure TDuck.SetFlyBehavior(FB: TFlyBehavior);
+procedure TDuck.SetFlyBehavior(FB: IFlyBehavior);
 begin
   FFlyBehavior := FB;
 end;
 
-procedure TDuck.SetQuackBehavior(QB: TQuackBehavior);
+procedure TDuck.SetQuackBehavior(QB: IQuackBehavior);
 begin
   FQuackBehavior := QB;
 end;

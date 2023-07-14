@@ -1,0 +1,12 @@
+unit TestU;
+
+interface
+
+type
+  TTest = class
+
+  end;
+
+implementation
+
+end.
