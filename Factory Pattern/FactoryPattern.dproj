@@ -89,8 +89,38 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="PizzaStoreU.pas"/>
-        <DCCReference Include="PizzaIngredientU.pas"/>
+        <DCCReference Include="Factory Pattern\ChicagoStylePepperoniPizzaU.pas"/>
+        <DCCReference Include="Abstract Factory Pattern\PizzaIngredientU.pas"/>
+        <DCCReference Include="Factory Pattern\PizzaU.pas"/>
+        <DCCReference Include="Factory Pattern\PizzaStoreU.pas"/>
+        <DCCReference Include="Factory Pattern\NYPizzaStoreU.pas"/>
+        <DCCReference Include="Factory Pattern\NYStyleCheesePizzaU.pas"/>
+        <DCCReference Include="Factory Pattern\NYStyleVeggiePizzaU.pas"/>
+        <DCCReference Include="Factory Pattern\NYStyleClamPizzaU.pas"/>
+        <DCCReference Include="Factory Pattern\NYStylePepperoniPizzaU.pas"/>
+        <DCCReference Include="Factory Pattern\ChicagoPizzaStoreU.pas"/>
+        <DCCReference Include="Factory Pattern\ChicagoStyleCheesePizzaU.pas"/>
+        <DCCReference Include="Factory Pattern\ChicagoStyleVeggiePizzaU.pas"/>
+        <DCCReference Include="Factory Pattern\ChicagoStyleClamPizzaU.pas"/>
+        <DCCReference Include="Abstract Factory Pattern\DoughU.pas"/>
+        <DCCReference Include="Abstract Factory Pattern\SauceU.pas"/>
+        <DCCReference Include="Abstract Factory Pattern\CheeseU.pas"/>
+        <DCCReference Include="Abstract Factory Pattern\VeggiesU.pas"/>
+        <DCCReference Include="Abstract Factory Pattern\PepperoniU.pas"/>
+        <DCCReference Include="Abstract Factory Pattern\ClamsU.pas"/>
+        <DCCReference Include="Abstract Factory Pattern\ThinCrustDoughU.pas"/>
+        <DCCReference Include="Abstract Factory Pattern\MarinaraSauceU.pas"/>
+        <DCCReference Include="Abstract Factory Pattern\ReggianoCheeseU.pas"/>
+        <DCCReference Include="Abstract Factory Pattern\SlicedPepperoniU.pas"/>
+        <DCCReference Include="Abstract Factory Pattern\FreshClamsU.pas"/>
+        <DCCReference Include="Abstract Factory Pattern\GarlicU.pas"/>
+        <DCCReference Include="Abstract Factory Pattern\OnionU.pas"/>
+        <DCCReference Include="Abstract Factory Pattern\MushroomU.pas"/>
+        <DCCReference Include="Abstract Factory Pattern\RedPepperU.pas"/>
+        <DCCReference Include="Abstract Factory Pattern\PizzaIngredientFactoryU.pas"/>
+        <DCCReference Include="Abstract Factory Pattern\NYPizzaIngredientFactoryU.pas"/>
+        <DCCReference Include="Abstract Factory Pattern\PizzaVer2U.pas"/>
+        <DCCReference Include="Abstract Factory Pattern\CheesePizzaU.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

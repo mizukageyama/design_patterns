@@ -1,0 +1,22 @@
+unit MushroomU;
+
+interface
+
+uses
+  System.Classes, System.SysUtils, System.Generics.Collections, VeggiesU;
+
+type
+  TMushroom = class(TInterfacedObject, IVeggies)
+    function ToString: String;
+  end;
+
+implementation
+
+{ TMushroom }
+
+function TMushroom.ToString: String;
+begin
+  Result :=  'Mushroom';
+end;
+
+end.

@@ -1,0 +1,30 @@
+unit ChicagoStyleCheesePizzaU;
+
+interface
+uses
+  System.Classes, System.Generics.Collections, System.SysUtils, PizzaU,
+  PizzaStoreU;
+
+type
+  TChicagoStyleCheesePizza = class(TPizza)
+  public
+    constructor Create;
+    procedure Cut; override;
+  end;
+
+implementation
+
+{ TChicagoStyleCheesePizza }
+
+constructor TChicagoStyleCheesePizza.Create;
+begin
+
+end;
+
+procedure TChicagoStyleCheesePizza.Cut;
+begin
+  inherited;
+
+end;
+
+end.

@@ -1,0 +1,16 @@
+unit NYPizzaStoreU;
+
+interface
+uses
+  System.Classes, System.Generics.Collections, System.SysUtils, PizzaU,
+  PizzaStoreU;
+
+type
+  TNYPizzaStore = class(TPizzaStore)
+  public
+    function CreatePizza(PizzaType: String): TPizza; override;
+  end;
+
+implementation
+
+end.

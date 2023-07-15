@@ -1,0 +1,31 @@
+program FactoryPattern;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils,
+  ToEditU in 'Factory Pattern\ToEditU.pas',
+  PizzaIngredientU in 'Abstract Factory Pattern\PizzaIngredientU.pas',
+  PizzaU in 'Factory Pattern\PizzaU.pas',
+  PizzaStoreU in 'Factory Pattern\PizzaStoreU.pas',
+  NYPizzaStoreU in 'Factory Pattern\NYPizzaStoreU.pas';
+
+begin
+  try
+    var NYPizzaStore: TPizzaStore := TNYPizzaStore.Create;
+    var ChicagoPizzaStore: TPizzaStore := TChicagoPizzaStore.Create;
+
+    var Pizza: TPizza := NYPizzaStore.OrderPizza('cheese');
+    WriteLn('Ethan ordered a ' + Pizza.GetName + #13#10);
+
+    Pizza := ChicagoPizzaStore.OrderPizza('cheese');
+    WriteLn('Joel ordered a ' + Pizza.GetName + #13#10);
+
+    ReadLn;
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+end.

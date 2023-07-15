@@ -1,0 +1,24 @@
+unit PizzaU;
+
+interface
+uses
+  System.Classes, System.Generics.Collections, System.SysUtils;
+
+type
+  TPizza = class abstract
+  private
+    FName: String;
+    FDough: String;
+    FSauce: String;
+    FToppings: TList<String>;
+  public
+    procedure Prepare; virtual;
+    procedure Bake; virtual;
+    procedure Cut; virtual;
+    procedure Box; virtual;
+    function GetName: String;
+  end;
+
+implementation
+
+end.

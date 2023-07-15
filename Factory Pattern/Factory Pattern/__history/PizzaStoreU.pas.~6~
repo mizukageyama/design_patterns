@@ -1,0 +1,28 @@
+unit PizzaStoreU;
+
+interface
+uses
+  System.Classes, System.Generics.Collections, System.SysUtils, PizzaU;
+
+type
+  TPizzaStore = class abstract
+  public
+    function CreatePizza(PizzaType: String): TPizza; virtual; abstract;
+    function OrderPizza(PizzaType: String): TPizza;
+  end;
+ implementation
+
+{ TPizzaStore }
+
+function TPizzaStore.OrderPizza(PizzaType: String): TPizza;
+begin
+  var Pizza: TPizza;
+  Pizza := CreatePizza(PizzaType);
+  Pizza.Prepare;
+  Pizza.Bake;
+  Pizza.Cut;
+  Pizza.Box;
+  Result := Pizza;
+end;
+
+end.

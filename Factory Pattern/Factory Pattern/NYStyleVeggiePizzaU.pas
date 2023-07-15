@@ -1,0 +1,33 @@
+unit NYStyleVeggiePizzaU;
+
+interface
+
+uses
+  System.Classes, System.Generics.Collections, System.SysUtils, PizzaU,
+  PizzaStoreU;
+
+type
+  TNYStyleVeggiePizza = class(TPizza)
+  public
+    constructor Create;
+  end;
+
+implementation
+
+{ TNYStyleVeggiePizza }
+
+constructor TNYStyleVeggiePizza.Create;
+begin
+  FName := 'NY Style Veggie Pizza';
+  FDough := 'Thin Crust Dough';
+  FSauce := 'Marinara Sauce';
+
+  FToppings := TList<String>.Create;
+  FToppings.Add('Grated Reggiano Cheese');
+  FToppings.Add('Garlic');
+  FToppings.Add('Onion');
+  FToppings.Add('Mushrooms');
+  FToppings.Add('Red Pepper');
+end;
+
+end.

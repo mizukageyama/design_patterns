@@ -1,0 +1,16 @@
+unit NYStylePepperoniPizzaU;
+
+interface
+uses
+  System.Classes, System.Generics.Collections, System.SysUtils, PizzaU,
+  PizzaStoreU;
+
+type
+  TNYStylePepperoniPizza = class(TPizza)
+  public
+    constructor Create;
+  end;
+
+implementation
+
+end.

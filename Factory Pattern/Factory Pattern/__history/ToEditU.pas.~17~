@@ -1,0 +1,50 @@
+unit ToEditU;
+
+interface
+uses
+  System.Classes, System.Generics.Collections, System.SysUtils, PizzaU,
+  PizzaStoreU;
+
+type
+  TChicagoStyleClamPizza = class(TPizza)
+  public
+    constructor Create;
+  end;
+
+  TChicagoStylePepperoniPizza = class(TPizza)
+  public
+    constructor Create;
+  end;
+
+ implementation
+
+{ TChicagoStylePepperoniPizza }
+
+constructor TChicagoStylePepperoniPizza.Create;
+begin
+  FName := 'Chicago Style Pepperoni Pizza';
+  FDough := 'Extra Thick Crust Dough';
+  FSauce := 'Plum Tomato Sauce';
+
+  FToppings := TList<String>.Create;
+  FToppings.Add('Shredded Mozzarella Cheese');
+  FToppings.Add('Black Olives');
+  FToppings.Add('Spinach');
+  FToppings.Add('Eggplant');
+  FToppings.Add('Sliced Pepperoni');
+end;
+
+{ TChicagoStyleClamPizza }
+
+constructor TChicagoStyleClamPizza.Create;
+begin
+  FName := 'Chicago Style Clam Pizza';
+  FDough := 'Extra Thick Crust Dough';
+  FSauce := 'Plum Tomato Sauce';
+
+  FToppings := TList<String>.Create;
+  FToppings.Add('Shredded Mozzarella Cheese');
+  FToppings.Add('Frozen Clams from Chesapeake Bay');
+end;
+
+end.
