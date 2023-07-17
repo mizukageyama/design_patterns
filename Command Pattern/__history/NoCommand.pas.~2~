@@ -1,0 +1,22 @@
+unit NoCommand;
+
+interface
+
+uses CommandIntf;
+
+type
+  TNoCommand = class(TInterfacedObject, ICommand)
+  public
+    procedure Execute;
+  end;
+
+implementation
+
+{ TNoCommand }
+
+procedure TNoCommand.Execute;
+begin
+
+end;
+
+end.

@@ -1,0 +1,58 @@
+unit CommandU;
+
+interface
+
+uses
+  System.Classes, System.SysUtils, System.Generics.Collections, CommandIntf;
+
+type
+  TLightOnCommand = class(TInterfacedObject, ICommand)
+  private
+    FLight: TLight;
+  public
+    procedure Execute;
+    constructor Create(ALight: TLight);
+  end;
+
+  TSimpleRemoteControl = class
+  private
+    FSlot: ICommand;
+  public
+    constructor Create;
+    procedure SetCommand(Command: ICommand);
+    procedure ButtonWasPressed;
+  end;
+
+implementation
+
+{ TLightOnCommand }
+
+
+constructor TLightOnCommand.Create(ALight: TLight);
+begin
+  FLight := ALight;
+end;
+
+procedure TLightOnCommand.Execute;
+begin
+  FLight.OnLight;
+end;
+
+{ TSimpleRemoteControl }
+
+procedure TSimpleRemoteControl.ButtonWasPressed;
+begin
+  FSlot.Execute;
+end;
+
+constructor TSimpleRemoteControl.Create;
+begin
+
+end;
+
+procedure TSimpleRemoteControl.SetCommand(Command: ICommand);
+begin
+  FSlot := Command;
+end;
+
+end.

@@ -1,0 +1,19 @@
+unit HotTubOffCommand;
+
+interface
+
+uses CommandIntf, HotTub;
+
+type
+  THotTubOnCommand = class(TInterfacedObject, ICommand)
+  private
+    FHotTub : THotTub;
+  public
+    constructor Create(AHotTub: THotTub);
+    procedure Execute;
+    procedure Undo;
+  end;
+
+implementation
+
+end.

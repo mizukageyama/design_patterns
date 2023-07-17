@@ -1,0 +1,51 @@
+program AdapterAndFacadePattern;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils,
+  DuckIntf in 'Adapter\Duck\DuckIntf.pas',
+  MallardDuck in 'Adapter\Duck\MallardDuck.pas',
+  TurKeyIntf in 'Adapter\Duck\TurKeyIntf.pas',
+  TurkeyAdapter in 'Adapter\Duck\TurkeyAdapter.pas',
+  WildTurkey in 'Adapter\Duck\WildTurkey.pas',
+  DuckAdapter in 'Adapter\Duck\DuckAdapter.pas',
+  IteratorIntf in 'Adapter\Iterator\IteratorIntf.pas',
+  EnumerationIntf in 'Adapter\Iterator\EnumerationIntf.pas',
+  EnumerationIteratorAdapter in 'Adapter\Iterator\EnumerationIteratorAdapter.pas',
+  IteratorEnumerationAdapter in 'Adapter\Iterator\IteratorEnumerationAdapter.pas';
+
+begin
+  try
+    WriteLn('------------------- DUCK and TURKEY ADAPTER -------------------');
+    var Duck := TMallardDuck.Create;
+    var DuckAdapter := TDuckAdapter.Create(Duck);
+
+    var Turkey := TWildTurkey.Create;
+    var TurkeyAdapter := TTurkeyAdapter.Create(Turkey);
+
+    WriteLn('The Turkey says...');
+    Turkey.Gobble;
+    Turkey.Fly;
+
+    WriteLn(sLinebreak + 'The Duck says...');
+    TestDuck(Duck);
+
+    WriteLn(sLinebreak + 'The Turkey Adapter says...');
+    TestDuck(TurkeyAdapter);
+
+    WriteLn(sLinebreak + 'The Duck Adapter says...');
+    TestTurkey(DuckAdapter);
+
+    WriteLn('----------------- ENUM and ITERATOR ADAPTER -----------------');
+
+
+
+    ReadLn;
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+end.

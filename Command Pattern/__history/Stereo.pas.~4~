@@ -1,0 +1,20 @@
+unit Stereo;
+
+interface
+type
+  TStereo = class
+  private
+    FLocation: String;
+  public
+    procedure OnStereo;
+    procedure OffStereo;
+    procedure SetCD;
+    procedure SetDVD;
+    procedure SetRadio;
+    procedure SetVolume(Volume: Integer);
+    constructor Create(ALocation: String);
+  end;
+implementation
+
+
+end.

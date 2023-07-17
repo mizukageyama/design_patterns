@@ -1,0 +1,14 @@
+unit IteratorIntf;
+
+interface
+
+type
+  IIterator = interface
+    procedure HasNext;
+    procedure Next;
+    procedure Remove;
+  end;
+
+implementation
+
+end.

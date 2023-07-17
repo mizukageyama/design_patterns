@@ -1,0 +1,15 @@
+unit CeilingFanOnCommand;
+
+interface
+
+uses
+  CommandIntf;
+
+type
+  TCeilingFanOnCommand = class(TInterfacedObject, ICommand)
+
+  end;
+
+implementation
+
+end.

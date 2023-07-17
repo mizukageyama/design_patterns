@@ -1,0 +1,20 @@
+unit CeilingFan;
+
+interface
+
+type
+  TCeilingFan = class
+  private
+    FLocation: String;
+    FLevel: Integer;
+  const
+     FHIGH = 2;
+     FMEDIUM  = 1;
+     FLOW = 0;
+  public
+
+  end;
+
+implementation
+
+end.

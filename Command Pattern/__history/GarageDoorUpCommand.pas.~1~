@@ -1,0 +1,30 @@
+unit GarageDoorOpenCommand;
+
+interface
+
+uses CommandIntf, Light, GarageDoor;
+
+type
+  TGarageDoorOpenCommand = class(TInterfacedObject, ICommand)
+  private
+    FGarageDoor: TGarageDoor;
+  public
+    procedure Execute;
+    constructor Create(AGarageDoor: TGarageDoor);
+  end;
+implementation
+
+{ TLightOnCommand }
+
+constructor TGarageDoorOpenCommand.Create(AGarageDoor: TGarageDoor);
+begin
+  FGarageDoor := AGarageDoor;
+end;
+
+procedure TGarageDoorOpenCommand.Execute;
+begin
+  FGarageDoor.Up;
+end;
+
+end.
+

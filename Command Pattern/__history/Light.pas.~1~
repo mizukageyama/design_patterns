@@ -1,0 +1,13 @@
+unit Light;
+
+interface
+type
+  TLight = class
+  public
+    procedure OnLight;
+    procedure OffLight;
+    constructor Create;
+  end;
+implementation
+
+end.

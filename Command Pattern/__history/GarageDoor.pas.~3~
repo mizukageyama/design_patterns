@@ -1,0 +1,32 @@
+unit GarageDoor;
+
+interface
+
+type
+  TGarageDoor = class
+  public
+    procedure Up;
+    procedure Down;
+    constructor Create;
+  end;
+implementation
+
+{ TGarageDoor }
+
+constructor TGarageDoor.Create;
+begin
+
+end;
+
+procedure TGarageDoor.Up;
+begin
+  WriteLn('Garage Door is Open');
+end;
+
+procedure TGarageDoor.Down;
+begin
+  WriteLn('Garage Door is Close');
+end;
+
+end.
+

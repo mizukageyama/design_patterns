@@ -1,0 +1,42 @@
+unit EnumerationIteratorAdapter;
+
+interface
+
+uses IteratorIntf, EnumerationIntf;
+
+type
+  TEnumerationIteratorAdapter = class(TInterfacedObject, IIterator)
+  private
+    FEnumeration: IEnumeration;
+  public
+    function HasNext: Boolean;
+    procedure Next;
+    procedure Remove;
+    procedure Create(AEnumeration: IEnumeration);
+  end;
+
+implementation
+
+{ TEnumerationIteratorAdapter }
+
+procedure TEnumerationIteratorAdapter.Create(AEnumeration: IEnumeration);
+begin
+  FEnumeration := AEnumeration;
+end;
+
+function TEnumerationIteratorAdapter.HasNext: Boolean;
+begin
+  Result := FEnumeration.HasMoreElements;
+end;
+
+procedure TEnumerationIteratorAdapter.Next;
+begin
+
+end;
+
+procedure TEnumerationIteratorAdapter.Remove;
+begin
+
+end;
+
+end.

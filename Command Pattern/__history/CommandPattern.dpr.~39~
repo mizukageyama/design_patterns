@@ -1,0 +1,144 @@
+program CommandPattern;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils,
+  SimpleRemoteControl in 'SimpleRemoteControl.pas',
+  CommandIntf in 'CommandIntf.pas',
+  Light in 'Light.pas',
+  LightOnCommand in 'LightOnCommand.pas',
+  GarageDoor in 'GarageDoor.pas',
+  GarageDoorUpCommand in 'GarageDoorUpCommand.pas',
+  GarageDoorDownCommand in 'GarageDoorDownCommand.pas',
+  LightOffCommand in 'LightOffCommand.pas',
+  CeilingFan in 'CeilingFan.pas',
+  CeilingFanOnCommand in 'CeilingFanOnCommand.pas',
+  CeilingFanOffCommand in 'CeilingFanOffCommand.pas',
+  Stereo in 'Stereo.pas',
+  StereoOnWithCDCommand in 'StereoOnWithCDCommand.pas',
+  StereoOffCommand in 'StereoOffCommand.pas',
+  RemoteControl in 'RemoteControl.pas',
+  NoCommand in 'NoCommand.pas',
+  CeilingFanHighCommand in 'CeilingFanHighCommand.pas',
+  CeilingFanMediumCommand in 'CeilingFanMediumCommand.pas',
+  CeilingFanLowCommand in 'CeilingFanLowCommand.pas',
+  MacroCommand in 'MacroCommand.pas',
+  TV in 'TV.pas',
+  HotTub in 'HotTub.pas',
+  TVOffCommand in 'TVOffCommand.pas',
+  TVOnCommand in 'TVOnCommand.pas',
+  HotTubOffCommand in 'HotTubOffCommand.pas',
+  HotTubOnCommand in 'HotTubOnCommand.pas',
+  StereoOnCommand in 'StereoOnCommand.pas';
+
+begin
+  try
+    var RemoteControl := TRemoteControl.Create;
+
+    {
+      First Test Case
+
+      var LivingRoomLight := TLight.Create('Living Room');
+      var KitchenLight := TLight.Create('Kitchen');
+      var CeilingFan := TCeilingFan.Create('Living Room');
+      var GarageDoor := TGarageDoor.Create('');
+      var Stereo := TStereo.Create('Living Room');
+
+      var LivingRoomLightOn := TLightOnCommand.Create(LivingRoomLight);
+      var LivingRoomLightOff := TLightOffCommand.Create(LivingRoomLight);
+      var KitchenLightOn := TLightOnCommand.Create(KitchenLight);
+      var KitchenLightOff := TLightOffCommand.Create(KitchenLight);
+
+      var CeilingFanOn := TCeilingFanOnCommand.Create(CeilingFan);
+      var CeilingFanOff := TCeilingFanOffCommand.Create(CeilingFan);
+
+      var GarageDoorUp := TGarageDoorUpCommand.Create(GarageDoor);
+      var GarageDoorDown := TGarageDoorDownCommand.Create(GarageDoor);
+
+      var StereoOnWithCD := TStereoOnWithCDCommand.Create(Stereo);
+      var StereoOff := TStereoOffCommand.Create(Stereo);
+
+      RemoteControl.SetCommand(0, LivingRoomLightOn, LivingRoomLightOff);
+      RemoteControl.SetCommand(1, KitchenLightOn, KitchenLightOff);
+      RemoteControl.SetCommand(2, CeilingFanOn, CeilingFanOff);
+      RemoteControl.SetCommand(3, StereoOnWithCD, StereoOff);
+      RemoteControl.SetCommand(4, GarageDoorUp, GarageDoorDown);
+
+      WriteLn(RemoteControl.ToString);
+
+      RemoteControl.OnButtonWasPushed(0);
+      RemoteControl.OffButtonWasPushed(0);
+      RemoteControl.OnButtonWasPushed(1);
+      RemoteControl.OffButtonWasPushed(1);
+      RemoteControl.OnButtonWasPushed(2);
+      RemoteControl.OffButtonWasPushed(2);
+      RemoteControl.OnButtonWasPushed(3);
+      RemoteControl.OffButtonWasPushed(3);
+    }
+
+    {
+      Uncomment to test undo button
+
+      RemoteControl.SetCommand(0, LivingRoomLightOn, LivingRoomLightOff);
+
+      RemoteControl.OnButtonWasPushed(0);
+      RemoteControl.OffButtonWasPushed(0);
+      WriteLn(RemoteControl.ToString);
+      RemoteControl.UndoButtonWasPushed;
+      RemoteControl.OffButtonWasPushed(0);
+      RemoteControl.OnButtonWasPushed(0);
+      WriteLn(RemoteControl.ToString);
+      RemoteControl.UndoButtonWasPushed;
+    }
+
+    {
+      Uncomment to test the ceiling fan undo button
+
+      var CeilingFanMedium := TCeilingFanMediumCommand.Create(CeilingFan);
+      var CeilingFanHigh := TCeilingFanHighCommand.Create(CeilingFan);
+      var CeilingFanOff := TCeilingFanOffCommand.Create(CeilingFan);
+
+      RemoteControl.SetCommand(0, CeilingFanMedium, CeilingFanOff);
+      RemoteControl.SetCommand(1, CeilingFanHigh, CeilingFanOff);
+
+      RemoteControl.OnButtonWasPushed(0);
+      RemoteControl.OffButtonWasPushed(0);
+      WriteLn(RemoteControl.ToString);
+      RemoteControl.UndoButtonWasPushed;
+
+      RemoteControl.OnButtonWasPushed(1);
+      WriteLn(RemoteControl.ToString);
+      RemoteControl.UndoButtonWasPushed;
+     }
+
+     var Light := TLight.Create('Living Room');
+     var TV := TTV.Create('Living Room');
+     var Stereo := TStereo.Create('Living Room');
+     var HotTub := THotTub.Create;
+
+    var LightOn := TLightOnCommand.Create(Light);
+    var LightOff := TLightOffCommand.Create(Light);
+    var StereoOn := TStereoOnCommand.Create(Stereo);
+    var StereoOff := TStereoOffCommand.Create(Stereo);
+    var TVOn := TTVOnCommand.Create(TV);
+    var TVOff := TTVOffCommand.Create(TV);
+    var HotTubOn := THotTubOnCommand.Create(HotTub);
+    var HotTubOff := THotTubOffCommand.Create(HotTub);
+
+    var PartyOn: TArray<ICommand> := [LightOn, StereoOn, TVOn, HotTubOn];
+    var PartyOff: TArray<ICommand> := [LightOff, StereoOff, TVOff, HotTubOff];
+
+    var PartyOnMacro := TMacroCommand(PartyOn);
+    var PartyOffMacro := TMacroCommand(PartyOff);
+
+    RemoteControl.SetCommand(0, PartyOnMacro, PartyOffMacro);
+
+    ReadLn;
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+end.

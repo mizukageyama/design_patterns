@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/07/17 14:59:42.000.380,C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\AdapterAndFacadePattern.dproj</Transaction>
+    <Transaction>2023/07/17 15:10:00.000.270,C:\Users\User\Documents\Embarcadero\Studio\Projects\AdapterAndFacadePattern.dproj=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\AdapterAndFacadePattern.dproj</Transaction>
+    <Transaction>2023/07/17 15:12:05.000.637,=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/17 15:12:39.000.461,C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Adapter\Duck\Duck.pas</Transaction>
+    <Transaction>2023/07/17 15:12:43.000.323,=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/17 15:14:39.000.447,C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Adapter\Duck\MallardDuck.pas</Transaction>
+    <Transaction>2023/07/17 15:14:44.000.204,=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/17 15:15:25.000.913,C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Adapter\TurKeyIntf.pas</Transaction>
+    <Transaction>2023/07/17 15:15:35.000.458,C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Adapter\TurKeyIntf.pas=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Adapter\Duck\TurKeyIntf.pas</Transaction>
+    <Transaction>2023/07/17 15:15:48.000.469,C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Adapter\Duck\Duck.pas=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Adapter\Duck\DuckIntf.pas</Transaction>
+    <Transaction>2023/07/17 15:20:00.000.738,=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/17 15:20:19.000.384,C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Adapter\Duck\TurkeyAdapter.pas=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/17 15:26:04.000.564,=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/17 15:27:54.000.613,C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Adapter\Duck\WildTurkey.pas=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/17 15:32:23.000.299,=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/17 15:38:43.000.062,=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/17 15:38:53.000.397,C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Adapter\Duck\DuckAdapter.pas=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/17 16:11:52.000.037,=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/17 16:13:00.000.419,C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Adapter\Iterator\IteratorIntf.pas=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/17 16:13:08.000.826,=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/17 16:14:18.000.818,C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Adapter\Iterator\EnumerationIntf.pas=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/17 16:14:40.000.337,=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/17 16:14:56.000.694,C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Adapter\Iterator\EnumerationIteratorAdapter.pas=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/17 16:35:29.000.170,=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/17 16:35:59.000.782,C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Adapter\Iterator\IteratorEnumerationAdapter.pas=C:\Users\User\Documents\GitHub\design_patterns\Adapter and Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/17 16:50:52.000.072,C:\Users\User\Documents\GitHub\design_patterns\Adapter Pattern\AdapterAndFacadePattern.dproj=C:\Users\User\Documents\GitHub\design_patterns\Adapter Pattern\AdapterPattern.dproj</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Duck"/>
+    <File Path="Duck\DuckAdapter.pas"/>
+    <File Path="Duck\DuckIntf.pas"/>
+    <File Path="Duck\MallardDuck.pas"/>
+    <File Path="Duck\TurkeyAdapter.pas"/>
+    <File Path="Duck\TurKeyIntf.pas"/>
+    <File Path="Duck\WildTurkey.pas"/>
+    <File Path="Iterator"/>
+    <File Path="Iterator\EnumerationIntf.pas"/>
+    <File Path="Iterator\EnumerationIteratorAdapter.pas"/>
+    <File Path="Iterator\IteratorEnumerationAdapter.pas"/>
+    <File Path="Iterator\IteratorIntf.pas"/>
+  </ProjectSortOrder>
+</BorlandProject>

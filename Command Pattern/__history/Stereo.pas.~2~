@@ -1,0 +1,16 @@
+unit Stereo;
+
+interface
+type
+  TLight = class
+  public
+    procedure OnLight;
+    procedure OffLight;
+    constructor Create;
+  end;
+implementation
+
+{ TLight }
+
+
+end.

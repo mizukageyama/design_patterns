@@ -1,0 +1,37 @@
+unit CeilingFanOnCommand;
+
+interface
+
+uses
+  CommandIntf, CeilingFan;
+
+type
+  TCeilingFanOnCommand = class(TInterfacedObject, ICommand)
+  private
+    FCeilingFan: TCeilingFan;
+  public
+    constructor Create(ACeilingFan: TCeilingFan);
+    procedure Execute;
+    procedure Undo;
+  end;
+
+implementation
+
+{ TCeilingFanOnCommand }
+
+constructor TCeilingFanOnCommand.Create(ACeilingFan: TCeilingFan);
+begin
+  FCeilingFan := ACeilingFan;
+end;
+
+procedure TCeilingFanOnCommand.Execute;
+begin
+  FCeilingFan.High;
+end;
+
+procedure TCeilingFanOnCommand.Undo;
+begin
+  FCeilingFan.Off;
+end;
+
+end.

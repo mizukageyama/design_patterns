@@ -1,0 +1,30 @@
+unit Light;
+
+interface
+type
+  TLight = class
+  public
+    procedure OnLight;
+    procedure OffLight;
+    constructor Create;
+  end;
+implementation
+
+{ TLight }
+
+constructor TLight.Create;
+begin
+
+end;
+
+procedure TLight.OffLight;
+begin
+  WriteLn('Light is Off');
+end;
+
+procedure TLight.OnLight;
+begin
+  WriteLn('Light is On');
+end;
+
+end.

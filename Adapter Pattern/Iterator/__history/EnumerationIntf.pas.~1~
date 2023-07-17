@@ -1,0 +1,13 @@
+unit EnumerationIntf;
+
+interface
+
+type
+  IEnumeration = interface
+    procedure HasMoreElements;
+    procedure NextElement;
+  end;
+
+implementation
+
+end.
