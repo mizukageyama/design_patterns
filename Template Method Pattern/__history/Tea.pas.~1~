@@ -1,0 +1,46 @@
+unit Tea;
+
+interface
+
+type
+  TTea = class
+  public
+    procedure PrepareRecipe;
+    procedure BoilWater;
+    procedure SteepTeaBag;
+    procedure PourInCup;
+    procedure AddLemon;
+  end;
+implementation
+
+{ TTea }
+
+procedure TTea.AddLemon;
+begin
+  WriteLn('Adding Lemon');
+end;
+
+procedure TTea.BoilWater;
+begin
+  WriteLn('Boiling water');
+end;
+
+procedure TTea.PourInCup;
+begin
+  WriteLn('Pouring into cup');
+end;
+
+procedure TTea.PrepareRecipe;
+begin
+  BoilWater;
+  SteepTeaBag;
+  PourInCup;
+  AddLemon;
+end;
+
+procedure TTea.SteepTeaBag;
+begin
+  WriteLn('Steeping the tea');
+end;
+
+end.

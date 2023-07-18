@@ -1,0 +1,21 @@
+program TemplateMethodPattern;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils,
+  Coffee in 'Coffee.pas',
+  Tea in 'Tea.pas',
+  CaffeineBeverage in 'CaffeineBeverage.pas';
+
+begin
+  try
+
+    ReadLn;
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+end.

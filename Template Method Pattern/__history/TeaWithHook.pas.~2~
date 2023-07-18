@@ -1,0 +1,28 @@
+unit TeaWithHook;
+
+interface
+
+uses
+  CaffeineBeverageWithHook;
+
+type
+  TTeaWithHook = class(TCaffeineBeverageWithHook)
+  public
+    procedure Brew; override;
+    procedure AddCondiments; override;
+  end;
+implementation
+
+{ TTea }
+
+procedure TTeaWithHook.AddCondiments;
+begin
+  WriteLn('Adding Lemon');
+end;
+
+procedure TTeaWithHook.Brew;
+begin
+  WriteLn('Steeping the tea');
+end;
+
+end.

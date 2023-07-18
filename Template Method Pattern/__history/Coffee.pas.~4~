@@ -1,0 +1,28 @@
+unit Coffee;
+
+interface
+
+uses CaffeineBeverage;
+
+type
+  TCoffee = class(TCaffeineBeverage)
+  public
+    procedure Brew;
+    procedure AddCondiments;
+  end;
+
+implementation
+
+{ TCoffee }
+
+procedure TCoffee.AddCondiments;
+begin
+  WriteLn('“Adding Sugar and Milk');
+end;
+
+procedure TCoffee.Brew;
+begin
+  WriteLn('Dripping Coffee through filter');
+end;
+
+end.

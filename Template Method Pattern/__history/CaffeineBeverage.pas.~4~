@@ -1,0 +1,38 @@
+unit CaffeineBeverage;
+
+interface
+
+type
+  TCaffeineBeverage = class abstract
+  protected
+    procedure PrepareRecipe;
+  public
+    procedure Brew; virtual; abstract;
+    procedure AddCondiments; virtual; abstract;
+    procedure BoilWater;
+    procedure PourInCup;
+  end;
+
+implementation
+
+{ TCaffeineBeverage }
+
+procedure TCaffeineBeverage.BoilWater;
+begin
+  WriteLn('Boiling water');
+end;
+
+procedure TCaffeineBeverage.PourInCup;
+begin
+  WriteLn('Pouring into Cup');
+end;
+
+procedure TCaffeineBeverage.PrepareRecipe;
+begin
+  BoilWater;
+  Brew;
+  PourInCup;
+  AddCondiments;
+end;
+
+end.

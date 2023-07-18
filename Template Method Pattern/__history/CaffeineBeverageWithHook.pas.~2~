@@ -1,0 +1,45 @@
+unit CaffeineBeverageWithHook;
+
+interface
+
+type
+  TCaffeineBeverageWithHook = class abstract
+  public
+    procedure PrepareRecipe;
+    procedure Brew; virtual; abstract;
+    procedure AddCondiments; virtual; abstract;
+    procedure BoilWater;
+    procedure PourInCup;
+    function CustomerWantsCondiments: Boolean;
+  end;
+
+implementation
+
+{ TCaffeineBeverage }
+
+procedure TCaffeineBeverageWithHook.BoilWater;
+begin
+  WriteLn('Boiling water');
+end;
+
+function TCaffeineBeverageWithHook.CustomerWantsCondiments: Boolean;
+begin
+  Result := True;
+end;
+
+procedure TCaffeineBeverageWithHook.PourInCup;
+begin
+  WriteLn('Pouring into Cup');
+end;
+
+procedure TCaffeineBeverageWithHook.PrepareRecipe;
+begin
+  BoilWater;
+  Brew;
+  PourInCup;
+  if CustomerWantsCondiments then
+    AddCondiments;
+end;
+
+end.
+
