@@ -1,0 +1,16 @@
+unit CheeseIntf;
+
+interface
+
+uses
+  System.Classes, System.SysUtils, System.Generics.Collections, DoughIntf,
+  SauceIntf;
+
+type
+  ICheese = interface
+    function ToString: String;
+  end;
+
+implementation
+
+end.

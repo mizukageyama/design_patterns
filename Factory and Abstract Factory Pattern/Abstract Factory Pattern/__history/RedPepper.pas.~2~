@@ -1,0 +1,22 @@
+unit RedPepper;
+
+interface
+
+uses
+  System.Classes, System.SysUtils, System.Generics.Collections, VeggiesU;
+
+type
+  TRedPepper = class(TInterfacedObject, IVeggies)
+    function ToString: String;
+  end;
+
+implementation
+
+{ TRedPepper }
+
+function TRedPepper.ToString: String;
+begin
+  Result :=  'Red Pepper';
+end;
+
+end.

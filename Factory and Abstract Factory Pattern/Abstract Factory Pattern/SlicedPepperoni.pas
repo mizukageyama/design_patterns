@@ -1,0 +1,22 @@
+unit SlicedPepperoni;
+
+interface
+
+uses
+  PepperoniIntf;
+
+type
+  TSlicedPepperoni = class(TInterfacedObject, IPepperoni)
+    function ToString: String; override;
+  end;
+
+implementation
+
+{ TSlicedPepperoni }
+
+function TSlicedPepperoni.ToString: String;
+begin
+  Result :=  'Sliced Pepperoni';
+end;
+
+end.

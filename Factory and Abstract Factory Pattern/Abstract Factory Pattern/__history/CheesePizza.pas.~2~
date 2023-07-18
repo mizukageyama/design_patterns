@@ -1,0 +1,35 @@
+unit CheesePizza;
+
+interface
+
+uses
+  System.Classes, System.SysUtils, System.Generics.Collections, DoughU, SauceU,
+  CheeseU, VeggiesU, PepperoniU, ClamsU, PizzaIngredientFactoryU, PizzaVer2U;
+
+type
+  TCheesePizza = class(TPizzaVer2)
+  private
+    FIngredientFactory: IPizzaIngredientFactory;
+  public
+    constructor Create(AIngredientFactory: IPizzaIngredientFactory);
+    procedure Prepare; override;
+  end;
+
+implementation
+
+{ TCheezePizza }
+
+constructor TCheesePizza.Create(AIngredientFactory: IPizzaIngredientFactory);
+begin
+  FIngredientFactory := AIngredientFactory;
+end;
+
+procedure TCheesePizza.Prepare;
+begin
+  WriteLn('Preparing' + FName);
+  FDough := FIngredientFactory.CreateDough;
+  FSauce := FIngredientFactory.CreateSauce;
+  FCheese := FIngredientFactory.CreateCheese;
+end;
+
+end.
