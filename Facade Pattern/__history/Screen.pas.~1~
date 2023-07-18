@@ -1,0 +1,17 @@
+unit Screen;
+
+interface
+
+type
+  TPopcornPopper = class
+  private
+    FDescription: String;
+  public
+    constructor Create(ADescription: String);
+    procedure OnPopcornPopper;
+    procedure OffPopcornPopper;
+    procedure Pop;
+    function ToString: String; override;
+implementation
+
+end.

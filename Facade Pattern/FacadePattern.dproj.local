@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/07/18 08:00:44.000.849,C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\FacadePattern.dproj</Transaction>
+    <Transaction>2023/07/18 08:09:31.000.281,=C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 08:09:43.000.693,C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Amplifier.pas</Transaction>
+    <Transaction>2023/07/18 08:13:49.000.037,=C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 08:13:57.000.765,C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Tuner.pas</Transaction>
+    <Transaction>2023/07/18 08:25:31.000.955,=C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 08:25:40.000.039,C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\CDPlayer.pas</Transaction>
+    <Transaction>2023/07/18 08:34:22.000.382,=C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 08:34:33.000.003,C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\DVDPlayer.pas</Transaction>
+    <Transaction>2023/07/18 10:05:56.000.668,=C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 10:06:05.000.337,C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\TheaterLights.pas</Transaction>
+    <Transaction>2023/07/18 10:08:59.000.619,=C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 10:09:07.000.795,C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\PopcornPopper.pas</Transaction>
+    <Transaction>2023/07/18 10:11:14.000.300,=C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 10:11:27.000.825,C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Screen.pas</Transaction>
+    <Transaction>2023/07/18 10:14:01.000.124,=C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 10:18:11.000.555,C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Projector.pas</Transaction>
+    <Transaction>2023/07/18 10:55:47.000.116,C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\DVDPlayer.pas=</Transaction>
+    <Transaction>2023/07/18 10:55:47.000.123,C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Tuner.pas=</Transaction>
+    <Transaction>2023/07/18 10:55:47.000.045,C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\CDPlayer.pas=</Transaction>
+    <Transaction>2023/07/18 10:56:15.000.319,C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Amplifier.pas=C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\AmpCDTunerDVD.pas</Transaction>
+    <Transaction>2023/07/18 11:03:50.000.080,=C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 11:04:01.000.179,C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Facade Pattern\HomeTheaterFacade.pas</Transaction>
+  </Transactions>
+</BorlandProject>

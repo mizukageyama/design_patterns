@@ -1,0 +1,62 @@
+unit Tuner;
+
+interface
+
+uses Amplifier;
+
+type
+  TTuner = class
+  private
+    FDescription: String;
+    FAmplifier: TAmplifier;
+    FFrequency: Double;
+  public
+    constructor create(ADescription: String; AAmplifier: TAmplifier);
+    procedure OnTuner;
+    procedure OffTuner;
+    procedure SetFrequency;
+    procedure SetAm;
+    procedure SetFm;
+    function ToString: String;
+  end;
+
+implementation
+
+{ TTuner }
+
+constructor TTuner.create(ADescription: String; AAmplifier: TAmplifier);
+begin
+
+end;
+
+procedure TTuner.OffTuner;
+begin
+
+end;
+
+procedure TTuner.OnTuner;
+begin
+
+end;
+
+procedure TTuner.SetAm;
+begin
+
+end;
+
+procedure TTuner.SetFm;
+begin
+
+end;
+
+procedure TTuner.SetFrequency;
+begin
+
+end;
+
+function TTuner.ToString: String;
+begin
+
+end;
+
+end.

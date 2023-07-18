@@ -1,0 +1,87 @@
+unit DVDPlayer;
+
+interface
+
+uses Amplifier;
+
+type
+  TDVDPlayer = class
+  private
+    FDescription: String;
+    FCurrentTrack: Integer;
+    FAmplifier: TAmplifier;
+    FMovie: String;
+  public
+    constructor Create(ADescription: String; AAmplifier: TAmplifier);
+    procedure OnDVDPlayer;
+    procedure OffDVDPlayer;
+    procedure Eject;
+    procedure Play(Movie: String);
+    procedure Play(Track: Integer);
+    procedure Stop;
+    procedure Pause;
+    procedure SetTwoChannelAudio;
+    procedure SetSurroundAudio;
+    function ToString: String;
+  end;
+
+implementation
+
+{ TDVDPlayer }
+
+constructor TDVDPlayer.Create(ADescription: String; AAmplifier: TAmplifier);
+begin
+
+end;
+
+procedure TDVDPlayer.Eject;
+begin
+
+end;
+
+procedure TDVDPlayer.OffDVDPlayer;
+begin
+
+end;
+
+procedure TDVDPlayer.OnDVDPlayer;
+begin
+
+end;
+
+procedure TDVDPlayer.Pause;
+begin
+
+end;
+
+procedure TDVDPlayer.Play(Movie: String);
+begin
+
+end;
+
+procedure TDVDPlayer.Play(Track: Integer);
+begin
+
+end;
+
+procedure TDVDPlayer.SetSurroundAudio;
+begin
+
+end;
+
+procedure TDVDPlayer.SetTwoChannelAudio;
+begin
+
+end;
+
+procedure TDVDPlayer.Stop;
+begin
+
+end;
+
+function TDVDPlayer.ToString: String;
+begin
+
+end;
+
+end.

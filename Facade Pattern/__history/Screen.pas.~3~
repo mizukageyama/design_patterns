@@ -1,0 +1,41 @@
+unit Screen;
+
+interface
+
+type
+  TScreen = class
+  private
+    FDescription: String;
+  public
+    constructor Create(ADescription: String);
+    procedure UpScreen;
+    procedure DownScreen;
+    function ToString: String; override;
+  end;
+
+implementation
+
+
+{ TScreen }
+
+constructor TScreen.Create(ADescription: String);
+begin
+
+end;
+
+procedure TScreen.DownScreen;
+begin
+
+end;
+
+function TScreen.ToString: String;
+begin
+
+end;
+
+procedure TScreen.UpScreen;
+begin
+
+end;
+
+end.

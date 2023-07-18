@@ -1,0 +1,19 @@
+unit DVDPlayer;
+
+interface
+
+uses Amplifier;
+
+type
+  TDVDPlayer = class
+  private
+    FDescription: String;
+    FCurrentTrack: Integer;
+    FAmplifier: TAmplifier;
+    FMovie: String;
+  public
+  end;
+
+implementation
+
+end.

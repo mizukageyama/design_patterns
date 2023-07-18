@@ -1,0 +1,103 @@
+unit HomeTheaterFacade;
+
+interface
+
+uses AmpCDTunerDVD, PopcornPopper, Projector, Screen, TheaterLights;
+
+type
+  THomeTheaterFacade = class
+  private
+    FAmp: TAmplifier;
+    FTuner: TTuner;
+    FDVD: TDVDPlayer;
+    FCD: TCDPlayer;
+    FProjector: TProjector;
+    FLights: TTheaterLights;
+    FScreen: TScreen;
+    FPopper: TPopcornPopper;
+  public
+    constructor Create(AAmplifier: TAmplifier; ATuner: TTuner; ADVD: TDVDPlayer;
+      ACD: TCDPlayer; AProjector: TProjector; AScreen: TScreen;
+      ALights: TTheaterLights; APopper: TPopcornPopper);
+    procedure WatchMovie(Movie: String);
+    procedure EndMovie;
+    procedure ListenToCD(CDTitle: String);
+    procedure EndCD;
+    procedure ListenToRadio(Frequency: Double);
+    procedure EndRadio;
+  end;
+
+implementation
+
+{ THomeTheaterFacade }
+
+constructor THomeTheaterFacade.Create(AAmplifier: TAmplifier; ATuner: TTuner;
+  ADVD: TDVDPlayer; ACD: TCDPlayer; AProjector: TProjector; AScreen: TScreen;
+  ALights: TTheaterLights; APopper: TPopcornPopper);
+begin
+  FAmp := AAmplifier;
+  FTuner := ATuner;
+  FDVD := ADVD;
+  FCD := ACD;
+  FProjector := AProjector;
+  FLights := ALights;
+  FScreen := AScreen;
+  FPopper := APopper;
+end;
+
+procedure THomeTheaterFacade.EndCD;
+begin
+  WriteLn('Shutting down CD...');
+  FAmp.OffAmplifier;
+  FAmp.SetCD(FCD);
+  FCD.Eject;
+  FCD.OffCDPlayer;
+end;
+
+procedure THomeTheaterFacade.EndMovie;
+begin
+  WriteLn('Shutting movie theater down...');
+  FPopper.OffPopcornPopper;
+  FLights.OnTheaterLights;
+  FScreen.UpScreen;
+  FProjector.OffProjector;
+  FAmp.OffAmplifier;
+  FDVD.Eject;
+  FDVD.OffDVDPlayer;
+end;
+
+procedure THomeTheaterFacade.EndRadio;
+begin
+  WriteLn('Shutting down the tuner...');
+  FTuner.OffTuner;
+  FAmp.OffAmplifier;
+end;
+
+procedure THomeTheaterFacade.ListenToCD(CDTitle: String);
+begin
+  WriteLn('Get ready for an audiopile experience...');
+  FLights.OnTheaterLights;
+  FAmp.OnAmplifier;
+  FAmp.SetVolume(5);
+  FAmp.SetCD(FCD);
+  FAmp.SetStereoSound;
+  FCD.OnCDPlayer;
+  FCD.Play(CDTitle);
+end;
+
+procedure THomeTheaterFacade.ListenToRadio(Frequency: Double);
+begin
+  WriteLn('Tuning in the airwaves...');
+  FTuner.OnTuner;
+  FTuner.SetFrequency(Frequency);
+  FAmp.OnAmplifier;
+  FAmp.SetVolume(5);
+  FAmp.SetTuner(FTuner);
+end;
+
+procedure THomeTheaterFacade.WatchMovie(Movie: String);
+begin
+  WriteLn('Get ready to watch a movie...');
+end;
+
+end.

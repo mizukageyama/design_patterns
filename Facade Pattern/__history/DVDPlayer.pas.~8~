@@ -1,0 +1,103 @@
+unit DVDPlayer;
+
+interface
+
+
+type
+  TAmplifier;
+
+  TDVDPlayer = class
+  private
+    FDescription: String;
+    FCurrentTrack: Integer;
+    FAmplifier: TAmplifier;
+    FMovie: String;
+  public
+    constructor Create(ADescription: String; AAmplifier: TAmplifier);
+    procedure OnDVDPlayer;
+    procedure OffDVDPlayer;
+    procedure Eject;
+    procedure Play(Movie: String);
+    procedure Play(Track: Integer);
+    procedure Stop;
+    procedure Pause;
+    procedure SetTwoChannelAudio;
+    procedure SetSurroundAudio;
+    function ToString: String;
+  end;
+
+implementation
+
+uses
+  Amplifier;
+
+{ TDVDPlayer }
+
+constructor TDVDPlayer.Create(ADescription: String; AAmplifier: TAmplifier);
+begin
+  FDescription := ADescription;
+  FAmplifier := AAmplifier;
+end;
+
+procedure TDVDPlayer.Eject;
+begin
+  FMovie := nil;
+  WriteLn(FDescription + ' eject');
+end;
+
+procedure TDVDPlayer.OffDVDPlayer;
+begin
+  WriteLn(FDescription + ' off');
+end;
+
+procedure TDVDPlayer.OnDVDPlayer;
+begin
+  WriteLn(FDescription + ' on');
+end;
+
+procedure TDVDPlayer.Pause;
+begin
+  WriteLn(FDescription + ' paused "' + FMovie + '"');
+end;
+
+procedure TDVDPlayer.Play(Movie: String);
+begin
+  FMovie := Movie;
+  FCurrentTrack := 0;
+  WriteLn(FDescription + ' playing "' + FMovie + '"');
+end;
+
+procedure TDVDPlayer.Play(Track: Integer);
+begin
+  if FMovie = nil then
+  WriteLn(FDescription + ' can''t play ' + Track + ', no dvd inserted');
+  else
+  begin
+    FCurrentTrack := Track;
+    WriteLn(FDescription + ' playing track ' + FCurrentTrack + 'of "' +
+      FMovie + '"');
+  end;
+end;
+
+procedure TDVDPlayer.SetSurroundAudio;
+begin
+  WriteLn(FDescription + ' set surround audio');
+end;
+
+procedure TDVDPlayer.SetTwoChannelAudio;
+begin
+  WriteLn(FDescription + ' set two channel audio');
+end;
+
+procedure TDVDPlayer.Stop;
+begin
+  FCurrentTrack := 0;
+  WriteLn(FDescription + ' stopped "' + FMovie + '"');
+end;
+
+function TDVDPlayer.ToString: String;
+begin
+  Result := FDescription;
+end;
+
+end.

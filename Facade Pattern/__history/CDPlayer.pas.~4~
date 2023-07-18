@@ -1,0 +1,80 @@
+unit CDPlayer;
+
+interface
+
+uses Amplifier;
+
+type
+  TCDPlayer = class
+  private
+    FDescription: String;
+    FCurrentTrack: Integer;
+    FAmplifier: TAmplifier;
+    FTitle: String;
+  public
+    constructor Create;
+    procedure OnCDPlayer;
+    procedure OffCDPlayer;
+    procedure Eject;
+    procedure Play(Title: String);
+    procedure Play(Track: Integer);
+    procedure Stop;
+    procedure Pause;
+    function ToString: String;
+  end;
+
+implementation
+
+{ TCDPlayer }
+
+constructor TCDPlayer.Create;
+begin
+  FDescription := ADescription;
+  FAmplifier := AAmplifier;
+end;
+
+procedure TCDPlayer.Eject;
+begin
+  FTitle := nil;
+  WriteLn(FDescription + ' eject');
+end;
+
+procedure TCDPlayer.OffCDPlayer;
+begin
+  WriteLn(FDescription + ' off');
+end;
+
+procedure TCDPlayer.OnCDPlayer;
+begin
+  WriteLn(FDescription + ' on');
+end;
+
+procedure TCDPlayer.Pause;
+begin
+
+end;
+
+procedure TCDPlayer.Play(Title: String);
+begin
+  FTitle := Title;
+  FCurrentTrack := 0;
+  WriteLn(FDescription + ' playing "' + Title + '"');
+end;
+
+procedure TCDPlayer.Play(Track: Integer);
+begin
+
+end;
+
+procedure TCDPlayer.Stop;
+begin
+  FCurrentTrack := 0;
+  WriteLn(FDescription + ' stopped');
+end;
+
+function TCDPlayer.ToString: String;
+begin
+  Result := FDescription;
+end;
+
+end.

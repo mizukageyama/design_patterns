@@ -1,0 +1,82 @@
+unit Amplifier;
+
+interface
+
+uses
+  Tuner, CDPlayer, DVDPlayer;
+
+type
+  TAmplifier = class
+  private
+    FDescription: String;
+    FTuner: TTuner;
+    FDVD: TDVDPlayer;
+    FCDPlayer: TCDPlayer;
+  public
+    constructor Create(ADescription: String);
+    procedure OnAmplifier;
+    procedure OffProcedure;
+    procedure SetStereoSound;
+    procedure SetSurrondSound;
+    procedure SetVolume(Level: Integer);
+    procedure SetTuner(Tuner: TTuner);
+    procedure SetDVD(DVD: TDVD);
+    procedure SetDC(CD: TCD);
+    function ToString: String; override;
+  end;
+
+implementation
+
+{ TAmplifier }
+
+constructor TAmplifier.Create(ADescription: String);
+begin
+  FDescription := ADescription;
+end;
+
+procedure TAmplifier.OffProcedure;
+begin
+  WriteLn(FDescription + ' off');
+end;
+
+procedure TAmplifier.OnAmplifier;
+begin
+  WriteLn(FDescription + ' on');
+end;
+
+procedure TAmplifier.SetDC(CD: TCD);
+begin
+  WriteLn(FDescription + ' setting CD player to ' + CD);
+end;
+
+procedure TAmplifier.SetDVD(DVD: TDVD);
+begin
+  WriteLn(FDescription + ' setting DVD player to ' + DVD);
+end;
+
+procedure TAmplifier.SetStereoSound;
+begin
+  WriteLn(FDescription + ' stereo mode on');
+end;
+
+procedure TAmplifier.SetSurrondSound;
+begin
+  WriteLn(FDescription + ' surround sound on (5 speakers, 1 subwoofer');
+end;
+
+procedure TAmplifier.SetTuner(Tuner: TTuner);
+begin
+  WriteLn(FDescription + ' setting tuner to ' + Tuner);
+end;
+
+procedure TAmplifier.SetVolume(Level: Integer);
+begin
+  WriteLn(FDescription + ' setting volume to ' + Level);
+end;
+
+function TAmplifier.ToString: String;
+begin
+  Result := FDescription;
+end;
+
+end.

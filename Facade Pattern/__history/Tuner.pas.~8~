@@ -1,0 +1,67 @@
+unit Tuner;
+
+interface
+
+
+type
+  TAmplifier = class;
+
+  TTuner = class
+  private
+    FDescription: String;
+    FAmplifier: TAmplifier;
+    FFrequency: Double;
+  public
+    constructor create(ADescription: String; AAmplifier: TAmplifier);
+    procedure OnTuner;
+    procedure OffTuner;
+    procedure SetFrequency(Frequency: Double);
+    procedure SetAm;
+    procedure SetFm;
+    function ToString: String; override;
+  end;
+
+implementation
+
+uses Amplifier;
+
+{ TTuner }
+
+constructor TTuner.create(ADescription: String; AAmplifier: TAmplifier);
+begin
+  FDescription := ADescription;
+  FAmplifier := AAmplifier;
+end;
+
+procedure TTuner.OffTuner;
+begin
+  WriteLn(FDescription + ' off');
+end;
+
+procedure TTuner.OnTuner;
+begin
+  WriteLn(FDescription + ' on');
+end;
+
+procedure TTuner.SetAm;
+begin
+  WriteLn(FDescription + ' setting AM mode');
+end;
+
+procedure TTuner.SetFm;
+begin
+  WriteLn(FDescription + ' setting FM mode');
+end;
+
+procedure TTuner.SetFrequency(Frequency: Double);
+begin
+  WriteLn(FDescription + ' setting frequency to ' + Frequency);
+  FFrequency := Frequency;
+end;
+
+function TTuner.ToString: String;
+begin
+  Result := FDescription;
+end;
+
+end.

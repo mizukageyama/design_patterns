@@ -1,0 +1,56 @@
+unit Projector;
+
+interface
+
+uses DVDPlayer;
+
+type
+  TProjector = class
+  private
+    FDescription: String;
+    FDVDPlayer: TDVDPlayer;
+  public
+    constructor Create(ADVDPlayer: TDVDPlayer);
+    procedure OnProjector;
+    procedure OffProjector;
+    procedure WideScreenMode;
+    procedure TVMode;
+    function ToString: String; override;
+  end;
+
+implementation
+
+{ TProjector }
+
+constructor TProjector.Create(ADVDPlayer: TDVDPlayer);
+begin
+  FDescription := ADescription;
+  FDVDPlayer := ADVDPlayer;
+end;
+
+procedure TProjector.OffProjector;
+begin
+  WriteLn(FDescription + ' off');
+end;
+
+procedure TProjector.OnProjector;
+begin
+  WriteLn(FDescription + ' on');
+end;
+
+function TProjector.ToString: String;
+begin
+  Result := FDescription;
+end;
+
+procedure TProjector.TVMode;
+begin
+  WriteLn(FDescription + ' in tv mode (4x3 aspect ratio)');
+end;
+
+procedure TProjector.WideScreenMode;
+begin
+  WriteLn(FDescription + ' in widescreen mode (16x9 aspect ratio)');
+end;
+
+end.

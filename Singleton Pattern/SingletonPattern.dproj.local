@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2023/07/14 13:21:22.457,C:\Users\User\Documents\GitHub\design_patterns\Singleton Pattern\SingletonPattern.dproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
-    <Transaction>2023/07/14 13:41:20.347,=C:\Users\User\Documents\GitHub\design_patterns\Singleton Pattern\Unit1.pas</Transaction>
-    <Transaction>2023/07/14 13:41:31.689,C:\Users\User\Documents\GitHub\design_patterns\Singleton Pattern\Singleton.pas=C:\Users\User\Documents\GitHub\design_patterns\Singleton Pattern\Unit1.pas</Transaction>
-    <Transaction>2023/07/14 13:55:52.844,=C:\Users\User\Documents\GitHub\design_patterns\Singleton Pattern\Unit1.pas</Transaction>
-    <Transaction>2023/07/14 13:56:06.527,C:\Users\User\Documents\GitHub\design_patterns\Singleton Pattern\ChocolateBoiler.pas=C:\Users\User\Documents\GitHub\design_patterns\Singleton Pattern\Unit1.pas</Transaction>
+	<Transactions>
+    <Transaction>2023/07/14 13:21:22.000.457,C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\User\Documents\GitHub\design_patterns\Singleton Pattern\SingletonPattern.dproj</Transaction>
+    <Transaction>2023/07/14 13:41:20.000.347,=C:\Users\User\Documents\GitHub\design_patterns\Singleton Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/14 13:41:31.000.689,C:\Users\User\Documents\GitHub\design_patterns\Singleton Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Singleton Pattern\Singleton.pas</Transaction>
+    <Transaction>2023/07/14 13:55:52.000.844,=C:\Users\User\Documents\GitHub\design_patterns\Singleton Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/14 13:56:06.000.527,C:\Users\User\Documents\GitHub\design_patterns\Singleton Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Singleton Pattern\ChocolateBoiler.pas</Transaction>
   </Transactions>
 </BorlandProject>

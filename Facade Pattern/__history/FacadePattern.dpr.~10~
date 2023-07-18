@@ -1,0 +1,39 @@
+program FacadePattern;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils,
+  AmpCDTunerDVD in 'AmpCDTunerDVD.pas',
+  TheaterLights in 'TheaterLights.pas',
+  PopcornPopper in 'PopcornPopper.pas',
+  Screen in 'Screen.pas',
+  Projector in 'Projector.pas',
+  HomeTheaterFacade in 'HomeTheaterFacade.pas';
+
+begin
+  try
+    var Amp := TAmplifier.Create('Top-O-Line Amplifier');
+		var Tuner := TTuner.Create('Top-O-Line AM/FM Tuner', Amp);
+		DvdPlayer dvd = new DvdPlayer("Top-O-Line DVD Player", amp);
+		CdPlayer cd = new CdPlayer("Top-O-Line CD Player", amp);
+		Projector projector = new Projector("Top-O-Line Projector", dvd);
+		TheaterLights lights = new TheaterLights("Theater Ceiling Lights");
+		Screen screen = new Screen("Theater Screen");
+		PopcornPopper popper = new PopcornPopper("Popcorn Popper");
+
+		HomeTheaterFacade homeTheater =
+				new HomeTheaterFacade(amp, tuner, dvd, cd,
+						projector, screen, lights, popper);
+
+		homeTheater.watchMovie("Raiders of the Lost Ark");
+		homeTheater.endMovie();
+
+    ReadLn;
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+end.
