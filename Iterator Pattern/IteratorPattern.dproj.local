@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2023/07/18 16:09:44.329,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\IteratorPattern.dproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2023/07/18 16:10:03.256,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 16:11:34.287,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\IteratorIntf.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 16:11:38.983,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 16:11:56.882,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\DinerIterator.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 16:23:26.949,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 16:25:29.090,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\MenuItem.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 16:43:46.988,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 16:43:56.685,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\PancakeHouseMenu.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 16:55:32.735,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 16:55:40.010,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\DinerMenu.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

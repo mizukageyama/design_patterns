@@ -1,0 +1,17 @@
+unit PancakeHouseMenu;
+
+interface
+
+uses
+  MenuItem;
+
+type
+  TPancakeHouseMenu = class
+  private
+    FMenuItems: TList<IMenuItems>;
+  public
+  end;
+
+implementation
+
+end.

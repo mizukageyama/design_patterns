@@ -1,0 +1,38 @@
+unit DinerIterator;
+
+interface
+
+uses
+  IteratorIntf;
+
+type
+  TDinerMenuIterator = class(TInterfacedObject, IIterator)
+  private
+    FItems: TArray<MenuItem>;
+    FPosition: Integer;
+  public
+    constructor Create(AItems: TArray<MenuItem>);
+    function HasNext: Boolean;
+    function Next: TObject;
+  end;
+
+implementation
+
+{ TDinerMenuIterator }
+
+constructor TDinerMenuIterator.Create(AItems: TArray<MenuItem>);
+begin
+  FPosition := 0;
+end;
+
+function TDinerMenuIterator.HasNext: Boolean;
+begin
+
+end;
+
+function TDinerMenuIterator.Next: TObject;
+begin
+
+end;
+
+end.

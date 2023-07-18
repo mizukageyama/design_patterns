@@ -1,0 +1,44 @@
+unit PancakeHouseMenu;
+
+interface
+
+uses
+  MenuItem, System.Generics.Collections;
+
+type
+  TPancakeHouseMenu = class
+  private
+    FMenuItems: TList<TMenuItem>;
+  public
+    constructor Create;
+    procedure AddItem(Name, Description: String; Vegetarian: Boolean;
+      Price: Double);
+    function GetMenuItems: TList<TMenuItem>;
+  end;
+
+implementation
+
+{ TPancakeHouseMenu }
+
+procedure TPancakeHouseMenu.AddItem(Name, Description: String;
+  Vegetarian: Boolean; Price: Double);
+begin
+  var MenuItem := TMenuItem.Create(Name, Description, Vegetarian, Price);
+  FMenuItems.Add(MenuItem);
+end;
+
+constructor TPancakeHouseMenu.Create;
+begin
+  FMenuItems := TList<TMenuItem>.Create;
+  AddItem('','', True, 2.99);
+  AddItem('','', False, 2.99);
+  AddItem('','', True, 2.99);
+  AddItem('','', True, 2.99);
+end;
+
+function TPancakeHouseMenu.GetMenuItems: TList<TMenuItem>;
+begin
+
+end;
+
+end.
