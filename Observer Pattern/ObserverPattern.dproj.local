@@ -5,5 +5,21 @@
     <Transaction>2023/07/12 13:37:27.000.478,C:\Users\User\Documents\Embarcadero\Studio\Projects\Design Patterns\Observer Pattern\ObserverPattern.dproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
     <Transaction>2023/07/12 13:37:42.000.392,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Design Patterns\Observer Pattern\Unit1.pas</Transaction>
     <Transaction>2023/07/12 13:38:06.000.644,C:\Users\User\Documents\Embarcadero\Studio\Projects\Design Patterns\Observer Pattern\WeatherDataU.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Design Patterns\Observer Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 20:05:55.000.848,=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 20:06:06.000.002,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\Unit1.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\ObserverIntf.pas</Transaction>
+    <Transaction>2023/07/16 20:06:27.000.696,=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 20:06:38.000.300,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\Unit1.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\SubjectIntf.pas</Transaction>
+    <Transaction>2023/07/16 20:07:10.000.512,=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 20:07:23.000.938,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\Unit1.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\DisplayElementIntf.pas</Transaction>
+    <Transaction>2023/07/16 20:08:06.000.552,=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 20:09:27.000.120,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\Unit1.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\CurrentConditionsDisplay.pas</Transaction>
+    <Transaction>2023/07/16 20:09:46.000.182,=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 20:10:28.000.313,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\Unit1.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\ForcastDisplay.pas</Transaction>
+    <Transaction>2023/07/16 20:10:36.000.838,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\ForcastDisplay.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\ForecastDisplay.pas</Transaction>
+    <Transaction>2023/07/16 20:11:01.000.641,=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 20:11:37.000.803,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\Unit1.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\StatisticsDisplay.pas</Transaction>
+    <Transaction>2023/07/16 20:12:14.000.335,=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 20:12:54.000.173,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\Unit1.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\HeatIndexDisplay.pas</Transaction>
+    <Transaction>2023/07/16 20:13:26.000.237,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\WeatherDataU.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Observer Pattern\WeatherData.pas</Transaction>
   </Transactions>
 </BorlandProject>

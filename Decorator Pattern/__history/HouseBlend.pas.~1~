@@ -1,0 +1,25 @@
+unit HouseBlend;
+
+interface
+
+uses Beverage;
+type
+  THouseBlend = class(TBeverage)
+  public
+    function Cost: Double; override;
+    constructor Create;
+  end;
+implementation
+
+{ THouseBlend }
+
+function THouseBlend.Cost: Double;
+begin
+  Result := 0.89;
+end;
+
+constructor THouseBlend.Create;
+begin
+  FDescription := 'House Blend Coffee';
+end;
+end.

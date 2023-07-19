@@ -1,0 +1,29 @@
+unit Decaf;
+
+interface
+
+uses
+  Beverage;
+
+type
+  TDecaf = class(TBeverage)
+  public
+    function Cost: Double; override;
+    constructor Create;
+  end;
+
+implementation
+
+{ TDecaf }
+
+function TDecaf.Cost: Double;
+begin
+  Result := 1.05;
+end;
+
+constructor TDecaf.Create;
+begin
+  FDescription := 'Decaf Coffee';
+end;
+
+end.

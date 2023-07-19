@@ -1,0 +1,16 @@
+unit Beverage;
+
+interface
+
+type
+  TBeverage = class abstract
+  private
+    FDescription: String;
+  public
+    function GetDescription: String; virtual;
+    function Cost: Double; virtual; abstract;
+    constructor Create;
+  end;
+implementation
+
+end.

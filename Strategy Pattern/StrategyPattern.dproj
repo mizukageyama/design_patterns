@@ -89,7 +89,17 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="DuckU.pas"/>
+        <DCCReference Include="Duck.pas"/>
+        <DCCReference Include="QuackBehaviorIntf.pas"/>
+        <DCCReference Include="QuackU.pas"/>
+        <DCCReference Include="MuteQuack.pas"/>
+        <DCCReference Include="Squeak.pas"/>
+        <DCCReference Include="FlyBehaviorIntf.pas"/>
+        <DCCReference Include="FlyWithWings.pas"/>
+        <DCCReference Include="FlyNoWay.pas"/>
+        <DCCReference Include="FlyRocketPowered.pas"/>
+        <DCCReference Include="MallardDuck.pas"/>
+        <DCCReference Include="ModelDuck.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

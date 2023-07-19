@@ -6,7 +6,15 @@ program DecoratorPattern;
 
 uses
   System.SysUtils,
-  StarbuzzU in 'StarbuzzU.pas';
+  Whip in 'Whip.pas',
+  Beverage in 'Beverage.pas',
+  Espresso in 'Espresso.pas',
+  HouseBlend in 'HouseBlend.pas',
+  DarkRoast in 'DarkRoast.pas',
+  Decaf in 'Decaf.pas',
+  CondimentDecorator in 'CondimentDecorator.pas',
+  Mocha in 'Mocha.pas',
+  Soy in 'Soy.pas';
 
 begin
   try

@@ -89,7 +89,14 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="WeatherDataU.pas"/>
+        <DCCReference Include="WeatherData.pas"/>
+        <DCCReference Include="ObserverIntf.pas"/>
+        <DCCReference Include="SubjectIntf.pas"/>
+        <DCCReference Include="DisplayElementIntf.pas"/>
+        <DCCReference Include="CurrentConditionsDisplay.pas"/>
+        <DCCReference Include="ForecastDisplay.pas"/>
+        <DCCReference Include="StatisticsDisplay.pas"/>
+        <DCCReference Include="HeatIndexDisplay.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

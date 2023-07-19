@@ -1,0 +1,11 @@
+unit Quack;
+
+interface
+type
+  TQuack = class(TInterfacedObject, IQuackBehavior)
+    procedure Quack;
+  end;
+
+implementation
+
+end.

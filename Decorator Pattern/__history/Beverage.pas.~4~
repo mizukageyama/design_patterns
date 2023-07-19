@@ -1,0 +1,28 @@
+unit Beverage;
+
+interface
+
+type
+  TBeverage = class abstract
+  public
+    FDescription: String;
+    function GetDescription: String; virtual;
+    function Cost: Double; virtual; abstract;
+    constructor Create;
+  end;
+
+implementation
+
+{ TBeverage }
+
+constructor TBeverage.Create;
+begin
+ FDescription := 'Unknown Beverage';
+end;
+
+function TBeverage.GetDescription: String;
+begin
+  Result := FDescription;
+end;
+
+end.

@@ -1,0 +1,166 @@
+unit StarbuzzU;
+
+interface
+
+uses
+  System.Classes, System.Generics.Collections, System.SysUtils, Beverage;
+
+type
+  TEspresso = class(TBeverage)
+  public
+    function Cost: Double; override;
+    constructor Create;
+  end;
+
+  THouseBlend = class(TBeverage)
+  public
+    function Cost: Double; override;
+    constructor Create;
+  end;
+
+  TDarkRoast = class(TBeverage)
+  public
+    function Cost: Double; override;
+    constructor Create;
+  end;
+
+  TDecaf = class(TBeverage)
+  public
+    function Cost: Double; override;
+    constructor Create;
+  end;
+
+  TCondimentDecorator = class abstract(TBeverage)
+  public
+    function GetDescription: String; override; abstract;
+  end;
+
+  TMocha = class(TCondimentDecorator)
+  private
+    FBeverage: TBeverage;
+  public
+    function GetDescription: String; override;
+    function Cost: Double; override;
+    constructor Create(ABeverage: TBeverage);
+  end;
+
+  TSoy = class(TCondimentDecorator)
+  private
+    FBeverage: TBeverage;
+  public
+    function GetDescription: String; override;
+    function Cost: Double;  override;
+    constructor Create(ABeverage: TBeverage);
+  end;
+
+  TWhip = class(TCondimentDecorator)
+  private
+    FBeverage: TBeverage;
+  public
+    function GetDescription: String; override;
+    function Cost: Double; override;
+    constructor Create(ABeverage: TBeverage);
+  end;
+
+implementation
+
+{ TEspresso }
+
+function TEspresso.Cost: Double;
+begin
+  Result := 1.99;
+end;
+
+constructor TEspresso.Create;
+begin
+  FDescription := 'Expresso';
+end;
+
+{ THouseBlend }
+
+function THouseBlend.Cost: Double;
+begin
+  Result := 0.89;
+end;
+
+constructor THouseBlend.Create;
+begin
+  FDescription := 'House Blend Coffee';
+end;
+
+{ TDarkRoast }
+
+function TDarkRoast.Cost: Double;
+begin
+  Result := 0.99;
+end;
+
+constructor TDarkRoast.Create;
+begin
+  FDescription := 'Dark Roast Coffee';
+end;
+
+{ TDecaf }
+
+function TDecaf.Cost: Double;
+begin
+  Result := 1.05;
+end;
+
+constructor TDecaf.Create;
+begin
+  FDescription := 'Decaf Coffee';
+end;
+
+{ TMocha }
+
+function TMocha.Cost: Double;
+begin
+  Result := 0.20 + FBeverage.Cost;
+end;
+
+constructor TMocha.Create(ABeverage: TBeverage);
+begin
+  FBeverage := ABeverage;
+end;
+
+function TMocha.GetDescription: String;
+begin
+  Result := FBeverage.GetDescription + ', Mocha';
+end;
+
+{ TSoy }
+
+function TSoy.Cost: Double;
+begin
+  Result := 0.15 + FBeverage.Cost;
+end;
+
+constructor TSoy.Create(ABeverage: TBeverage);
+begin
+  FBeverage := ABeverage;
+end;
+
+function TSoy.GetDescription: String;
+begin
+  Result := FBeverage.GetDescription + ', Soy';
+end;
+
+{ TWhip }
+
+function TWhip.Cost: Double;
+begin
+  Result := 0.10 + FBeverage.Cost;
+end;
+
+constructor TWhip.Create(ABeverage: TBeverage);
+begin
+  FBeverage := ABeverage;
+end;
+
+function TWhip.GetDescription: String;
+begin
+  Result := FBeverage.GetDescription + ', Whip';
+end;
+
+end.

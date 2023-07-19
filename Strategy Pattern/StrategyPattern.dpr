@@ -6,7 +6,17 @@ program StrategyPattern;
 
 uses
   System.SysUtils,
-  DuckU in 'DuckU.pas';
+  Duck in 'Duck.pas',
+  QuackBehaviorIntf in 'QuackBehaviorIntf.pas',
+  QuackU in 'QuackU.pas',
+  MuteQuack in 'MuteQuack.pas',
+  Squeak in 'Squeak.pas',
+  FlyBehaviorIntf in 'FlyBehaviorIntf.pas',
+  FlyWithWings in 'FlyWithWings.pas',
+  FlyNoWay in 'FlyNoWay.pas',
+  FlyRocketPowered in 'FlyRocketPowered.pas',
+  MallardDuck in 'MallardDuck.pas',
+  ModelDuck in 'ModelDuck.pas';
 
 begin
   {

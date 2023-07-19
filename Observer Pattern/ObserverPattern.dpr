@@ -6,7 +6,14 @@ program ObserverPattern;
 
 uses
   System.SysUtils,
-  WeatherDataU in 'WeatherDataU.pas';
+  WeatherData in 'WeatherData.pas',
+  ObserverIntf in 'ObserverIntf.pas',
+  SubjectIntf in 'SubjectIntf.pas',
+  DisplayElementIntf in 'DisplayElementIntf.pas',
+  CurrentConditionsDisplay in 'CurrentConditionsDisplay.pas',
+  ForecastDisplay in 'ForecastDisplay.pas',
+  StatisticsDisplay in 'StatisticsDisplay.pas',
+  HeatIndexDisplay in 'HeatIndexDisplay.pas';
 
 begin
   try

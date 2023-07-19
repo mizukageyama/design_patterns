@@ -1,0 +1,25 @@
+unit ModelDuck;
+
+interface
+
+uses DuckU, FlyNoWay, QuackU;
+type
+  TModelDuck = class(TDuck)
+  public
+    constructor Create;
+    procedure Display; override;
+  end;
+implementation
+ { TModelDuck }
+
+constructor TModelDuck.Create;
+begin
+  FQuackBehavior := TQuack.Create;
+  FFlyBehavior := TFlyNoWay.Create;
+end;
+
+procedure TModelDuck.Display;
+begin
+  WriteLn('I’m a model duck');
+end;
+end.

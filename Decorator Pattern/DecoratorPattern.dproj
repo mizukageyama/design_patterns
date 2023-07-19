@@ -89,7 +89,15 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="StarbuzzU.pas"/>
+        <DCCReference Include="Whip.pas"/>
+        <DCCReference Include="Beverage.pas"/>
+        <DCCReference Include="Espresso.pas"/>
+        <DCCReference Include="HouseBlend.pas"/>
+        <DCCReference Include="DarkRoast.pas"/>
+        <DCCReference Include="Decaf.pas"/>
+        <DCCReference Include="CondimentDecorator.pas"/>
+        <DCCReference Include="Mocha.pas"/>
+        <DCCReference Include="Soy.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

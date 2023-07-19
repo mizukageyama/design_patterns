@@ -1,0 +1,10 @@
+unit FlyWithWings;
+
+interface
+type
+  TFlyWithWings = class(TInterfacedObject, IFlyBehavior)
+    procedure Fly;
+  end;
+implementation
+
+end.

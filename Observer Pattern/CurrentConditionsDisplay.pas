@@ -1,0 +1,46 @@
+unit CurrentConditionsDisplay;
+
+interface
+
+uses
+  DisplayElementIntf, ObserverIntf, SubjectIntf, System.SysUtils;
+
+type
+  TCurrentConditionsDisplay = class(TInterfacedObject, IObserver,
+    IDisplayElement)
+  private
+    FTemperature: Double;
+    FHumidity: Double;
+    FWeatherData: ISubject;
+  public
+    procedure Update(Temperature, Humidity, Pressure: Double);
+    procedure Display;
+    constructor Create(AWeatherData: ISubject);
+  end;
+
+implementation
+
+{ TCurrentConditionsDisplay }
+
+constructor TCurrentConditionsDisplay.Create(AWeatherData: ISubject);
+begin
+  FWeatherData := AWeatherData;
+  FWeatherData.RegisterObserver(Self);
+end;
+
+procedure TCurrentConditionsDisplay.Display;
+begin
+  var ConditionStr := Format('Current conditions: %fF degrees and %f humidity',
+    [FTemperature, FHumidity]);
+  WriteLn(ConditionStr);
+end;
+
+procedure TCurrentConditionsDisplay.Update(Temperature, Humidity,
+  Pressure: Double);
+begin
+  FTemperature := Temperature;
+  FHumidity := Humidity;
+  Display;
+end;
+
+end.

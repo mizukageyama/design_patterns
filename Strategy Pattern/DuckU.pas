@@ -3,43 +3,11 @@ unit DuckU;
 interface
 
 uses
-  System.Classes, System.SysUtils, System.Generics.Collections;
+  System.Classes, System.SysUtils, System.Generics.Collections,
+  QuackBehaviorIntf, QuackU, FlyBehaviorIntf;
 
 
 type
-  IQuackBehavior = interface
-    procedure Quack;
-  end;
-
-  TQuack = class(TInterfacedObject, IQuackBehavior)
-    procedure Quack;
-  end;
-
-  TMuteQuack = class(TInterfacedObject, IQuackBehavior)
-    procedure Quack;
-  end;
-
-  TSqueak = class(TInterfacedObject, IQuackBehavior)
-    procedure Quack;
-  end;
-
-  IFlyBehavior = interface
-    procedure Fly;
-  end;
-
-  TFlyWithWings = class(TInterfacedObject, IFlyBehavior)
-    procedure Fly;
-  end;
-
-  TFlyNoWay = class(TInterfacedObject, IFlyBehavior)
-    procedure Fly;
-  end;
-
-  TFlyRocketPowered = class(TInterfacedObject, IFlyBehavior)
-    procedure Fly;
-  end;
-
-
   TDuck = class abstract
   public
     FFlyBehavior: IFlyBehavior;
@@ -50,18 +18,6 @@ type
     procedure PerformQuack;
     procedure Swim;
     procedure Display; virtual; abstract;
-  end;
-
-  TMallardDuck = class(TDuck)
-  public
-    constructor Create;
-    procedure Display; override;
-  end;
-
-  TModelDuck = class(TDuck)
-  public
-    constructor Create;
-    procedure Display; override;
   end;
 
 implementation
@@ -91,74 +47,6 @@ end;
 procedure TDuck.Swim;
 begin
   WriteLn('All ducks float, even decoys!');
-end;
-
-{ TFlyWithWings }
-
-procedure TFlyWithWings.Fly;
-begin
-  WriteLn('I知 flying!!');
-end;
-
-{ TFlyNoWay }
-
-procedure TFlyNoWay.Fly;
-begin
-  WriteLn('I can稚 fly');
-end;
-
-{ TMallardDuck }
-
-constructor TMallardDuck.Create;
-begin
-  FQuackBehavior := TQuack.Create;
-  FFlyBehavior := TFlyWithWings.Create;
-end;
-
-procedure TMallardDuck.Display;
-begin
-  WriteLn('I知 a real Mallard duck');
-end;
-
-{ TMuteQuack }
-
-procedure TMuteQuack.Quack;
-begin
-  WriteLn('<< Silence >>');
-end;
-
-{ TSqueak }
-
-procedure TSqueak.Quack;
-begin
-  WriteLn('Squeak');
-end;
-
-{ TQuack }
-
-procedure TQuack.Quack;
-begin
-  WriteLn('Quack');
-end;
-
-{ TModelDuck }
-
-constructor TModelDuck.Create;
-begin
-  FQuackBehavior := TQuack.Create;
-  FFlyBehavior := TFlyNoWay.Create;
-end;
-
-procedure TModelDuck.Display;
-begin
-  WriteLn('I知 a model duck');
-end;
-
-{ TFlyRocketPowered }
-
-procedure TFlyRocketPowered.Fly;
-begin
-  WriteLn('I知 flying with a rocket!');
 end;
 
 end.

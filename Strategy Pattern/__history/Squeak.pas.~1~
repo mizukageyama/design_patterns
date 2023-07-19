@@ -1,0 +1,11 @@
+unit Squeak;
+
+interface
+type
+  TSqueak = class(TInterfacedObject, IQuackBehavior)
+    procedure Quack;
+  end;
+
+implementation
+
+end.

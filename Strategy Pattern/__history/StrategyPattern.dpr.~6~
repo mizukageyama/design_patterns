@@ -1,0 +1,34 @@
+program StrategyPattern;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils,
+  DuckU in 'DuckU.pas';
+
+begin
+  {
+    The STRATEGY Pattern defines a family of algorithms,
+    encapsulates each one, and makes them interchangeable.
+    Strategy lets the algorithm vary independently from
+    clients that use it.
+  }
+
+  try
+    var Mallard: TDuck := TMallardDuck.Create;
+    Mallard.PerformQuack;
+    Mallard.PerformFly;
+
+    var Model: TDuck := TModelDuck.Create;
+    Model.PerformFly;
+    Model.SetFlyBehavior(TFlyRocketPowered.Create);
+    Model.PerformFly;
+
+    Readln;
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+end.

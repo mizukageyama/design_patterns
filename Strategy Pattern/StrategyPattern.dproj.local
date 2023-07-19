@@ -2,9 +2,32 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2023/06/21 08:04:53.000.396,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2023/07/11 15:58:32.000.117,C:\Users\User\Documents\Embarcadero\Studio\Projects\Design Patterns\IntroToDesignPatterns.dproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2023/07/11 15:58:32.000.117,C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\Design Patterns\IntroToDesignPatterns.dproj</Transaction>
     <Transaction>2023/07/11 16:39:39.000.253,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Design Patterns\Unit1.pas</Transaction>
-    <Transaction>2023/07/11 16:39:51.000.184,C:\Users\User\Documents\Embarcadero\Studio\Projects\Design Patterns\Unit1.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Design Patterns\DuckU.pas</Transaction>
-    <Transaction>2023/07/12 10:06:21.000.306,C:\Users\User\Documents\Embarcadero\Studio\Projects\Design Patterns\Strategy Pattern\StrategyPattern.dproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\Design Patterns\IntroToDesignPatterns.dproj</Transaction>
+    <Transaction>2023/07/11 16:39:51.000.184,C:\Users\User\Documents\Embarcadero\Studio\Projects\Design Patterns\DuckU.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Design Patterns\Unit1.pas</Transaction>
+    <Transaction>2023/07/12 10:06:21.000.306,C:\Users\User\Documents\Embarcadero\Studio\Projects\Design Patterns\IntroToDesignPatterns.dproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\Design Patterns\Strategy Pattern\StrategyPattern.dproj</Transaction>
+    <Transaction>2023/07/16 19:17:22.000.676,=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 19:18:00.000.194,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\QuackBehaviorIntf.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 19:18:43.000.899,=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 19:19:06.000.469,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Quack.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 19:21:46.000.753,=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 19:22:30.000.370,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\QuackU.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Quack.pas</Transaction>
+    <Transaction>2023/07/16 19:23:02.000.564,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\MuteQuackU.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 19:52:17.000.502,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\MuteQuack.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\MuteQuackU.pas</Transaction>
+    <Transaction>2023/07/16 19:53:02.000.783,=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 19:53:27.000.958,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Squeak.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 19:54:14.000.732,=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 19:54:32.000.626,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\FlyBehaviorIntf.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 19:55:02.000.757,=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 19:55:14.000.732,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\FlyWithWings.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 19:56:09.000.889,=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 19:56:50.000.009,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\FlyNoWay.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 19:57:14.000.155,=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 19:57:44.000.746,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\FlyRocketPowered.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 19:58:34.000.003,=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 19:59:16.000.827,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\MallardDuck.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 19:59:58.000.350,=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 20:03:26.000.425,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\ModelDuck.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/16 20:03:51.000.240,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\Duck.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Strategy Pattern\DuckU.pas</Transaction>
   </Transactions>
 </BorlandProject>

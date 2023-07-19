@@ -1,0 +1,123 @@
+unit DuckU;
+
+interface
+
+uses
+  System.Classes, System.SysUtils, System.Generics.Collections,
+  QuackBehaviorIntf, QuackU, FlyBehaviorIntf;
+
+
+type
+  TFlyWithWings = class(TInterfacedObject, IFlyBehavior)
+    procedure Fly;
+  end;
+
+  TFlyNoWay = class(TInterfacedObject, IFlyBehavior)
+    procedure Fly;
+  end;
+
+  TFlyRocketPowered = class(TInterfacedObject, IFlyBehavior)
+    procedure Fly;
+  end;
+
+
+  TDuck = class abstract
+  public
+    FFlyBehavior: IFlyBehavior;
+    FQuackBehavior: IQuackBehavior;
+    procedure SetFlyBehavior(FB: IFlyBehavior);
+    procedure SetQuackBehavior(QB: IQuackBehavior);
+    procedure PerformFly;
+    procedure PerformQuack;
+    procedure Swim;
+    procedure Display; virtual; abstract;
+  end;
+
+  TMallardDuck = class(TDuck)
+  public
+    constructor Create;
+    procedure Display; override;
+  end;
+
+  TModelDuck = class(TDuck)
+  public
+    constructor Create;
+    procedure Display; override;
+  end;
+
+implementation
+
+{ TDuck }
+
+procedure TDuck.PerformFly;
+begin
+  FFlyBehavior.Fly;
+end;
+
+procedure TDuck.PerformQuack;
+begin
+  FQuackBehavior.Quack;
+end;
+
+procedure TDuck.SetFlyBehavior(FB: IFlyBehavior);
+begin
+  FFlyBehavior := FB;
+end;
+
+procedure TDuck.SetQuackBehavior(QB: IQuackBehavior);
+begin
+  FQuackBehavior := QB;
+end;
+
+procedure TDuck.Swim;
+begin
+  WriteLn('All ducks float, even decoys!');
+end;
+
+
+{ TFlyNoWay }
+
+procedure TFlyNoWay.Fly;
+begin
+  WriteLn('I can’t fly');
+end;
+
+{ TMallardDuck }
+
+constructor TMallardDuck.Create;
+begin
+  FQuackBehavior := TQuack.Create;
+  FFlyBehavior := TFlyWithWings.Create;
+end;
+
+procedure TMallardDuck.Display;
+begin
+  WriteLn('I’m a real Mallard duck');
+end;
+
+
+
+
+
+
+{ TModelDuck }
+
+constructor TModelDuck.Create;
+begin
+  FQuackBehavior := TQuack.Create;
+  FFlyBehavior := TFlyNoWay.Create;
+end;
+
+procedure TModelDuck.Display;
+begin
+  WriteLn('I’m a model duck');
+end;
+
+{ TFlyRocketPowered }
+
+procedure TFlyRocketPowered.Fly;
+begin
+  WriteLn('I’m flying with a rocket!');
+end;
+
+end.
