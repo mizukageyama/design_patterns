@@ -3,17 +3,20 @@ unit CafeMenu;
 interface
 
 uses
-  System.Generics.Collections, System.SysUtils, MenuIntf, IteratorIntf, MenuItem,
-  CafeMenuIterator;
+  System.Generics.Collections, System.SysUtils, MenuIntf, IteratorIntf,
+  MenuItem, CafeMenuIterator;
+
 type
   TCafeMenu = class(TInterfacedObject, IMenu)
   private
     FMenuItems: TDictionary<String, TMenuItem>;
+    FName: String;
   public
-    constructor Create;
+    constructor Create(AName: String);
     procedure AddItem(Name, Description: String; Vegetarian: Boolean;
       Price: Double);
     function CreateIterator: IIterator;
+    function GetMenuName: String;
   end;
 
 implementation
@@ -27,8 +30,9 @@ begin
   FMenuItems.Add(MenuItem.GetName, MenuItem);
 end;
 
-constructor TCafeMenu.Create;
+constructor TCafeMenu.Create(AName: String);
 begin
+  FName := AName;
   FMenuItems:= TDictionary<string, TMenuItem>.Create;
 
   AddItem('Soup of the day',
@@ -43,6 +47,11 @@ end;
 function TCafeMenu.CreateIterator: IIterator;
 begin
   Result := TCafeMenuIterator.Create(FMenuItems);
+end;
+
+function TCafeMenu.GetMenuName: String;
+begin
+  Result := FName;
 end;
 
 end.

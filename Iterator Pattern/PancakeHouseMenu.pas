@@ -4,17 +4,19 @@ interface
 
 uses
   MenuItem, System.Generics.Collections, IteratorIntf, PancakeHouseMenuIterator,
-  MenuIntf;
+  MenuIntf, System.SysUtils;
 
 type
   TPancakeHouseMenu = class(TInterfacedObject, IMenu)
   private
     FMenuItems: TList<TMenuItem>;
+    FName: String;
   public
-    constructor Create;
+    constructor Create(AName: String);
     procedure AddItem(Name, Description: String; Vegetarian: Boolean;
       Price: Double);
     function CreateIterator: IIterator;
+    function GetMenuName: String;
   end;
 
 implementation
@@ -28,8 +30,9 @@ begin
   FMenuItems.Add(MenuItem);
 end;
 
-constructor TPancakeHouseMenu.Create;
+constructor TPancakeHouseMenu.Create(AName: String);
 begin
+  FName := AName;
   FMenuItems := TList<TMenuItem>.Create;
   AddItem('K&B’s Pancake Breakfast',
     'Pancakes with scrambled eggs, and toast', True, 2.99);
@@ -44,6 +47,11 @@ end;
 function TPancakeHouseMenu.CreateIterator: IIterator;
 begin
   Result := TPancakeHouseMenuIterator.Create(FMenuItems);
+end;
+
+function TPancakeHouseMenu.GetMenuName: String;
+begin
+  Result := FName;
 end;
 
 end.

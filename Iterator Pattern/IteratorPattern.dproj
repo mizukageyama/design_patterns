@@ -99,6 +99,7 @@
         <DCCReference Include="MenuIntf.pas"/>
         <DCCReference Include="CafeMenu.pas"/>
         <DCCReference Include="CafeMenuIterator.pas"/>
+        <DCCReference Include="MenuIterator.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

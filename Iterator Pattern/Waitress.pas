@@ -3,16 +3,15 @@ unit Waitress;
 interface
 
 uses
-  DinerMenu, PancakeHouseMenu, IteratorIntf, MenuItem, System.SysUtils, MenuIntf;
+  DinerMenu, PancakeHouseMenu, IteratorIntf, MenuItem, System.SysUtils,
+  MenuIntf, System.Generics.Collections, MenuIterator;
 
 type
   TWaitress = class
   private
-    FPancakeHouseMenu: IMenu;
-    FDinerMenu: IMenu;
-    FCafeMenu: IMenu;
+    FMenus: TList<IMenu>;
   public
-    constructor Create(APancakeHouseMenu, ADinerMenu: IMenu; ACafeMenu: IMenu);
+    constructor Create(AMenus: TList<IMenu>);
     procedure PrintMenu; overload;
     procedure PrintMenu(Iterator: IIterator); overload;
   end;
@@ -21,25 +20,30 @@ implementation
 
 { TWaitress }
 
-constructor TWaitress.Create(APancakeHouseMenu, ADinerMenu: IMenu;
-  ACafeMenu: IMenu);
+constructor TWaitress.Create(AMenus: TList<IMenu>);
 begin
-  FPancakeHouseMenu := APancakeHouseMenu;
-  FDinerMenu := ADinerMenu;
-  FCafeMenu := ACafeMenu;
+  FMenus := AMenus;
 end;
 
 procedure TWaitress.PrintMenu;
+var
+  MenuObj: TObject;
+  MenuIntf: IMenu;
 begin
-  var PancakeIterator := FPancakeHouseMenu.CreateIterator;
-  var DinerIterator := FDinerMenu.CreateIterator;
-  var CafeIterator := FCafeMenu.CreateIterator;
-  WriteLn('MENU' + sLineBreak + '----' + sLineBreak + 'BREAKFAST');
-  PrintMenu(PancakeIterator);
-  WriteLn(sLineBreak + 'LUNCH');
-  PrintMenu(DinerIterator);
-  WriteLn(sLineBreak + 'DINNER');
-  PrintMenu(CafeIterator);
+  var MenuIterator := TMenuIterator.Create(FMenus);
+  WriteLn('MENU' + sLineBreak + '---');
+  while MenuIterator.HasNext do
+  begin
+    MenuObj := MenuIterator.Next;
+
+    //Cast TObject to IMenu Interface
+    if Supports(MenuObj, IMenu, MenuIntf) then
+    begin
+      Writeln(MenuIntf.GetMenuName);
+      PrintMenu(MenuIntf.CreateIterator);
+      WriteLn;
+    end;
+  end;
 end;
 
 procedure TWaitress.PrintMenu(Iterator: IIterator);

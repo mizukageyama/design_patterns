@@ -22,6 +22,8 @@
     <Transaction>2023/07/19 10:15:38.576,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\CafeMenu.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
     <Transaction>2023/07/19 10:30:39.227,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
     <Transaction>2023/07/19 10:30:45.994,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\CafeMenuIterator.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/19 10:49:00.821,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/19 10:49:08.041,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\MenuIterator.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
   </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="DinerIterator.pas"/>
     <File Path="DinerMenu.pas"/>
@@ -33,5 +35,6 @@
     <File Path="MenuIntf.pas"/>
     <File Path="CafeMenu.pas"/>
     <File Path="CafeMenuIterator.pas"/>
+    <File Path="MenuIterator.pas"/>
   </ProjectSortOrder>
 </BorlandProject>

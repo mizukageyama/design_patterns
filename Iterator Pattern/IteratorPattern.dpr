@@ -6,6 +6,7 @@ program IteratorPattern;
 
 uses
   System.SysUtils,
+  System.Generics.Collections,
   IteratorIntf in 'IteratorIntf.pas',
   DinerIterator in 'DinerIterator.pas',
   MenuItem in 'MenuItem.pas',
@@ -15,15 +16,18 @@ uses
   Waitress in 'Waitress.pas',
   MenuIntf in 'MenuIntf.pas',
   CafeMenu in 'CafeMenu.pas',
-  CafeMenuIterator in 'CafeMenuIterator.pas';
+  CafeMenuIterator in 'CafeMenuIterator.pas',
+  MenuIterator in 'MenuIterator.pas';
 
 begin
   try
-    var PancakeHouseMenu: IMenu := TPancakeHouseMenu.Create;
-    var DinerMenu: IMenu := TDinerMenu.Create;
-    var CafeMenu: IMenu := TCafeMenu.Create;
+    var PancakeHouseMenu := TPancakeHouseMenu.Create('BREAKFAST');
+    var DinerMenu:= TDinerMenu.Create('LUNCH');
+    var CafeMenu := TCafeMenu.Create('DINNER');
 
-    var Waitress := TWaitress.Create(PancakeHouseMenu, DinerMenu, CafeMenu);
+    var Menus := TList<IMenu>.Create([PancakeHouseMenu, DinerMenu, CafeMenu]);
+
+    var Waitress := TWaitress.Create(Menus);
     Waitress.PrintMenu;
 
     ReadLn;
