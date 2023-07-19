@@ -1,0 +1,15 @@
+unit Waitress;
+
+interface
+
+type
+  TWaitress = class
+  private
+    FPancakeHouseMenu: TPancakeHouseMenu;
+    FDinerMenu: TDinerMenu;
+  public
+  end;
+
+implementation
+
+end.

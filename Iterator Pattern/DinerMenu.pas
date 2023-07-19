@@ -3,10 +3,10 @@ unit DinerMenu;
 interface
 
 uses
-  MenuItem, System.Generics.Collections;
+  MenuItem, System.Generics.Collections, IteratorIntf, DinerIterator, MenuIntf;
 
 type
-  TDinerMenu = class
+  TDinerMenu = class(TInterfacedObject, IMenu)
   private
     var FMaxItems: Integer;
     FNumberOfItems: Integer;
@@ -15,7 +15,7 @@ type
     constructor Create;
     procedure AddItem(Name, Description: String; Vegetarian: Boolean;
       Price: Double);
-    function GetMenuItems: TArray<TMenuItem>;
+    function CreateIterator: IIterator;
   end;
 
 implementation
@@ -40,15 +40,23 @@ begin
   FMaxItems := 6;
   FNumberOfItems := 0;
   SetLength(FMenuItems, FMaxItems);
-  AddItem('K&B’s Pancake Breakfast','Pancakes with scrambled eggs, and toast', True, 2.99);
-  AddItem('Regular Pancake Breakfast','Pancakes with fried eggs, sausage', False, 2.99);
-  AddItem('Blueberry Pancakes','Pancakes made with fresh blueberries', True, 2.99);
-  AddItem('“Waffles','Waffles, with your choice of blueberries or strawberries', True, 2.99);
+  AddItem('Vegetarian BLT',
+    '(Fakin'') Bacon with lettuce & tomato on whole wheat', True, 2.99);
+  AddItem('BLT',
+    'Bacon with lettuce & tomato on whole wheat', False, 2.99);
+  AddItem('Soup of the day',
+    'Soup of the day, with a side of potato salad', False, 3.29);
+  AddItem('Hotdog',
+    'A hot dog, with saurkraut, relish, onions, topped with cheese', False, 3.05);
+  AddItem('Steamed Veggies and Brown Rice',
+    'Steamed vegetables over brown rice', True, 3.99);
+   AddItem('Pasta',
+    'Spaghetti with Marinara Sauce, and a slice of sourdough bread', True, 3.89);
 end;
 
-function TDinerMenu.GetMenuItems: TArray<TMenuItem>;
+function TDinerMenu.CreateIterator: IIterator;
 begin
-  Result := FMenuItems;
+  Result := TDinerMenuIterator.Create(FMenuItems);
 end;
 
 end.

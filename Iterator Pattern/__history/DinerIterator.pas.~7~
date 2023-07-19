@@ -1,0 +1,58 @@
+unit DinerIterator;
+
+interface
+
+uses
+  IteratorIntf, System.SysUtils, MenuItem;
+
+type
+  TDinerMenuIterator = class(TInterfacedObject, IIterator)
+  private
+    FItems: TArray<TMenuItem>;
+    FPosition: Integer;
+  public
+    constructor Create(AItems: TArray<TMenuItem>);
+    function HasNext: Boolean;
+    function Next: TObject;
+    procedure Remove;
+  end;
+
+implementation
+
+{ TDinerMenuIterator }
+
+constructor TDinerMenuIterator.Create(AItems: TArray<TMenuItem>);
+begin
+  FPosition := 0;
+  FItems := AItems;
+end;
+
+function TDinerMenuIterator.HasNext: Boolean;
+begin
+  if (FPosition >= Length(FItems)) or (FItems[FPosition] = nil) then
+    Result := False
+  else
+    Result := True;
+end;
+
+function TDinerMenuIterator.Next: TObject;
+begin
+  var MenuItem: TMenuItem := FItems[FPosition];
+  FPosition := FPosition + 1;
+  Result := MenuItem;
+end;
+
+procedure TDinerMenuIterator.Remove;
+begin
+  if FPosition <= 0 then
+    raise Exception.Create('You can’t remove an item until you’ve done at least one next()');
+  if (FItems[FPosition - 1] <> nil) then
+  begin
+    for var Index := FPosition - 1 to Length(FItems) - 1 do
+       FItems[FPosition] :=  FItems[FPosition + 1];
+    FItems[Length(FItems) - 1] := nil;
+  end;
+
+end;
+
+end.

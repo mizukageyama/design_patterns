@@ -23,12 +23,15 @@ implementation
 constructor TDinerMenuIterator.Create(AItems: TArray<TMenuItem>);
 begin
   FPosition := 0;
+  FItems := AItems;
 end;
 
 function TDinerMenuIterator.HasNext: Boolean;
 begin
-  if FPosition >= Length(FItems) then
-
+  if (FPosition >= Length(FItems)) or (FItems[FPosition] = nil) then
+    Result := False
+  else
+    Result := True;
 end;
 
 function TDinerMenuIterator.Next: TObject;

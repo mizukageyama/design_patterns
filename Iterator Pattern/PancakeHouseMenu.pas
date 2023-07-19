@@ -3,17 +3,18 @@ unit PancakeHouseMenu;
 interface
 
 uses
-  MenuItem, System.Generics.Collections;
+  MenuItem, System.Generics.Collections, IteratorIntf, PancakeHouseMenuIterator,
+  MenuIntf;
 
 type
-  TPancakeHouseMenu = class
+  TPancakeHouseMenu = class(TInterfacedObject, IMenu)
   private
     FMenuItems: TList<TMenuItem>;
   public
     constructor Create;
     procedure AddItem(Name, Description: String; Vegetarian: Boolean;
       Price: Double);
-    function GetMenuItems: TList<TMenuItem>;
+    function CreateIterator: IIterator;
   end;
 
 implementation
@@ -30,15 +31,19 @@ end;
 constructor TPancakeHouseMenu.Create;
 begin
   FMenuItems := TList<TMenuItem>.Create;
-  AddItem('K&B’s Pancake Breakfast','Pancakes with scrambled eggs, and toast', True, 2.99);
-  AddItem('Regular Pancake Breakfast','Pancakes with fried eggs, sausage', False, 2.99);
-  AddItem('Blueberry Pancakes','Pancakes made with fresh blueberries', True, 2.99);
-  AddItem('“Waffles','Waffles, with your choice of blueberries or strawberries', True, 2.99);
+  AddItem('K&B’s Pancake Breakfast',
+    'Pancakes with scrambled eggs, and toast', True, 2.99);
+  AddItem('Regular Pancake Breakfast',
+    'Pancakes with fried eggs, sausage', False, 2.99);
+  AddItem('Blueberry Pancakes',
+    'Pancakes made with fresh blueberries', True, 3.49);
+  AddItem('Waffles',
+    'Waffles, with your choice of blueberries or strawberries', True, 3.59);
 end;
 
-function TPancakeHouseMenu.GetMenuItems: TList<TMenuItem>;
+function TPancakeHouseMenu.CreateIterator: IIterator;
 begin
-  Result := FMenuItems;
+  Result := TPancakeHouseMenuIterator.Create(FMenuItems);
 end;
 
 end.

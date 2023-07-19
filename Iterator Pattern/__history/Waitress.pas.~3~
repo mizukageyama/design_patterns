@@ -1,0 +1,20 @@
+unit Waitress;
+
+interface
+
+uses DinerMenu, PancakeHouseMenu, IteratorIntf;
+
+type
+  TWaitress = class
+  private
+    FPancakeHouseMenu: TPancakeHouseMenu;
+    FDinerMenu: TDinerMenu;
+  public
+    constructor Create(APancakeHouseMenu: TPancakeHouseMenu; ADinerMenu: TDinerMenu);
+    procedure PrintMenu; overload;
+    procedure PrintMenu(Iterator: IIterator); overload;
+  end;
+
+implementation
+
+end.

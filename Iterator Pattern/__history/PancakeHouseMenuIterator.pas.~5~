@@ -1,0 +1,50 @@
+unit PancakeHouseMenuIterator;
+
+interface
+
+uses
+  IteratorIntf, System.Generics.Collections, MenuItem;
+
+type
+  TPancakeHouseMenuIterator = class(TInterfacedObject, IMenu)
+  private
+    FItems: TList<TMenuItem>;
+    FPosition: Integer;
+  public
+    constructor Create(AItems: TList<TMenuItem>);
+    function HasNext: Boolean;
+    function Next: TObject;
+    procedure Remove;
+  end;
+
+implementation
+
+{ TPancakeHouseMenuIterator }
+
+constructor TPancakeHouseMenuIterator.Create(AItems: TList<TMenuItem>);
+begin
+  FPosition := 0;
+  FItems := AItems;
+end;
+
+function TPancakeHouseMenuIterator.HasNext: Boolean;
+begin
+  if FPosition >= FItems.Count then
+    Result := False
+  else
+    Result := True;
+end;
+
+function TPancakeHouseMenuIterator.Next: TObject;
+begin
+  var Item: TObject := FItems.Items[FPosition];
+  FPosition := FPosition + 1;
+  Result := Item;
+end;
+
+procedure TPancakeHouseMenuIterator.Remove;
+begin
+  //Do nothing
+end;
+
+end.
