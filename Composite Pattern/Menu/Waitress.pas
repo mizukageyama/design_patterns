@@ -32,7 +32,7 @@ end;
 
 procedure TWaitress.PrintVegetarianMenu;
 begin
-  var Iterator := FAllMenus.CreateIterator;
+  var Iterator: IIterator := FAllMenus.CreateIterator;
   WriteLn(sLineBreak + 'VEGETARIAN MENU' + sLineBreak);
   while Iterator.HasNext do
   begin
@@ -41,7 +41,7 @@ begin
       if MenuComponent.IsVegetarian then
         MenuComponent.Print;
     except
-      raise ENotSupportedException.Create('This operation is not supported.');
+      //ShowMessage('This operation is not supported.');
     end;
   end;
 end;

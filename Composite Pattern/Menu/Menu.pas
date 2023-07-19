@@ -4,7 +4,7 @@ interface
 
 uses
   IteratorIntf, MenuComponent, System.Generics.Collections,
-  MenuComponentIterator;
+  MenuComponentIterator, CompositeIterator;
 
 type
   TMenu = class(TMenuComponent)
@@ -12,7 +12,6 @@ type
     FMenuComponents: TList<TMenuComponent>;
     FName: string;
     FDescription: string;
-    FIterator: IIterator;
   public
     constructor Create(AName, ADescription: string);
     procedure Add(MenuComponent: TMenuComponent); override;
@@ -38,14 +37,13 @@ begin
   FName := AName;
   FDescription := ADescription;
   FMenuComponents := TList<TMenuComponent>.Create;
-  FIterator := nil;
 end;
 
 function TMenu.CreateIterator: IIterator;
 begin
-  if FIterator = nil then
-    FIterator := TMenuComponentIterator.Create(FMenuComponents);
-  Result := FIterator;
+  var ComponentIterator := TMenuComponentIterator.Create(FMenuComponents);
+  var CompositeIterator := TCompositeIterator.Create(ComponentIterator);
+  Result := CompositeIterator;
 end;
 
 function TMenu.GetChild(I: Integer): TMenuComponent;

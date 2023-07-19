@@ -96,8 +96,8 @@ begin
 			True, 4.29));
 
     var Waitress := TWaitress.Create(AllMenus);
-    Waitress.PrintMenu;
-    //Waitress.PrintVegetarianMenu; //To Fix
+    //Waitress.PrintMenu;
+    Waitress.PrintVegetarianMenu; //To Fix
 
     ReadLn;
   except
