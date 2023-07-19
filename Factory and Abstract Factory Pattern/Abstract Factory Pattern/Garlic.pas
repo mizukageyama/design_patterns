@@ -7,14 +7,14 @@ uses
 
 type
   TGarlic = class(TInterfacedObject, IVeggies)
-    function ToString: String; override;
+    function ToString: string; override;
   end;
 
 implementation
 
 { TGarlic }
 
-function TGarlic.ToString: String;
+function TGarlic.ToString: string;
 begin
   Result :=  'Garlic';
 end;

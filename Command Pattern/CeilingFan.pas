@@ -5,7 +5,7 @@ interface
 type
   TCeilingFan = class
   private
-    FLocation: String;
+    FLocation: string;
     FLevel: Integer;
   public
     const
@@ -13,7 +13,7 @@ type
      FMEDIUM  = 2;
      FLOW = 1;
      FOFF = 0;
-    constructor Create(ALocation: String);
+    constructor Create(ALocation: string);
     procedure High;
     procedure Medium;
     procedure Low;
@@ -25,7 +25,7 @@ implementation
 
 { TCeilingFan }
 
-constructor TCeilingFan.Create(ALocation: String);
+constructor TCeilingFan.Create(ALocation: string);
 begin
   FLocation := ALocation;
 end;

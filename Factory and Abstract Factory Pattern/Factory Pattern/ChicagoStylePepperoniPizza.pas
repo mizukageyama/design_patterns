@@ -20,7 +20,7 @@ begin
   FDough := 'Extra Thick Crust Dough';
   FSauce := 'Plum Tomato Sauce';
 
-  FToppings := TList<String>.Create;
+  FToppings := TList<string>.Create;
   FToppings.Add('Shredded Mozzarella Cheese');
   FToppings.Add('Black Olives');
   FToppings.Add('Spinach');

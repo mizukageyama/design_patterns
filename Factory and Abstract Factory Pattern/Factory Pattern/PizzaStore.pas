@@ -7,15 +7,15 @@ uses
 type
   TPizzaStore = class abstract
   protected
-    function CreatePizza(PizzaType: String): TPizza; virtual; abstract;
+    function CreatePizza(PizzaType: string): TPizza; virtual; abstract;
   public
-    function OrderPizza(PizzaType: String): TPizza;
+    function OrderPizza(PizzaType: string): TPizza;
   end;
  implementation
 
 { TPizzaStore }
 
-function TPizzaStore.OrderPizza(PizzaType: String): TPizza;
+function TPizzaStore.OrderPizza(PizzaType: string): TPizza;
 begin
   var Pizza: TPizza;
   Pizza := CreatePizza(PizzaType);

@@ -9,14 +9,14 @@ uses
 type
   TNYPizzaStore = class(TPizzaStore)
   public
-    function CreatePizza(PizzaType: String): TPizza; override;
+    function CreatePizza(PizzaType: string): TPizza; override;
   end;
 
 implementation
 
 { TNYPizzaStore }
 
-function TNYPizzaStore.CreatePizza(PizzaType: String): TPizza;
+function TNYPizzaStore.CreatePizza(PizzaType: string): TPizza;
 begin
   if PizzaType = 'cheese' then
     Result := TNYStyleCheesePizza.Create

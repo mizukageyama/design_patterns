@@ -7,14 +7,14 @@ uses
 
 type
   TFreshClams = class(TInterfacedObject, IClams)
-    function ToString: String; override;
+    function ToString: string; override;
   end;
 
 implementation
 
 { TFreshClams }
 
-function TFreshClams.ToString: String;
+function TFreshClams.ToString: string;
 begin
   Result :=  'Fresh Clams';
 end;

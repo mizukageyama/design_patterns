@@ -1,0 +1,15 @@
+unit MenuIntf;
+
+interface
+
+uses
+  IteratorIntf;
+
+type
+  Menu = interface
+    function CreateIterator: IIterator;
+  end;
+
+implementation
+
+end.

@@ -1,0 +1,50 @@
+unit MenuItem;
+
+interface
+
+type
+  TMenuItem = class
+  private
+    FName: String;
+    FDescription: String;
+    FVegetarian: Boolean;
+    FPrice: Double;
+  public
+    constructor Create(AName, ADescription: String; AVegetarian: Boolean;
+      APrice: Double);
+    function GetName: String;
+    function GetDescription: String;
+    function GetPrice: Double;
+    function IsVegetarian: Boolean;
+  end;
+
+implementation
+
+{ TMenuItem }
+
+constructor TMenuItem.Create;
+begin
+
+end;
+
+function TMenuItem.GetDescription: String;
+begin
+  Result := FDescription;
+end;
+
+function TMenuItem.GetName: String;
+begin
+  Result := FName;
+end;
+
+function TMenuItem.GetPrice: Double;
+begin
+  Result := FPrice;
+end;
+
+function TMenuItem.IsVegetarian: Boolean;
+begin
+  Result := FVegetarian;
+end;
+
+end.

@@ -5,20 +5,20 @@ interface
 type
   TPopcornPopper = class
   private
-    FDescription: String;
+    FDescription: string;
   public
-    constructor Create(ADescription: String);
+    constructor Create(ADescription: string);
     procedure OnPopcornPopper;
     procedure OffPopcornPopper;
     procedure Pop;
-    function ToString: String; override;
+    function ToString: string; override;
   end;
 
 implementation
 
 { TPopcornPopper }
 
-constructor TPopcornPopper.Create(ADescription: String);
+constructor TPopcornPopper.Create(ADescription: string);
 begin
   FDescription := ADescription;
 end;
@@ -38,7 +38,7 @@ begin
   WriteLn(FDescription + ' popping popcorn!');
 end;
 
-function TPopcornPopper.ToString: String;
+function TPopcornPopper.ToString: string;
 begin
   Result := FDescription;
 end;

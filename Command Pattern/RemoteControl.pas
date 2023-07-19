@@ -17,7 +17,7 @@ type
     procedure OnButtonWasPushed(Slot: Integer);
     procedure OffButtonWasPushed(Slot: Integer);
     procedure UndoButtonWasPushed;
-    function ToString: String; override;
+    function ToString: string; override;
   end;
 
 implementation
@@ -64,7 +64,7 @@ begin
   FOffCommands[Slot] := OffCommand;
 end;
 
-function TRemoteControl.ToString: String;
+function TRemoteControl.ToString: string;
 begin
   var StringBuilder := TStringBuilder.Create;
 

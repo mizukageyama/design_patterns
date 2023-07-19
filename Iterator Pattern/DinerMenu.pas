@@ -12,20 +12,20 @@ type
     var FMaxItems: Integer;
     FNumberOfItems: Integer;
     FMenuItems: TArray<TMenuItem>;
-    FName: String;
+    FName: string;
   public
-    constructor Create(AName: String);
-    procedure AddItem(Name, Description: String; Vegetarian: Boolean;
+    constructor Create(AName: string);
+    procedure AddItem(Name, Description: string; Vegetarian: Boolean;
       Price: Double);
     function CreateIterator: IIterator;
-    function GetMenuName: String;
+    function GetMenuName: string;
   end;
 
 implementation
 
 { TDinerMenu }
 
-procedure TDinerMenu.AddItem(Name, Description: String;
+procedure TDinerMenu.AddItem(Name, Description: string;
   Vegetarian: Boolean; Price: Double);
 begin
   var MenuItem := TMenuItem.Create(Name, Description, Vegetarian, Price);
@@ -38,7 +38,7 @@ begin
   end;
 end;
 
-constructor TDinerMenu.Create(AName: String);
+constructor TDinerMenu.Create(AName: string);
 begin
   FName := AName;
   FMaxItems := 6;
@@ -65,7 +65,7 @@ begin
   Result := TDinerMenuIterator.Create(FMenuItems);
 end;
 
-function TDinerMenu.GetMenuName: String;
+function TDinerMenu.GetMenuName: string;
 begin
   Result := FName;
 end;

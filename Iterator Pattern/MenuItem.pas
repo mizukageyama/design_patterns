@@ -5,15 +5,15 @@ interface
 type
   TMenuItem = class
   private
-    FName: String;
-    FDescription: String;
+    FName: string;
+    FDescription: string;
     FVegetarian: Boolean;
     FPrice: Double;
   public
-    constructor Create(AName, ADescription: String; AVegetarian: Boolean;
+    constructor Create(AName, ADescription: string; AVegetarian: Boolean;
       APrice: Double);
-    function GetName: String;
-    function GetDescription: String;
+    function GetName: string;
+    function GetDescription: string;
     function GetPrice: Double;
     function IsVegetarian: Boolean;
   end;
@@ -22,7 +22,7 @@ implementation
 
 { TMenuItem }
 
-constructor TMenuItem.Create(AName, ADescription: String; AVegetarian: Boolean;
+constructor TMenuItem.Create(AName, ADescription: string; AVegetarian: Boolean;
   APrice: Double);
 begin
   FName := AName;
@@ -31,12 +31,12 @@ begin
   FPrice := APrice;
 end;
 
-function TMenuItem.GetDescription: String;
+function TMenuItem.GetDescription: string;
 begin
   Result := FDescription;
 end;
 
-function TMenuItem.GetName: String;
+function TMenuItem.GetName: string;
 begin
   Result := FName;
 end;

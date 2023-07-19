@@ -7,14 +7,14 @@ uses
 
 type
   TRedPepper = class(TInterfacedObject, IVeggies)
-    function ToString: String; override;
+    function ToString: string; override;
   end;
 
 implementation
 
 { TRedPepper }
 
-function TRedPepper.ToString: String;
+function TRedPepper.ToString: string;
 begin
   Result :=  'Red Pepper';
 end;

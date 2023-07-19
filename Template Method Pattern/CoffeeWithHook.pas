@@ -11,7 +11,7 @@ type
     procedure Brew; override;
     procedure AddCondiments; override;
     function CustomerWantsCondiments: Boolean;  override;
-    function GetUserInput: String;
+    function GetUserInput: string;
   end;
 
 implementation
@@ -30,7 +30,7 @@ end;
 
 function TCoffeeWithHook.CustomerWantsCondiments: Boolean;
 var
-  UserInput: String;
+  UserInput: string;
 begin
   UserInput := GetUserInput;
 
@@ -40,9 +40,9 @@ begin
     Result := False;
 end;
 
-function TCoffeeWithHook.GetUserInput: String;
+function TCoffeeWithHook.GetUserInput: string;
 var
-  UserInput: String;
+  UserInput: string;
 begin
   Write('Would you like milk and sugar with your coffee (y/n)? ');
   try

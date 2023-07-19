@@ -4,7 +4,7 @@ interface
 
 type
   IPepperoni = interface
-    function ToString: String;
+    function ToString: string;
   end;
 
 implementation

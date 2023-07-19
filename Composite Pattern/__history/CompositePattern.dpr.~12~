@@ -1,0 +1,45 @@
+program CompositePattern;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils,
+  System.Generics.Collections,
+  IteratorIntf in 'Menu\IteratorIntf.pas',
+  MenuItem in 'Menu\MenuItem.pas',
+  Waitress in 'Menu\Waitress.pas',
+  Menu in 'Menu\Menu.pas',
+  MenuComponentIterator in 'Menu\MenuComponentIterator.pas',
+  MenuComponent in 'Menu\MenuComponent.pas';
+
+begin
+  try
+    var PancakeHouseMenu: TMenuComponent := TMenu.Create('PANCAKE HOUSE MENU', 'Breakfast');
+    var DinerMenu: TMenuComponent  := TMenu.Create('DINER MENU', 'Lunch');
+    var CafeMenu: TMenuComponent  := TMenu.Create('CAFE MENU', 'Dinner');
+    var DessertMenu: TMenuComponent  := TMenu.Create('DESSERT MENU', '“Dessert of course!');
+
+    var AllMenus: TMenuComponent := TMenu.Create('ALL MENUS', 'All menus combined');
+
+    AllMenus.Add(PancakeHouseMenu);
+    AllMenus.Add(DinerMenu);
+    AllMenus.Add(CafeMenu);
+
+    //add menu items here
+    DinerMenu.Add(TMenuItem.Create('Pasta',
+      'Spaghetti with Marinara Sauce, and a slice of sourdough bread',
+      True, 3.89));
+
+    DinerMenu.Add(DessertMenu);
+
+    var Waitress := TWaitress.Create(AllMenus);
+    Waitress.PrintMenu;
+
+    ReadLn;
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+end.

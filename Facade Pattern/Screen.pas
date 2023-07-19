@@ -5,19 +5,19 @@ interface
 type
   TScreen = class
   private
-    FDescription: String;
+    FDescription: string;
   public
-    constructor Create(ADescription: String);
+    constructor Create(ADescription: string);
     procedure UpScreen;
     procedure DownScreen;
-    function ToString: String; override;
+    function ToString: string; override;
   end;
 
 implementation
 
 { TScreen }
 
-constructor TScreen.Create(ADescription: String);
+constructor TScreen.Create(ADescription: string);
 begin
   FDescription := ADescription;
 end;
@@ -27,7 +27,7 @@ begin
   WriteLn(FDescription + ' going down');
 end;
 
-function TScreen.ToString: String;
+function TScreen.ToString: string;
 begin
   Result := FDescription;
 end;

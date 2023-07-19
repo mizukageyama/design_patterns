@@ -8,7 +8,7 @@ uses
 type
   TStereo = class
   private
-    FLocation: String;
+    FLocation: string;
   public
     procedure OnStereo;
     procedure OffStereo;
@@ -16,14 +16,14 @@ type
     procedure SetDVD;
     procedure SetRadio;
     procedure SetVolume(Volume: Integer);
-    constructor Create(ALocation: String);
+    constructor Create(ALocation: string);
   end;
 implementation
 
 
 { TStereo }
 
-constructor TStereo.Create(ALocation: String);
+constructor TStereo.Create(ALocation: string);
 begin
   FLocation := ALocation;
 end;

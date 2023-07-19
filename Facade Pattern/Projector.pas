@@ -8,22 +8,22 @@ uses AmpCDTunerDVD;
 type
   TProjector = class
   private
-    FDescription: String;
+    FDescription: string;
     FDVDPlayer: TDVDPlayer;
   public
-    constructor Create(ADescription: String; ADVDPlayer: TDVDPlayer);
+    constructor Create(ADescription: string; ADVDPlayer: TDVDPlayer);
     procedure OnProjector;
     procedure OffProjector;
     procedure WideScreenMode;
     procedure TVMode;
-    function ToString: String; override;
+    function ToString: string; override;
   end;
 
 implementation
 
 { TProjector }
 
-constructor TProjector.Create(ADescription: String; ADVDPlayer: TDVDPlayer);
+constructor TProjector.Create(ADescription: string; ADVDPlayer: TDVDPlayer);
 begin
   FDescription := ADescription;
   FDVDPlayer := ADVDPlayer;
@@ -39,7 +39,7 @@ begin
   WriteLn(FDescription + ' on');
 end;
 
-function TProjector.ToString: String;
+function TProjector.ToString: string;
 begin
   Result := FDescription;
 end;

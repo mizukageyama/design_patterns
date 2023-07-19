@@ -10,27 +10,27 @@ type
   TPancakeHouseMenu = class(TInterfacedObject, IMenu)
   private
     FMenuItems: TList<TMenuItem>;
-    FName: String;
+    FName: string;
   public
-    constructor Create(AName: String);
-    procedure AddItem(Name, Description: String; Vegetarian: Boolean;
+    constructor Create(AName: string);
+    procedure AddItem(Name, Description: string; Vegetarian: Boolean;
       Price: Double);
     function CreateIterator: IIterator;
-    function GetMenuName: String;
+    function GetMenuName: string;
   end;
 
 implementation
 
 { TPancakeHouseMenu }
 
-procedure TPancakeHouseMenu.AddItem(Name, Description: String;
+procedure TPancakeHouseMenu.AddItem(Name, Description: string;
   Vegetarian: Boolean; Price: Double);
 begin
   var MenuItem := TMenuItem.Create(Name, Description, Vegetarian, Price);
   FMenuItems.Add(MenuItem);
 end;
 
-constructor TPancakeHouseMenu.Create(AName: String);
+constructor TPancakeHouseMenu.Create(AName: string);
 begin
   FName := AName;
   FMenuItems := TList<TMenuItem>.Create;
@@ -49,7 +49,7 @@ begin
   Result := TPancakeHouseMenuIterator.Create(FMenuItems);
 end;
 
-function TPancakeHouseMenu.GetMenuName: String;
+function TPancakeHouseMenu.GetMenuName: string;
 begin
   Result := FName;
 end;

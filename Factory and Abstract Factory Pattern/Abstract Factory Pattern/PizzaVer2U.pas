@@ -9,7 +9,7 @@ uses
 type
   TPizzaVer2 = class abstract
   public
-    FName: String;
+    FName: string;
     FDough: IDough;
     FSauce: ISauce;
     FVeggies: TArray<IVeggies>;
@@ -20,9 +20,9 @@ type
     procedure Bake;
     procedure Cut;
     procedure Box;
-    procedure SetName(Name: String);
-    function GetName: String;
-    function ToString: String; override;
+    procedure SetName(Name: string);
+    function GetName: string;
+    function ToString: string; override;
   end;
 
 implementation
@@ -44,17 +44,17 @@ begin
   WriteLn('Cutting the pizza into diagonal slices');
 end;
 
-function TPizzaVer2.GetName: String;
+function TPizzaVer2.GetName: string;
 begin
   Result := FName;
 end;
 
-procedure TPizzaVer2.SetName(Name: String);
+procedure TPizzaVer2.SetName(Name: string);
 begin
   FName := Name;
 end;
 
-function TPizzaVer2.ToString: String;
+function TPizzaVer2.ToString: string;
 begin
 		var Str: TStringBuilder := TStringBuilder.Create;
 		Str.Append('---- ' + FName + ' ----' + #13#10);

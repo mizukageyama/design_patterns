@@ -1,0 +1,32 @@
+unit Waitress;
+
+interface
+
+uses
+  DinerMenu, PancakeHouseMenu, IteratorIntf, MenuItem, System.SysUtils,
+  MenuIntf, System.Generics.Collections, MenuIterator, MenuComponent;
+
+type
+  TWaitress = class
+  private
+    FAllMenus: TList<TMenuComponent>;
+  public
+    constructor Create(AAllMenus: TList<TMenuComponent>);
+    procedure PrintMenu; overload;
+  end;
+
+implementation
+
+{ TWaitress }
+
+constructor TWaitress.Create(AAllMenus: TList<TMenuComponent>);
+begin
+  FAllMenus := AAllMenus;
+end;
+
+procedure TWaitress.PrintMenu;
+begin
+  FAllMenus.Print;
+end;
+
+end.

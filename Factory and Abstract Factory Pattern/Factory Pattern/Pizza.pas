@@ -7,15 +7,15 @@ uses
 type
   TPizza = class abstract
   public
-    FName: String;
-    FDough: String;
-    FSauce: String;
-    FToppings: TList<String>;
+    FName: string;
+    FDough: string;
+    FSauce: string;
+    FToppings: TList<string>;
     procedure Prepare; virtual;
     procedure Bake; virtual;
     procedure Cut; virtual;
     procedure Box; virtual;
-    function GetName: String;
+    function GetName: string;
   end;
 
 implementation
@@ -36,14 +36,14 @@ begin
   WriteLn('Cutting the pizza into diagonal slices');
 end;
 
-function TPizza.GetName: String;
+function TPizza.GetName: string;
 begin
   Result := FName;
 end;
 
 procedure TPizza.Prepare;
 var
-  Topping: String;
+  Topping: string;
 begin
   WriteLn('Preparing ' + FName);
   WriteLn('Tossing dough...');

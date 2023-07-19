@@ -5,20 +5,20 @@ interface
 type
   TGarageDoor = class
   private
-    FLocation: String;
+    FLocation: string;
   public
     procedure Up;
     procedure Down;
     procedure Stop;
     procedure LightOn;
     procedure LightOff;
-    constructor Create(ALocation: String);
+    constructor Create(ALocation: string);
   end;
 implementation
 
 { TGarageDoor }
 
-constructor TGarageDoor.Create(ALocation: String);
+constructor TGarageDoor.Create(ALocation: string);
 begin
   FLocation := ALocation;
 end;

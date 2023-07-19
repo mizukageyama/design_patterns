@@ -20,14 +20,14 @@ type
 
   TPizzaStoreV2 = class abstract
   protected
-    function CreatePizza(PizzaType: String): TPizzaVer2; virtual; abstract;
+    function CreatePizza(PizzaType: string): TPizzaVer2; virtual; abstract;
   public
-    function OrderPizza(PizzaType: String): TPizzaVer2;
+    function OrderPizza(PizzaType: string): TPizzaVer2;
   end;
 
   TNYPizzaStoreVer2 = class(TPizzaStoreV2)
   protected
-    function CreatePizza(PizzaType: String): TPizzaVer2; override;
+    function CreatePizza(PizzaType: string): TPizzaVer2; override;
   end;
 
 implementation
@@ -50,7 +50,7 @@ end;
 
 { TNYPizzaStoreVer2 }
 
-function TNYPizzaStoreVer2.CreatePizza(PizzaType: String): TPizzaVer2;
+function TNYPizzaStoreVer2.CreatePizza(PizzaType: string): TPizzaVer2;
 begin
   var Pizza: TPizzaVer2 := nil;
   var PizzaIngredientFactory := TNYPizzaIngredientFactory.Create;
@@ -81,7 +81,7 @@ end;
 
 { TPizzaStoreV2 }
 
-function TPizzaStoreV2.OrderPizza(PizzaType: String): TPizzaVer2;
+function TPizzaStoreV2.OrderPizza(PizzaType: string): TPizzaVer2;
 begin
   var Pizza: TPizzaVer2;
   Pizza := CreatePizza(PizzaType);

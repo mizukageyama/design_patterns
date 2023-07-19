@@ -1,0 +1,39 @@
+unit PancakeHouseMenuIterator;
+
+interface
+
+uses
+  IteratorIntf, System.Generics.Collections, MenuItem;
+
+type
+  TPancakeHouseMenuIterator = class(TInterfacedObject, IIterator)
+  private
+    FItems: TList<TMenuItem>;
+    FPosition: Integer;
+  public
+    constructor Create(AItems: TList<TMenuItem>);
+    function HasNext: Boolean;
+    function Next: TObject;
+  end;
+
+implementation
+
+{ TPancakeHouseMenuIterator }
+
+constructor TPancakeHouseMenuIterator.Create(AItems: TList<TMenuItem>);
+begin
+  FPosition := 0;
+  FItems := AItems;
+end;
+
+function TPancakeHouseMenuIterator.HasNext: Boolean;
+begin
+
+end;
+
+function TPancakeHouseMenuIterator.Next: TObject;
+begin
+
+end;
+
+end.

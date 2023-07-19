@@ -7,14 +7,14 @@ uses
 
 type
   TMarinaraSauce = class(TInterfacedObject, ISauce)
-    function ToString: String; override;
+    function ToString: string; override;
   end;
 
 implementation
 
 { TMarinaraSauce }
 
-function TMarinaraSauce.ToString: String;
+function TMarinaraSauce.ToString: string;
 begin
   Result :=  'Marinara Sauce';
 end;

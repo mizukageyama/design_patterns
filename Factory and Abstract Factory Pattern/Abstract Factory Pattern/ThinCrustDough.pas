@@ -7,14 +7,14 @@ uses
 
 type
   TThinCrustDough = class(TInterfacedObject, IDough)
-    function ToString: String; override;
+    function ToString: string; override;
   end;
 
 implementation
 
 { TThinCrustDough }
 
-function TThinCrustDough.ToString: String;
+function TThinCrustDough.ToString: string;
 begin
   Result :=  'Thin Crust Dough';
 end;

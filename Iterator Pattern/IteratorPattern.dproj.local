@@ -1,30 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>2023/07/18 16:09:44.000.329,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\IteratorPattern.dproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2023/07/18 16:09:44.000.329,C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\IteratorPattern.dproj</Transaction>
     <Transaction>2023/07/18 16:10:03.000.256,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
-    <Transaction>2023/07/18 16:11:34.000.287,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\IteratorIntf.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 16:11:34.000.287,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\IteratorIntf.pas</Transaction>
     <Transaction>2023/07/18 16:11:38.000.983,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
-    <Transaction>2023/07/18 16:11:56.000.882,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\DinerIterator.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 16:11:56.000.882,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\DinerIterator.pas</Transaction>
     <Transaction>2023/07/18 16:23:26.000.949,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
-    <Transaction>2023/07/18 16:25:29.000.090,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\MenuItem.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 16:25:29.000.090,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\MenuItem.pas</Transaction>
     <Transaction>2023/07/18 16:43:46.000.988,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
-    <Transaction>2023/07/18 16:43:56.000.685,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\PancakeHouseMenu.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 16:43:56.000.685,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\PancakeHouseMenu.pas</Transaction>
     <Transaction>2023/07/18 16:55:32.000.735,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
-    <Transaction>2023/07/18 16:55:40.000.010,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\DinerMenu.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/18 16:55:40.000.010,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\DinerMenu.pas</Transaction>
     <Transaction>2023/07/19 08:00:52.000.142,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
-    <Transaction>2023/07/19 08:01:06.000.184,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\PancakeHouseMenuIterator.pas</Transaction>
+    <Transaction>2023/07/19 08:01:06.000.184,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\PancakeHouseMenuIterator.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
     <Transaction>2023/07/19 08:08:03.000.826,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
-    <Transaction>2023/07/19 08:08:18.000.943,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Waitress.pas</Transaction>
-    <Transaction>2023/07/19 09:25:35.517,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
-    <Transaction>2023/07/19 09:25:42.875,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\MenuIntf.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
-    <Transaction>2023/07/19 10:15:33.134,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
-    <Transaction>2023/07/19 10:15:38.576,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\CafeMenu.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
-    <Transaction>2023/07/19 10:30:39.227,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
-    <Transaction>2023/07/19 10:30:45.994,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\CafeMenuIterator.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
-    <Transaction>2023/07/19 10:49:00.821,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
-    <Transaction>2023/07/19 10:49:08.041,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\MenuIterator.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
-  </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
+    <Transaction>2023/07/19 08:08:18.000.943,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Waitress.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/19 09:25:35.000.517,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/19 09:25:42.000.875,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\MenuIntf.pas</Transaction>
+    <Transaction>2023/07/19 10:15:33.000.134,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/19 10:15:38.000.576,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\CafeMenu.pas</Transaction>
+    <Transaction>2023/07/19 10:30:39.000.227,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/19 10:30:45.000.994,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\CafeMenuIterator.pas</Transaction>
+    <Transaction>2023/07/19 10:49:00.000.821,=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/19 10:49:08.000.041,C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Iterator Pattern\MenuIterator.pas</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="DinerIterator.pas"/>
     <File Path="DinerMenu.pas"/>
     <File Path="IteratorIntf.pas"/>

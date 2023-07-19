@@ -6,7 +6,7 @@ uses
   System.SysUtils;
 
 type
-  THotTub= class
+  THotTub = class
   private
     FOn: Boolean;
     FTemperature: Integer;

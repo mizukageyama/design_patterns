@@ -21,7 +21,7 @@ begin
   FDough := 'Thin Crust Dough';
   FSauce := 'Marinara Sauce';
 
-  FToppings := TList<String>.Create;
+  FToppings := TList<string>.Create;
   FToppings.Add('Grated Reggiano Cheese');
   FToppings.Add('Sliced Pepperoni');
   FToppings.Add('Garlic');

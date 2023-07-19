@@ -8,10 +8,10 @@ uses
 type
   TCafeMenuIterator = class(TInterfacedObject, IIterator)
   private
-    FItems: TDictionary<String, TMenuItem>;
+    FItems: TDictionary<string, TMenuItem>;
     FPosition: Integer;
   public
-    constructor Create(AItems: TDictionary<String, TMenuItem>);
+    constructor Create(AItems: TDictionary<string, TMenuItem>);
     function HasNext: Boolean;
     function Next: TObject;
   end;
@@ -20,7 +20,7 @@ implementation
 
 { TCafeMenuIterator }
 
-constructor TCafeMenuIterator.Create(AItems: TDictionary<String, TMenuItem>);
+constructor TCafeMenuIterator.Create(AItems: TDictionary<string, TMenuItem>);
 begin
   FPosition := 0;
   FItems := AItems;

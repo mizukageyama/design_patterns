@@ -5,17 +5,17 @@ interface
 type
   TLight = class
   private
-    FLocation: String;
+    FLocation: string;
   public
     procedure OnLight;
     procedure OffLight;
-    constructor Create(ALocation: String);
+    constructor Create(ALocation: string);
   end;
 implementation
 
 { TLight }
 
-constructor TLight.Create(ALocation: String);
+constructor TLight.Create(ALocation: string);
 begin
   FLocation := ALocation;
 end;

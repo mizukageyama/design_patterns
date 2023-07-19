@@ -12,12 +12,12 @@ type
 
   TAmplifier = class
   private
-    FDescription: String;
+    FDescription: string;
     FTuner: TTuner;
     FDVD: TDVDPlayer;
     FCDPlayer: TCDPlayer;
   public
-    constructor Create(ADescription: String);
+    constructor Create(ADescription: string);
     procedure OnAmplifier;
     procedure OffAmplifier;
     procedure SetStereoSound;
@@ -26,67 +26,67 @@ type
     procedure SetTuner(Tuner: TTuner);
     procedure SetDVD(DVD: TDVDPlayer);
     procedure SetCD(CD: TCDPlayer);
-    function ToString: String; override;
+    function ToString: string; override;
   end;
 
   TTuner = class
   private
-    FDescription: String;
+    FDescription: string;
     FAmplifier: TAmplifier;
     FFrequency: Double;
   public
-    constructor Create(ADescription: String; AAmplifier: TAmplifier);
+    constructor Create(ADescription: string; AAmplifier: TAmplifier);
     procedure OnTuner;
     procedure OffTuner;
     procedure SetFrequency(Frequency: Double);
     procedure SetAm;
     procedure SetFm;
-    function ToString: String; override;
+    function ToString: string; override;
   end;
 
   TCDPlayer = class
   private
-    FDescription: String;
+    FDescription: string;
     FCurrentTrack: Integer;
     FAmplifier: TAmplifier;
-    FTitle: String;
+    FTitle: string;
   public
-    constructor Create(ADescription: String; AAmplifier: TAmplifier);
+    constructor Create(ADescription: string; AAmplifier: TAmplifier);
     procedure OnCDPlayer;
     procedure OffCDPlayer;
     procedure Eject;
-    procedure Play(Title: String); overload;
+    procedure Play(Title: string); overload;
     procedure Play(Track: Integer); overload;
     procedure Stop;
     procedure Pause;
-    function ToString: String;
+    function ToString: string;
   end;
 
   TDVDPlayer = class
   private
-    FDescription: String;
+    FDescription: string;
     FCurrentTrack: Integer;
     FAmplifier: TAmplifier;
-    FMovie: String;
+    FMovie: string;
   public
-    constructor Create(ADescription: String; AAmplifier: TAmplifier);
+    constructor Create(ADescription: string; AAmplifier: TAmplifier);
     procedure OnDVDPlayer;
     procedure OffDVDPlayer;
     procedure Eject;
-    procedure Play(Movie: String); overload;
+    procedure Play(Movie: string); overload;
     procedure Play(Track: Integer); overload;
     procedure Stop;
     procedure Pause;
     procedure SetTwoChannelAudio;
     procedure SetSurroundAudio;
-    function ToString: String;
+    function ToString: string;
   end;
 
 implementation
 
 { TAmplifier }
 
-constructor TAmplifier.Create(ADescription: String);
+constructor TAmplifier.Create(ADescription: string);
 begin
   FDescription := ADescription;
 end;
@@ -131,14 +131,14 @@ begin
   WriteLn(FDescription + ' setting volume to ' + Level.ToString);
 end;
 
-function TAmplifier.ToString: String;
+function TAmplifier.ToString: string;
 begin
   Result := FDescription;
 end;
 
 { TTuner }
 
-constructor TTuner.Create(ADescription: String; AAmplifier: TAmplifier);
+constructor TTuner.Create(ADescription: string; AAmplifier: TAmplifier);
 begin
   FDescription := ADescription;
   FAmplifier := AAmplifier;
@@ -170,14 +170,14 @@ begin
   FFrequency := Frequency;
 end;
 
-function TTuner.ToString: String;
+function TTuner.ToString: string;
 begin
   Result := FDescription;
 end;
 
 { TCDPlayer }
 
-constructor TCDPlayer.Create(ADescription: String; AAmplifier: TAmplifier);
+constructor TCDPlayer.Create(ADescription: string; AAmplifier: TAmplifier);
 begin
   FDescription := ADescription;
   FAmplifier := AAmplifier;
@@ -204,7 +204,7 @@ begin
   WriteLn(FDescription + ' paused "' + FTitle + '"');
 end;
 
-procedure TCDPlayer.Play(Title: String);
+procedure TCDPlayer.Play(Title: string);
 begin
   FTitle := Title;
   FCurrentTrack := 0;
@@ -228,14 +228,14 @@ begin
   WriteLn(FDescription + ' stopped');
 end;
 
-function TCDPlayer.ToString: String;
+function TCDPlayer.ToString: string;
 begin
   Result := FDescription;
 end;
 
 { TDVDPlayer }
 
-constructor TDVDPlayer.Create(ADescription: String; AAmplifier: TAmplifier);
+constructor TDVDPlayer.Create(ADescription: string; AAmplifier: TAmplifier);
 begin
   FDescription := ADescription;
   FAmplifier := AAmplifier;
@@ -262,7 +262,7 @@ begin
   WriteLn(FDescription + ' paused "' + FMovie + '"');
 end;
 
-procedure TDVDPlayer.Play(Movie: String);
+procedure TDVDPlayer.Play(Movie: string);
 begin
   FMovie := Movie;
   FCurrentTrack := 0;
@@ -297,7 +297,7 @@ begin
   WriteLn(FDescription + ' stopped "' + FMovie + '"');
 end;
 
-function TDVDPlayer.ToString: String;
+function TDVDPlayer.ToString: string;
 begin
   Result := FDescription;
 end;

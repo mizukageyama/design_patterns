@@ -7,14 +7,14 @@ uses
 
 type
   TMushroom = class(TInterfacedObject, IVeggies)
-    function ToString: String; override;
+    function ToString: string; override;
   end;
 
 implementation
 
 { TMushroom }
 
-function TMushroom.ToString: String;
+function TMushroom.ToString: string;
 begin
   Result :=  'Mushroom';
 end;

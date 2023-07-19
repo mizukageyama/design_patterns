@@ -9,28 +9,28 @@ uses
 type
   TCafeMenu = class(TInterfacedObject, IMenu)
   private
-    FMenuItems: TDictionary<String, TMenuItem>;
-    FName: String;
+    FMenuItems: TDictionary<string, TMenuItem>;
+    FName: string;
   public
-    constructor Create(AName: String);
-    procedure AddItem(Name, Description: String; Vegetarian: Boolean;
+    constructor Create(AName: string);
+    procedure AddItem(Name, Description: string; Vegetarian: Boolean;
       Price: Double);
     function CreateIterator: IIterator;
-    function GetMenuName: String;
+    function GetMenuName: string;
   end;
 
 implementation
 
 { TCafeMenu }
 
-procedure TCafeMenu.AddItem(Name, Description: String; Vegetarian: Boolean;
+procedure TCafeMenu.AddItem(Name, Description: string; Vegetarian: Boolean;
   Price: Double);
 begin
   var MenuItem := TMenuItem.Create(Name, Description, Vegetarian, Price);
   FMenuItems.Add(MenuItem.GetName, MenuItem);
 end;
 
-constructor TCafeMenu.Create(AName: String);
+constructor TCafeMenu.Create(AName: string);
 begin
   FName := AName;
   FMenuItems:= TDictionary<string, TMenuItem>.Create;
@@ -49,7 +49,7 @@ begin
   Result := TCafeMenuIterator.Create(FMenuItems);
 end;
 
-function TCafeMenu.GetMenuName: String;
+function TCafeMenu.GetMenuName: string;
 begin
   Result := FName;
 end;

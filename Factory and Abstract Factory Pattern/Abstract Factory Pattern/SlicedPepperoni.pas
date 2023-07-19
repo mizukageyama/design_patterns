@@ -7,14 +7,14 @@ uses
 
 type
   TSlicedPepperoni = class(TInterfacedObject, IPepperoni)
-    function ToString: String; override;
+    function ToString: string; override;
   end;
 
 implementation
 
 { TSlicedPepperoni }
 
-function TSlicedPepperoni.ToString: String;
+function TSlicedPepperoni.ToString: string;
 begin
   Result :=  'Sliced Pepperoni';
 end;

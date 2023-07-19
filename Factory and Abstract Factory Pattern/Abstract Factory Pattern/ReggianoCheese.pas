@@ -7,14 +7,14 @@ uses
 
 type
   TReggianoCheese = class(TInterfacedObject, ICheese)
-    function ToString: String; override;
+    function ToString: string; override;
   end;
 
 implementation
 
 { TReggianoCheese }
 
-function TReggianoCheese.ToString: String;
+function TReggianoCheese.ToString: string;
 begin
   Result :=  'Reggiano Cheese';
 end;

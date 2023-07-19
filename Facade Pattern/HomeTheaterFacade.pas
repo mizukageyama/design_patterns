@@ -19,9 +19,9 @@ type
     constructor Create(AAmplifier: TAmplifier; ATuner: TTuner; ADVD: TDVDPlayer;
       ACD: TCDPlayer; AProjector: TProjector; AScreen: TScreen;
       ALights: TTheaterLights; APopper: TPopcornPopper);
-    procedure WatchMovie(Movie: String);
+    procedure WatchMovie(Movie: string);
     procedure EndMovie;
-    procedure ListenToCD(CDTitle: String);
+    procedure ListenToCD(CDTitle: string);
     procedure EndCD;
     procedure ListenToRadio(Frequency: Double);
     procedure EndRadio;
@@ -74,7 +74,7 @@ begin
   FAmp.OffAmplifier;
 end;
 
-procedure THomeTheaterFacade.ListenToCD(CDTitle: String);
+procedure THomeTheaterFacade.ListenToCD(CDTitle: string);
 begin
   WriteLn('Get ready for an audiopile experience...');
   FLights.OnTheaterLights;
@@ -96,7 +96,7 @@ begin
   FAmp.SetTuner(FTuner);
 end;
 
-procedure THomeTheaterFacade.WatchMovie(Movie: String);
+procedure THomeTheaterFacade.WatchMovie(Movie: string);
 begin
   WriteLn('Get ready to watch a movie...');
   FPopper.OnPopcornPopper;

@@ -7,14 +7,14 @@ uses
 
 type
   TOnion = class(TInterfacedObject, IVeggies)
-    function ToString: String; override;
+    function ToString: string; override;
   end;
 
 implementation
 
 { TOnion }
 
-function TOnion.ToString: String;
+function TOnion.ToString: string;
 begin
   Result :=  'Onion';
 end;

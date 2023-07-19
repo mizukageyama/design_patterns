@@ -4,19 +4,19 @@ interface
 type
   TTV = class
   private
-    FLocation: String;
+    FLocation: string;
     FChannel: Integer;
   public
     procedure OnTV;
     procedure OffTV;
     procedure SetInputChannel;
-    constructor Create(ALocation: String);
+    constructor Create(ALocation: string);
   end;
 implementation
 
 { TTV }
 
-constructor TTV.Create(ALocation: String);
+constructor TTV.Create(ALocation: string);
 begin
   FLocation := ALocation;
 end;

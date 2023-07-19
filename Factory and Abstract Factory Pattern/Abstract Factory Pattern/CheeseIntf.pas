@@ -7,7 +7,7 @@ uses
 
 type
   ICheese = interface
-    function ToString: String;
+    function ToString: string;
   end;
 
 implementation
