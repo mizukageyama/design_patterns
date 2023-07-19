@@ -1,0 +1,10 @@
+unit CompositeIterator;
+
+interface
+
+type
+
+
+implementation
+
+end.

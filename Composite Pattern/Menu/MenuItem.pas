@@ -3,7 +3,7 @@ unit MenuItem;
 interface
 
 uses
-  MenuComponent, System.SysUtils, IteratorIntf;
+  MenuComponent, System.SysUtils, IteratorIntf, NullIterator;
 
 type
   TMenuItem = class(TMenuComponent)
@@ -38,7 +38,7 @@ end;
 
 function TMenuItem.CreateIterator: IIterator;
 begin
-  Result := nil;
+  Result := TNullIterator.Create;
 end;
 
 function TMenuItem.GetDescription: string;

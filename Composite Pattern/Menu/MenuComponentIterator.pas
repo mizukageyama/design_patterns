@@ -15,6 +15,7 @@ type
     constructor Create(AItems: TList<TMenuComponent>);
     function HasNext: Boolean;
     function Next: TObject;
+    procedure Remove;
   end;
 
 implementation
@@ -40,6 +41,11 @@ begin
   var Item: TObject := FItems.Items[FPosition];
   FPosition := FPosition + 1;
   Result := Item;
+end;
+
+procedure TMenuComponentIterator.Remove;
+begin
+  raise ENotSupportedException.Create('This operation is not supported.');
 end;
 
 end.

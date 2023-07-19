@@ -3,43 +3,37 @@ unit NullIterator;
 interface
 
 uses
-  IteratorIntf, System.Generics.Collections, MenuItem, System.SysUtils,
+  IteratorIntf, System.Generics.Collections, System.SysUtils,
   MenuComponent;
 
 type
-  TMenuComponentIterator = class(TInterfacedObject, IIterator)
+  TNullIterator = class(TInterfacedObject, IIterator)
   private
     FItems: TList<TMenuComponent>;
     FPosition: Integer;
   public
-    constructor Create(AItems: TList<TMenuComponent>);
     function HasNext: Boolean;
     function Next: TObject;
+    procedure Remove;
   end;
 
 implementation
 
-{ TMenuComponentIterator }
+{ TNullIterator }
 
-constructor TMenuComponentIterator.Create(AItems: TList<TMenuComponent>);
+function TNullIterator.HasNext: Boolean;
 begin
-  FPosition := 0;
-  FItems := AItems;
+  Result := False
 end;
 
-function TMenuComponentIterator.HasNext: Boolean;
+function TNullIterator.Next: TObject;
 begin
-  if FPosition >= FItems.Count then
-    Result := False
-  else
-    Result := True;
+  Result := nil;
 end;
 
-function TMenuComponentIterator.Next: TObject;
+procedure TNullIterator.Remove;
 begin
-  var Item: TObject := FItems.Items[FPosition];
-  FPosition := FPosition + 1;
-  Result := Item;
+  raise ENotSupportedException.Create('This operation is not supported.');
 end;
 
 end.

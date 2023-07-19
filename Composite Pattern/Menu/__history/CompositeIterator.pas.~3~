@@ -1,0 +1,14 @@
+unit CompositeIterator;
+
+interface
+
+type
+  TCompositeIterator = class
+  private
+    FStack: TStack;
+  public
+  end;
+
+implementation
+
+end.

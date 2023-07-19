@@ -96,6 +96,7 @@
         <DCCReference Include="Menu\MenuComponentIterator.pas"/>
         <DCCReference Include="Menu\MenuComponent.pas"/>
         <DCCReference Include="Menu\NullIterator.pas"/>
+        <DCCReference Include="Menu\CompositeIterator.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

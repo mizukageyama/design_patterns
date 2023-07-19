@@ -1,0 +1,17 @@
+unit CompositeIterator;
+
+interface
+
+uses
+  System.SysUtils;
+
+type
+  TCompositeIterator = class
+  private
+    FStack: TStack;
+  public
+  end;
+
+implementation
+
+end.

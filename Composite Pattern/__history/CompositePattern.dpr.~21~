@@ -1,0 +1,106 @@
+program CompositePattern;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils,
+  System.Generics.Collections,
+  IteratorIntf in 'Menu\IteratorIntf.pas',
+  MenuItem in 'Menu\MenuItem.pas',
+  Waitress in 'Menu\Waitress.pas',
+  Menu in 'Menu\Menu.pas',
+  MenuComponentIterator in 'Menu\MenuComponentIterator.pas',
+  MenuComponent in 'Menu\MenuComponent.pas',
+  NullIterator in 'Menu\NullIterator.pas';
+
+begin
+  try
+    var PancakeHouseMenu: TMenuComponent := TMenu.Create('PANCAKE HOUSE MENU',
+      'Breakfast');
+    var DinerMenu: TMenuComponent  := TMenu.Create('DINER MENU', 'Lunch');
+    var CafeMenu: TMenuComponent  := TMenu.Create('CAFE MENU', 'Dinner');
+    var DessertMenu: TMenuComponent  := TMenu.Create('DESSERT MENU',
+      'Dessert of course!');
+
+    var AllMenus: TMenuComponent := TMenu.Create('ALL MENUS',
+      'All menus combined');
+
+    AllMenus.Add(PancakeHouseMenu);
+    AllMenus.Add(DinerMenu);
+    AllMenus.Add(CafeMenu);
+
+    //add menu items here
+		PancakeHouseMenu.add(TMenuItem.Create(
+			'K&B''s Pancake Breakfast', 'Pancakes with scrambled eggs, and toast',
+			True, 2.99));
+		PancakeHouseMenu.add(TMenuItem.Create(
+			'Regular Pancake Breakfast', 'Pancakes with fried eggs, sausage',
+			False, 2.99));
+		PancakeHouseMenu.add(TMenuItem.Create(
+			'Blueberry Pancakes',
+      'Pancakes made with fresh blueberries, and blueberry syrup',
+			True, 3.49));
+		PancakeHouseMenu.add(TMenuItem.Create(
+			'Waffles', 'Waffles, with your choice of blueberries or strawberries',
+			True, 3.59));
+
+		DinerMenu.add(TMenuItem.Create(
+			'Vegetarian BLT', '(Fakin'') Bacon with lettuce & tomato on whole wheat',
+			True, 2.99));
+		DinerMenu.add(TMenuItem.Create(
+			'BLT', 'Bacon with lettuce & tomato on whole wheat', False, 	2.99));
+		DinerMenu.add(TMenuItem.Create(
+			'Soup of the day',
+      'A bowl of the soup of the day, with a side of potato salad',
+			False, 3.29));
+		DinerMenu.add(TMenuItem.Create(
+			'Hotdog',
+			'A hot dog, with saurkraut, relish, onions, topped with cheese',
+			False, 3.05));
+		DinerMenu.add(TMenuItem.Create(
+			'Steamed Veggies and Brown Rice',
+			'A medly of steamed vegetables over brown rice', True, 3.99));
+
+		DinerMenu.add(TMenuItem.Create(
+			'Pasta',
+			'Spaghetti with Marinara Sauce, and a slice of sourdough bread',
+			True, 3.89));
+
+		DinerMenu.add(DessertMenu);
+
+		DessertMenu.add(TMenuItem.Create(
+			'Apple Pie',
+			'Apple pie with a flakey crust, topped with vanilla ice cream',
+			True, 1.59));
+		DessertMenu.add(TMenuItem.Create(
+			'Cheesecake',
+			'Creamy New York cheesecake, with a chocolate graham crust',
+			True, 1.99));
+		DessertMenu.add(TMenuItem.Create(
+			'Sorbet', 'A scoop of raspberry and a scoop of lime', True, 1.89));
+
+		CafeMenu.add(TMenuItem.Create(
+			'Veggie Burger and Air Fries',
+			'Veggie burger on a whole wheat bun, lettuce, tomato, and fries',
+			True, 3.99));
+		CafeMenu.add(TMenuItem.Create(
+			'Soup of the day',
+			'A cup of the soup of the day, with a side salad',
+			False, 3.69));
+		CafeMenu.add(TMenuItem.Create(
+			'Burrito',
+			'A large burrito, with whole pinto beans, salsa, guacamole',
+			True, 4.29));
+
+    var Waitress := TWaitress.Create(AllMenus);
+    //Waitress.PrintMenu;
+    Waitress.PrintVegetableMenu;
+
+    ReadLn;
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+end.

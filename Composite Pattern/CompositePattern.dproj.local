@@ -40,6 +40,8 @@
     <Transaction>2023/07/19 14:34:55.000.433,=C:\Users\User\Documents\GitHub\design_patterns\Composite Pattern\Menu\MenuComponent.pas</Transaction>
     <Transaction>2023/07/19 15:59:10.985,=C:\Users\User\Documents\GitHub\design_patterns\Composite Pattern\Unit1.pas</Transaction>
     <Transaction>2023/07/19 15:59:25.918,C:\Users\User\Documents\GitHub\design_patterns\Composite Pattern\Menu\NullIterator.pas=C:\Users\User\Documents\GitHub\design_patterns\Composite Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/19 16:47:53.385,=C:\Users\User\Documents\GitHub\design_patterns\Composite Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/19 16:48:04.814,C:\Users\User\Documents\GitHub\design_patterns\Composite Pattern\Menu\CompositeIterator.pas=C:\Users\User\Documents\GitHub\design_patterns\Composite Pattern\Unit1.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="Menu"/>
@@ -50,5 +52,6 @@
     <File Path="Menu\MenuComponent.pas"/>
     <File Path="Menu\Waitress.pas"/>
     <File Path="Menu\NullIterator.pas"/>
+    <File Path="Menu\CompositeIterator.pas"/>
   </ProjectSortOrder>
 </BorlandProject>

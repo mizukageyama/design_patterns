@@ -13,7 +13,8 @@ uses
   Menu in 'Menu\Menu.pas',
   MenuComponentIterator in 'Menu\MenuComponentIterator.pas',
   MenuComponent in 'Menu\MenuComponent.pas',
-  NullIterator in 'Menu\NullIterator.pas';
+  NullIterator in 'Menu\NullIterator.pas',
+  CompositeIterator in 'Menu\CompositeIterator.pas';
 
 begin
   try
@@ -96,6 +97,7 @@ begin
 
     var Waitress := TWaitress.Create(AllMenus);
     Waitress.PrintMenu;
+    //Waitress.PrintVegetarianMenu; //To Fix
 
     ReadLn;
   except
