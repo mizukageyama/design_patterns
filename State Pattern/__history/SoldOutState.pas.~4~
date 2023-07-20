@@ -1,0 +1,83 @@
+unit SoldOutState;
+
+interface
+
+uses
+  StateIntf, HasQuarterState, NoQuarterState, SoldState;
+
+type
+  TGumballMachineWithState = class;
+
+  TSoldOutState = class(TInterfacedObject, IState)
+  private
+    FGumballMachine: TGumballMachineWithState;
+  public
+    constructor Create(AGumballMachine: TGumballMachineWithState);
+    procedure InsertQuarter;
+    procedure EjectQuarter;
+    procedure TurnCrank;
+    procedure Dispense;
+    function ToString: String; override;
+  end;
+
+  TGumballMachineWithState = class
+  private
+    FSoldOutState: TSoldOutState;
+    FNoQuarterState: TNoQuarterState;
+    FHasQuarterState: THasQuarterState;
+    FSoldState: TSoldState;
+    FState: IState;
+    FCount: Integer;
+  public
+    constructor Create(ANumberOfGumballs: Integer);
+    procedure InsertQuarter;
+    procedure EjectQuarter;
+    procedure TurnCrank;
+    procedure SetState(State: IState);
+    procedure ReleaseBall;
+    function GetCount: Integer;
+    procedure Refill(Count: Integer);
+    function GetState: IState;
+    function GetSoldOutState: IState;
+    function GetNoQuarterState: IState;
+    function GetHasQuarterState: IState;
+    function GetSoldState: IState;
+    function ToString: String; override;
+  end;
+
+implementation
+
+{ TSoldOutState }
+
+constructor TSoldOutState.Create(AGumballMachine: TGumballMachineWithState);
+begin
+  FGumballMachine := AGumballMachine;
+end;
+
+procedure TSoldOutState.Dispense;
+begin
+  WriteLn('No gumball dispensed');
+end;
+
+procedure TSoldOutState.EjectQuarter;
+begin
+  WriteLn('You can''t eject, you haven't inserted a quarter yet');
+end;
+
+procedure TSoldOutState.InsertQuarter;
+begin
+  WriteLn('You can''t insert a quarter, the machine is sold out');
+end;
+
+function TSoldOutState.ToString: String;
+begin
+		Result := 'sold outr';
+end;
+
+procedure TSoldOutState.TurnCrank;
+begin
+  WriteLn('You turned, but there are no gumballs');
+end;
+
+end.
+

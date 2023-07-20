@@ -1,0 +1,15 @@
+unit State;
+
+interface
+
+type
+  TState = interface
+    procedure InsertQuarter;
+    procedure EjectQuarter;
+    procedure TurnCrank;
+    procedure Dispense;
+  end;
+
+implementation
+
+end.

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/07/20 08:47:23.000.895,C:\Users\User\Documents\GitHub\design_patterns\State Pattern\StatePattern.dproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2023/07/20 09:02:28.000.274,=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 09:02:41.000.463,C:\Users\User\Documents\GitHub\design_patterns\State Pattern\GumballMachine.pas=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 10:10:00.000.912,=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 10:10:09.000.736,C:\Users\User\Documents\GitHub\design_patterns\State Pattern\TestCases.pas=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 10:14:55.000.594,=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 10:15:06.000.285,C:\Users\User\Documents\GitHub\design_patterns\State Pattern\GumballMachineWithState.pas=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 10:16:57.000.838,=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 10:17:46.000.821,C:\Users\User\Documents\GitHub\design_patterns\State Pattern\State.pas=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 10:18:14.000.454,C:\Users\User\Documents\GitHub\design_patterns\State Pattern\StateIntf.pas=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\State.pas</Transaction>
+    <Transaction>2023/07/20 10:41:08.000.592,=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 10:42:17.000.232,C:\Users\User\Documents\GitHub\design_patterns\State Pattern\HasQuarterState.pas=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 10:49:01.000.686,=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 10:49:07.000.902,C:\Users\User\Documents\GitHub\design_patterns\State Pattern\SoldState.pas=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 10:53:12.000.087,=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 10:53:23.000.161,C:\Users\User\Documents\GitHub\design_patterns\State Pattern\SoldOutState.pas=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 10:58:21.000.720,C:\Users\User\Documents\GitHub\design_patterns\State Pattern\NoQuarterState.pas=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\SoldOutState.pas</Transaction>
+    <Transaction>2023/07/20 10:58:30.000.161,=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\SoldOutState.pas</Transaction>
+    <Transaction>2023/07/20 12:01:04.000.309,=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 12:01:53.000.577,C:\Users\User\Documents\GitHub\design_patterns\State Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\GumballMachineIntf.pas</Transaction>
+    <Transaction>2023/07/20 12:05:46.000.544,C:\Users\User\Documents\GitHub\design_patterns\State Pattern\GumballMachineIntf.pas=</Transaction>
+    <Transaction>2023/07/20 12:25:29.000.855,=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 12:25:40.000.541,C:\Users\User\Documents\GitHub\design_patterns\State Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\State Pattern\WinnerState.pas</Transaction>
+  </Transactions>
+</BorlandProject>

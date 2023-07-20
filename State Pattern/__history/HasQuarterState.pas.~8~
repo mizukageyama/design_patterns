@@ -1,0 +1,87 @@
+unit HasQuarterState;
+
+interface
+
+uses
+  StateIntf, NoQuarterState, SoldOutState, SoldState;
+
+type
+  TGumballMachineWithState = class;
+
+  THasQuarterState = class(TInterfacedObject, IState)
+  private
+    FGumballMachine: TGumballMachineWithState;
+  public
+    constructor Create(AGumballMachine: TGumballMachineWithState);
+    procedure InsertQuarter;
+    procedure EjectQuarter;
+    procedure TurnCrank;
+    procedure Dispense;
+    function ToString: String; override;
+  end;
+
+  TGumballMachineWithState = class
+  private
+    FSoldOutState: TSoldOutState;
+    FNoQuarterState: TNoQuarterState;
+    FHasQuarterState: THasQuarterState;
+    FSoldState: TSoldState;
+    FState: IState;
+    FCount: Integer;
+  public
+    constructor Create(ANumberOfGumballs: Integer);
+    procedure InsertQuarter;
+    procedure EjectQuarter;
+    procedure TurnCrank;
+    procedure SetState(State: IState);
+    procedure ReleaseBall;
+    function GetCount: Integer;
+    procedure Refill(Count: Integer);
+    function GetState: IState;
+    function GetSoldOutState: IState;
+    function GetNoQuarterState: IState;
+    function GetHasQuarterState: IState;
+    function GetSoldState: IState;
+    function ToString: String; override;
+  end;
+
+implementation
+
+uses
+  GumballMachineWithState;
+
+{ THasQuarterState }
+
+constructor THasQuarterState.Create(AGumballMachine: TGumballMachineWithState);
+begin
+  FGumballMachine := AGumballMachine;
+end;
+
+procedure THasQuarterState.Dispense;
+begin
+  WriteLn('No gumball dispensed');
+end;
+
+procedure THasQuarterState.EjectQuarter;
+begin
+  WriteLn('Quarter returned');
+  FGumballMachine.SetState(FGumballMachine.GetNoQuarterState);
+end;
+
+procedure THasQuarterState.InsertQuarter;
+begin
+  WriteLn('You can''t insert another quarter');
+end;
+
+function THasQuarterState.ToString: String;
+begin
+		Result := 'waiting for turn of crank';
+end;
+
+procedure THasQuarterState.TurnCrank;
+begin
+  WriteLn('You turned...');
+  FGumballMachine.SetState(FGumballMachine.GetSoldState);
+end;
+
+end.

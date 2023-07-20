@@ -1,0 +1,84 @@
+unit NoQuarterState;
+
+interface
+
+uses
+  StateIntf, HasQuarterState, SoldOutState, SoldState;
+
+type
+  TGumballMachineWithState = class;
+
+  TNoQuarterState = class(TInterfacedObject, IState)
+  private
+    FGumballMachine: TGumballMachineWithState;
+  public
+    constructor Create(AGumballMachine: TGumballMachineWithState);
+    procedure InsertQuarter;
+    procedure EjectQuarter;
+    procedure TurnCrank;
+    procedure Dispense;
+    function ToString: String; override;
+  end;
+
+  TGumballMachineWithState = class
+  private
+    FSoldOutState: TSoldOutState;
+    FNoQuarterState: TNoQuarterState;
+    FHasQuarterState: THasQuarterState;
+    FSoldState: TSoldState;
+    FState: IState;
+    FCount: Integer;
+  public
+    constructor Create(ANumberOfGumballs: Integer);
+    procedure InsertQuarter;
+    procedure EjectQuarter;
+    procedure TurnCrank;
+    procedure SetState(State: IState);
+    procedure ReleaseBall;
+    function GetCount: Integer;
+    procedure Refill(Count: Integer);
+    function GetState: IState;
+    function GetSoldOutState: IState;
+    function GetNoQuarterState: IState;
+    function GetHasQuarterState: IState;
+    function GetSoldState: IState;
+    function ToString: String; override;
+  end;
+
+implementation
+
+{ NoQuarterState }
+
+constructor TNoQuarterState.Create(AGumballMachine: TGumballMachineWithState);
+begin
+  FGumballMachine := AGumballMachine;
+end;
+
+procedure TNoQuarterState.Dispense;
+begin
+  WriteLn('You need to pay first');
+end;
+
+procedure TNoQuarterState.EjectQuarter;
+begin
+  WriteLn('You haven''t inserted a quarter');
+end;
+
+procedure TNoQuarterState.InsertQuarter;
+begin
+  WriteLn('You inserted a quarter');
+  FGumballMachine.SetState(FGumballMachine.GetHasQuarterState);
+end;
+
+function TNoQuarterState.ToString: String;
+begin
+		Result := 'waiting for quarter';
+end;
+
+procedure TNoQuarterState.TurnCrank;
+begin
+  WriteLn('You turned, but there''s no quarter');
+end;
+
+end.
+

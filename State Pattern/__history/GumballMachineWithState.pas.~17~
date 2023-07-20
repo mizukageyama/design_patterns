@@ -1,0 +1,181 @@
+unit GumballMachineWithState;
+
+interface
+
+uses
+  StateIntf, System.SysUtils;
+
+type
+  THasQuarterState = class;
+  TSoldOutState = class;
+  TSoldState = class;
+  TNoQuarterState = class;
+
+  TGumballMachineWithState = class
+  private
+    FSoldOutState: TSoldOutState;
+    FNoQuarterState: TNoQuarterState;
+    FHasQuarterState: THasQuarterState;
+    FSoldState: TSoldState;
+    FState: IState;
+    FCount: Integer;
+  public
+    constructor Create(ANumberOfGumballs: Integer);
+    procedure InsertQuarter;
+    procedure EjectQuarter;
+    procedure TurnCrank;
+    procedure SetState(State: IState);
+    procedure ReleaseBall;
+    function GetCount: Integer;
+    procedure Refill(Count: Integer);
+    function GetState: IState;
+    function GetSoldOutState: IState;
+    function GetNoQuarterState: IState;
+    function GetHasQuarterState: IState;
+    function GetSoldState: IState;
+    function ToString: String; override;
+  end;
+
+  TSoldOutState = class(TInterfacedObject, IState)
+  private
+    FGumballMachine: TGumballMachineWithState;
+  public
+    constructor Create(AGumballMachine: TGumballMachineWithState); virtual;
+      abstract;
+    procedure InsertQuarter; virtual; abstract;
+    procedure EjectQuarter; virtual; abstract;
+    procedure TurnCrank; virtual; abstract;
+    procedure Dispense;  virtual; abstract;
+    function ToString: String; override; abstract;
+  end;
+
+   TSoldState = class(TInterfacedObject, IState)
+  private
+    FGumballMachine: TGumballMachineWithState;
+  public
+    constructor Create(AGumballMachine: TGumballMachineWithState); virtual;
+      abstract;
+    procedure InsertQuarter; virtual; abstract;
+    procedure EjectQuarter; virtual; abstract;
+    procedure TurnCrank; virtual; abstract;
+    procedure Dispense;  virtual; abstract;
+    function ToString: String; override; abstract;
+  end;
+
+   TNoQuarterState = class(TInterfacedObject, IState)
+  private
+    FGumballMachine: TGumballMachineWithState;
+  public
+    constructor Create(AGumballMachine: TGumballMachineWithState); virtual;
+      abstract;
+    procedure InsertQuarter; virtual; abstract;
+    procedure EjectQuarter; virtual; abstract;
+    procedure TurnCrank; virtual; abstract;
+    procedure Dispense;  virtual; abstract;
+    function ToString: String; override; abstract;
+  end;
+
+    THasQuarterState = class(TInterfacedObject, IState)
+  private
+    FGumballMachine: TGumballMachineWithState;
+  public
+    constructor Create(AGumballMachine: TGumballMachineWithState); virtual;
+      abstract;
+    procedure InsertQuarter; virtual; abstract;
+    procedure EjectQuarter; virtual; abstract;
+    procedure TurnCrank; virtual; abstract;
+    procedure Dispense;  virtual; abstract;
+    function ToString: String; override; abstract;
+  end;
+
+implementation
+
+uses
+  HasQuarterState, NoQuarterState, SoldOutState, SoldState;
+{ TGumballMachineWithState }
+
+constructor TGumballMachineWithState.Create(ANumberOfGumballs: Integer);
+begin
+  FSoldOutState := TSoldOutState.Create(Self);
+  FNoQuarterState := TNoQuarterState.Create(Self);
+  FHasQuarterState := THasQuarterState.Create(Self);
+  FSoldState := TSoldState.Create(Self);
+  FCount := ANumberOfGumballs;
+  if ANumberOfGumballs > 0 then
+    FState := FNoQuarterState;
+end;
+
+procedure TGumballMachineWithState.EjectQuarter;
+begin
+
+end;
+
+function TGumballMachineWithState.GetCount: Integer;
+begin
+
+end;
+
+function TGumballMachineWithState.GetHasQuarterState: IState;
+begin
+
+end;
+
+function TGumballMachineWithState.GetNoQuarterState: IState;
+begin
+
+end;
+
+function TGumballMachineWithState.GetSoldOutState: IState;
+begin
+
+end;
+
+function TGumballMachineWithState.GetSoldState: IState;
+begin
+
+end;
+
+function TGumballMachineWithState.GetState: IState;
+begin
+
+end;
+
+procedure TGumballMachineWithState.InsertQuarter;
+begin
+  FState.InsertQuarter;
+end;
+
+procedure TGumballMachineWithState.Refill(Count: Integer);
+begin
+
+end;
+
+procedure TGumballMachineWithState.ReleaseBall;
+begin
+
+end;
+
+procedure TGumballMachineWithState.SetState(State: IState);
+begin
+
+end;
+
+function TGumballMachineWithState.ToString: String;
+begin
+  var StrResult := TStringBuilder.Create;
+  StrResult.Append(sLineBreak + 'Mighty Gumball, Inc.');
+  StrResult.Append(sLineBreak + 'Delphi-enabled Standing Gumball Model #2004' +
+    sLineBreak);
+  StrResult.Append('Inventory: ' + FCount.ToString + ' gumball');
+  if FCount <> 1 then
+    StrResult.Append('s');
+  StrResult.Append(sLineBreak + 'Machine is ' + FState.ToString + sLineBreak);
+  Result := StrResult.ToString;
+end;
+
+procedure TGumballMachineWithState.TurnCrank;
+begin
+
+end;
+
+end.

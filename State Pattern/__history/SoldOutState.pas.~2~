@@ -1,0 +1,57 @@
+unit SoldOutState;
+
+interface
+
+uses
+  StateIntf, GumballMachineWithState;
+
+type
+  TSoldOutState = class(TInterfacedObject, IState)
+  private
+    FGumballMachine: TGumballMachineWithState;
+  public
+    constructor Create(AGumballMachine: TGumballMachineWithState);
+    procedure InsertQuarter;
+    procedure EjectQuarter;
+    procedure TurnCrank;
+    procedure Dispense;
+    function ToString: String; override;
+  end;
+
+implementation
+
+{ TSoldOutState }
+
+constructor TSoldOutState.Create(AGumballMachine: TGumballMachineWithState);
+begin
+  FGumballMachine := AGumballMachine;
+end;
+
+procedure TSoldOutState.Dispense;
+begin
+  WriteLn('You need to pay first');
+end;
+
+procedure TSoldOutState.EjectQuarter;
+begin
+  WriteLn('You haven''t inserted a quarter');
+end;
+
+procedure TSoldOutState.InsertQuarter;
+begin
+  WriteLn('You inserted a quarter');
+  FGumballMachine.SetState(FGumballMachine.GetHasQuarterState);
+end;
+
+function TSoldOutState.ToString: String;
+begin
+		Result := 'waiting for quarter';
+end;
+
+procedure TSoldOutState.TurnCrank;
+begin
+  WriteLn('You turned, but there''s no quarter');
+end;
+
+end.
+

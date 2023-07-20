@@ -1,0 +1,29 @@
+program StatePattern;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils,
+  GumballMachine in 'GumballMachine.pas',
+  TestCases in 'TestCases.pas',
+  GumballMachineWithState in 'GumballMachineWithState.pas',
+  StateIntf in 'StateIntf.pas',
+  HasQuarterState in 'HasQuarterState.pas',
+  SoldState in 'SoldState.pas',
+  NoQuarterState in 'NoQuarterState.pas',
+  SoldOutState in 'SoldOutState.pas',
+  WinnerState in 'WinnerState.pas';
+
+begin
+  try
+    //SimpleGumballTestCase;
+    WinnerTestCase;
+
+    ReadLn;
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+end.

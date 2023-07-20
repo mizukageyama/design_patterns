@@ -1,0 +1,59 @@
+unit TestCases;
+
+interface
+
+uses GumballMachine;
+
+procedure TestCase1;
+procedure TestCase2;
+procedure TestCase3;
+
+implementation
+
+procedure TestCase1;
+begin
+  var GumballMachine := TGumballMachine.Create(5);
+
+  WriteLn(GumballMachine.ToString);
+
+  GumballMachine.InsertQuarter();
+  GumballMachine.TurnCrank();
+
+  WriteLn(GumballMachine.ToString);
+
+  GumballMachine.InsertQuarter();
+  GumballMachine.EjectQuarter();
+  GumballMachine.TurnCrank();
+
+  WriteLn(GumballMachine.ToString);
+
+  GumballMachine.InsertQuarter();
+  GumballMachine.TurnCrank();
+  GumballMachine.InsertQuarter();
+  GumballMachine.TurnCrank();
+  GumballMachine.EjectQuarter();
+
+  WriteLn(GumballMachine.ToString);
+
+  GumballMachine.InsertQuarter();
+  GumballMachine.InsertQuarter();
+  GumballMachine.TurnCrank();
+  GumballMachine.InsertQuarter();
+  GumballMachine.TurnCrank();
+  GumballMachine.InsertQuarter();
+  GumballMachine.TurnCrank();
+
+  WriteLn(GumballMachine.ToString);
+end;
+
+procedure TestCase2;
+begin
+
+end;
+
+procedure TestCase3;
+begin
+
+end;
+
+end.

@@ -1,0 +1,128 @@
+unit GumballMachineWithState;
+
+interface
+
+uses
+  StateIntf, System.SysUtils;
+
+type
+  TGumballMachineWithState = class
+  private
+    FSoldOutState: IState;
+    FNoQuarterState: IState;
+    FHasQuarterState: IState;
+    FSoldState: IState;
+    FState: IState;
+    FCount: Integer;
+  public
+    constructor Create(ANumberOfGumballs: Integer);
+    procedure InsertQuarter;
+    procedure EjectQuarter;
+    procedure TurnCrank;
+    procedure SetState(State: IState);
+    procedure ReleaseBall;
+    function GetCount: Integer;
+    procedure Refill(Count: Integer);
+    function GetState: IState;
+    function GetSoldOutState: IState;
+    function GetNoQuarterState: IState;
+    function GetHasQuarterState: IState;
+    function GetSoldState: IState;
+    function ToString: String; override;
+  end;
+
+implementation
+
+{ TGumballMachineWithState }
+
+uses HasQuarterState, NoQuarterState, SoldOutState, SoldState;
+
+constructor TGumballMachineWithState.Create(ANumberOfGumballs: Integer);
+begin
+  FSoldOutState := TSoldOutState.Create(Self);
+  FNoQuarterState := TNoQuarterState.Create(Self);
+  FHasQuarterState := THasQuarterState.Create(Self);
+  FSoldState := TSoldState.Create(Self);
+  FCount := ANumberOfGumballs;
+  if ANumberOfGumballs > 0 then
+    FState := FNoQuarterState;
+end;
+
+procedure TGumballMachineWithState.EjectQuarter;
+begin
+  FState.EjectQuarter;
+end;
+
+function TGumballMachineWithState.GetCount: Integer;
+begin
+  Result := FCount;
+end;
+
+function TGumballMachineWithState.GetHasQuarterState: IState;
+begin
+  Result := FHasQuarterState;
+end;
+
+function TGumballMachineWithState.GetNoQuarterState: IState;
+begin
+  Result := FNoQuarterState;
+end;
+
+function TGumballMachineWithState.GetSoldOutState: IState;
+begin
+  Result := FSoldOutState;
+end;
+
+function TGumballMachineWithState.GetSoldState: IState;
+begin
+  Result := FSoldState;
+end;
+
+function TGumballMachineWithState.GetState: IState;
+begin
+  Result := FState;
+end;
+
+procedure TGumballMachineWithState.InsertQuarter;
+begin
+  FState.InsertQuarter;
+end;
+
+procedure TGumballMachineWithState.Refill(Count: Integer);
+begin
+  FCount := Count;
+  FState := FNoQuarterState;
+end;
+
+procedure TGumballMachineWithState.ReleaseBall;
+begin
+  WriteLn('A gumball comes rolling out the slot...');
+  if FCount <> 0 then
+    FCount := FCount - 1;
+end;
+
+procedure TGumballMachineWithState.SetState(State: IState);
+begin
+  FState := State;
+end;
+
+function TGumballMachineWithState.ToString: String;
+begin
+  var StrResult := TStringBuilder.Create;
+  StrResult.Append(sLineBreak + 'Mighty Gumball, Inc.');
+  StrResult.Append(sLineBreak + 'Delphi-enabled Standing Gumball Model #2004' +
+    sLineBreak);
+  StrResult.Append('Inventory: ' + FCount.ToString + ' gumball');
+  if FCount <> 1 then
+    StrResult.Append('s');
+  StrResult.Append(sLineBreak + 'Machine is ' + FState.ToString + sLineBreak);
+  Result := StrResult.ToString;
+end;
+
+procedure TGumballMachineWithState.TurnCrank;
+begin
+  FState.TurnCrank;
+  FState.Dispense;
+end;
+
+end.

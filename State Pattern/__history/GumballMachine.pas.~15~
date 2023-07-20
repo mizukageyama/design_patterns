@@ -1,0 +1,121 @@
+unit GumballMachine;
+
+interface
+
+type
+  TGumbleMachine = class
+  private
+    FState: Integer;
+    FCount: Integer;
+    const
+      FSOLD_OUT = 0;
+      FNO_QUARTER = 1;
+      FHAS_QUARTER = 2;
+      FSOLD = 3;
+  public
+    constructor Create(ACount: Integer);
+    procedure InsertQuarter;
+    procedure EjectQuarter;
+    procedure TurnCrank;
+    procedure Dispense;
+    procedure Refill;
+    function ToString: string;
+  end;
+
+implementation
+
+{ TGumbleMachine }
+
+constructor TGumbleMachine.Create(ACount: Integer);
+begin
+  FCount := ACount;
+  FState := FSOLD_OUT;
+end;
+
+procedure TGumbleMachine.Dispense;
+begin
+  case FState of
+    FHAS_QUARTER:
+      WriteLn('No gumball dispensed');
+    FSOLD_OUT:
+      WriteLn('No gumball dispensed');
+    FSOLD:
+      begin
+        WriteLn('A gumball comes rolling out the slot');
+        FCount := FCount - 1;
+        if FCount = 0 then
+        begin
+          WriteLn('Oops, out of gumballs!');
+          FState := FSOLD_OUT;
+        end
+        else
+          FState := FNO_QUARTER;
+      end;
+    FNO_QUARTER:
+      WriteLn('You need to pay first');
+  end;
+end;
+
+procedure TGumbleMachine.EjectQuarter;
+begin
+  case FState of
+    FHAS_QUARTER:
+      begin
+        WriteLn('Quarter returned');
+        FState := FNO_QUARTER;
+      end;
+    FSOLD_OUT:
+      WriteLn('You can’t eject, you haven’t inserted a quarter yet');
+    FSOLD:
+      WriteLn('Sorry, you already turned the crank');
+    FNO_QUARTER:
+      WriteLn('You haven’t inserted a quarter');
+  end;
+end;
+
+procedure TGumbleMachine.InsertQuarter;
+begin
+  case FState of
+    FHAS_QUARTER:
+      WriteLn('You can’t insert another quarter');
+    FSOLD_OUT:
+      WriteLn('You can’t insert a quarter, the machine is sold out');
+    FSOLD:
+      WriteLn('Please wait, we’re already giving you a gumball');
+    FNO_QUARTER:
+      begin
+        FState := FHAS_QUARTER;
+        WriteLn('You inserted a quarter');
+      end;
+  end;
+end;
+
+procedure TGumbleMachine.Refill;
+begin
+
+end;
+
+function TGumbleMachine.ToString: string;
+begin
+
+end;
+
+procedure TGumbleMachine.TurnCrank;
+begin
+  case FState of
+    FHAS_QUARTER:
+      begin
+        WriteLn('You turned...');
+        FState := FSOLD;
+        Dispense;
+      end;
+    FSOLD_OUT:
+      WriteLn('You turned, but there are no gumballs');
+    FSOLD:
+      WriteLn('Turning twice doesn’t get you another gumball!');
+    FNO_QUARTER:
+      WriteLn('You turned but there’s no quarter');
+  end;
+end;
+
+end.
