@@ -89,14 +89,14 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Menu\IteratorIntf.pas"/>
-        <DCCReference Include="Menu\MenuItem.pas"/>
-        <DCCReference Include="Menu\Waitress.pas"/>
-        <DCCReference Include="Menu\Menu.pas"/>
-        <DCCReference Include="Menu\MenuComponentIterator.pas"/>
-        <DCCReference Include="Menu\MenuComponent.pas"/>
-        <DCCReference Include="Menu\NullIterator.pas"/>
-        <DCCReference Include="Menu\CompositeIterator.pas"/>
+        <DCCReference Include="IteratorIntf.pas"/>
+        <DCCReference Include="MenuItem.pas"/>
+        <DCCReference Include="Waitress.pas"/>
+        <DCCReference Include="Menu.pas"/>
+        <DCCReference Include="MenuComponentIterator.pas"/>
+        <DCCReference Include="MenuComponent.pas"/>
+        <DCCReference Include="NullIterator.pas"/>
+        <DCCReference Include="CompositeIterator.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

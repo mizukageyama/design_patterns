@@ -7,14 +7,14 @@ program CompositePattern;
 uses
   System.SysUtils,
   System.Generics.Collections,
-  IteratorIntf in 'Menu\IteratorIntf.pas',
-  MenuItem in 'Menu\MenuItem.pas',
-  Waitress in 'Menu\Waitress.pas',
-  Menu in 'Menu\Menu.pas',
-  MenuComponentIterator in 'Menu\MenuComponentIterator.pas',
-  MenuComponent in 'Menu\MenuComponent.pas',
-  NullIterator in 'Menu\NullIterator.pas',
-  CompositeIterator in 'Menu\CompositeIterator.pas';
+  IteratorIntf in 'IteratorIntf.pas',
+  MenuItem in 'MenuItem.pas',
+  Waitress in 'Waitress.pas',
+  Menu in 'Menu.pas',
+  MenuComponentIterator in 'MenuComponentIterator.pas',
+  MenuComponent in 'MenuComponent.pas',
+  NullIterator in 'NullIterator.pas',
+  CompositeIterator in 'CompositeIterator.pas';
 
 begin
   try

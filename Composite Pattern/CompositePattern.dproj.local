@@ -44,14 +44,13 @@
     <Transaction>2023/07/19 16:48:04.000.814,C:\Users\User\Documents\GitHub\design_patterns\Composite Pattern\Menu\CompositeIterator.pas=C:\Users\User\Documents\GitHub\design_patterns\Composite Pattern\Unit1.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
-    <File Path="Menu"/>
-    <File Path="Menu\MenuItem.pas"/>
-    <File Path="Menu\Menu.pas"/>
-    <File Path="Menu\IteratorIntf.pas"/>
-    <File Path="Menu\MenuComponentIterator.pas"/>
-    <File Path="Menu\MenuComponent.pas"/>
-    <File Path="Menu\Waitress.pas"/>
-    <File Path="Menu\NullIterator.pas"/>
-    <File Path="Menu\CompositeIterator.pas"/>
+    <File Path="CompositeIterator.pas"/>
+    <File Path="IteratorIntf.pas"/>
+    <File Path="Menu.pas"/>
+    <File Path="MenuComponent.pas"/>
+    <File Path="MenuComponentIterator.pas"/>
+    <File Path="MenuItem.pas"/>
+    <File Path="NullIterator.pas"/>
+    <File Path="Waitress.pas"/>
   </ProjectSortOrder>
 </BorlandProject>
