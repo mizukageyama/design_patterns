@@ -1,0 +1,24 @@
+unit DuckCall;
+
+interface
+
+uses
+  Quackable;
+
+type
+  TDuckCall = class(TInterfacedObject, IQuackable)
+  public
+    procedure Quack;
+  end;
+
+implementation
+
+{ TDuckCall }
+
+procedure TDuckCall.Quack;
+begin
+  WriteLn('Kwak');
+end;
+
+end.
+

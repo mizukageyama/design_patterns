@@ -1,0 +1,13 @@
+unit Goose;
+
+interface
+
+type
+  TGoose = class
+  public
+    procedure Honk;
+  end;
+
+implementation
+
+end.

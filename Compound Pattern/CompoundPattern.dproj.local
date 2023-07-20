@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2023/07/20 16:27:41.232,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\CompoundPattern.dproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2023/07/20 16:28:29.988,=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 16:29:01.164,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Ducks\Quackable.pas=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 16:29:37.174,=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 16:29:46.810,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Ducks\MallardDuck.pas=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 16:30:55.503,=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 16:31:10.458,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Ducks\RedHeadDuck.pas=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 16:34:41.020,=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 16:34:57.062,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Ducks\DuckCall.pas=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 16:35:40.575,=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 16:36:12.891,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Ducks\RubberDuck.pas=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 16:42:21.665,=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 16:42:34.427,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Ducks\DuckSimulator.pas=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 16:48:05.920,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Ducks\QuackableIntf.pas=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Ducks\Quackable.pas</Transaction>
+    <Transaction>2023/07/20 16:51:23.824,=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 16:51:50.998,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Adapter\Goose.pas=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 16:52:35.508,=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 16:54:06.730,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Adapter\GooseAdapter.pas=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

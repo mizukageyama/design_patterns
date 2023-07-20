@@ -1,0 +1,19 @@
+unit GooseAdapter;
+
+interface
+
+uses
+  Goose, QuackableIntf;
+
+type
+  TGooseAdapter = class(TInterfacedObject, IQuackable)
+  private
+    FGoose: TGoose;
+  public
+    procedure Create(AGoose: TGoose);
+    procedure Quack;
+  end;
+
+implementation
+
+end.
