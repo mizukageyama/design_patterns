@@ -96,11 +96,8 @@ begin
 			True, 4.29));
 
     var Waitress := TWaitress.Create(AllMenus);
-    {
-      First Test Case:
-      Waitress.PrintMenu;
-    }
-    Waitress.PrintVegetarianMenu;
+    //Waitress.PrintMenu;
+    Waitress.PrintVegetarianMenu; //To Fix
 
     ReadLn;
   except

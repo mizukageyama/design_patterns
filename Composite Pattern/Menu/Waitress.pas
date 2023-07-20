@@ -41,7 +41,7 @@ begin
       if MenuComponent.IsVegetarian then
         MenuComponent.Print;
     except
-      //ShowMessage('This operation is not supported.');
+      //skip, and do nothing when there is no child menu
     end;
   end;
 end;

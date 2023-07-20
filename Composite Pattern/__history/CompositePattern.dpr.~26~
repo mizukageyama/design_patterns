@@ -98,6 +98,7 @@ begin
     var Waitress := TWaitress.Create(AllMenus);
     {
       First Test Case:
+
       Waitress.PrintMenu;
     }
     Waitress.PrintVegetarianMenu;

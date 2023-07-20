@@ -35,8 +35,8 @@ begin
     Result := False
   else
   begin
-    var Iterator := FStack.Peek;
-    if not Iterator.HasNext then
+    var Iterator:= FStack.Peek;
+    if Iterator.HasNext then
     begin
       FStack.Pop;
       Result := HasNext;
