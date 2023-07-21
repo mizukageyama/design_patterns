@@ -1,0 +1,14 @@
+object ControllerForm: TControllerForm
+  Left = 0
+  Top = 0
+  Caption = 'Controller'
+  ClientHeight = 299
+  ClientWidth = 581
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  TextHeight = 15
+end

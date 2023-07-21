@@ -1,0 +1,14 @@
+unit QuackableIntf;
+
+interface
+
+uses QuackObservableIntf;
+
+type
+  IQuackable = class(IQuackObservable)
+    procedure Quack;
+  end;
+
+implementation
+
+end.

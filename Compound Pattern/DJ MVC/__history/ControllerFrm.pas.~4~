@@ -1,0 +1,24 @@
+unit ControllerFrm;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+
+type
+  TControllerForm = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ControllerForm: TControllerForm;
+
+implementation
+
+{$R *.dfm}
+
+end.

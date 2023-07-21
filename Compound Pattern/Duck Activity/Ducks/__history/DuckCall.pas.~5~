@@ -1,0 +1,32 @@
+unit DuckCall;
+
+interface
+
+uses
+  QuackableIntf, Observable;
+
+type
+  TDuckCall = class(TInterfacedObject, IQuackable)
+  private
+    FObservable: TObservable;
+  public
+    constructor Create;
+    procedure Quack;
+  end;
+
+implementation
+
+{ TDuckCall }
+
+constructor TDuckCall.Create;
+begin
+  FObservable := TObservable.Create(Self);
+end;
+
+procedure TDuckCall.Quack;
+begin
+  WriteLn('Kwak');
+end;
+
+end.
+

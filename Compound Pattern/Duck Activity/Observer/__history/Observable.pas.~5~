@@ -1,0 +1,20 @@
+unit Observable;
+
+interface
+
+uses
+  QuackObservableIntf, ObserverIntf;
+
+type
+  FObservable = class(TInterfacedObject, IQuackObservable)
+  private
+    FObservers: TList<IObserver>;
+    FDuck: IQuackObservable;
+  public
+    procedure RegisterObserver(Observer: IObserver) ;
+    procedure NotifyObservers;
+  end;
+
+implementation
+
+end.

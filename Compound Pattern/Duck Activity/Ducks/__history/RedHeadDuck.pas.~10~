@@ -1,0 +1,51 @@
+unit RedHeadDuck;
+
+interface
+
+uses
+  QuackableIntf;
+
+type
+  TRedHeadDuck = class(TInterfacedObject, IQuackable)
+  private
+    FObservable: TObservable;
+  public
+    constructor Create;
+    procedure Quack;
+    procedure RegisterObserver(Observer: IObserver);
+    procedure NotifyObservers;
+    function ToString: String; override;
+  end;
+
+implementation
+
+{ TRedHeadDuck }
+
+constructor TRedHeadDuck.Create;
+begin
+  FObservable := TObservable.Create(Self);
+end;
+
+procedure TRedHeadDuck.NotifyObservers;
+begin
+  FObservable.NotifyObservers;
+end;
+
+procedure TRedHeadDuck.Quack;
+begin
+  WriteLn('Quack');
+  NotifyObservers;
+end;
+
+procedure TRedHeadDuck.RegisterObserver(Observer: IObserver);
+begin
+  FObservable.RegisterObserver(Observer);
+end;
+
+function TRedHeadDuck.ToString: String;
+begin
+  Result := 'Red Head Duck';
+end;
+
+end.
+

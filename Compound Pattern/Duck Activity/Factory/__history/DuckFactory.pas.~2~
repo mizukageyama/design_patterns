@@ -1,0 +1,16 @@
+unit DuckFactory;
+
+interface
+
+uses
+  AbstractDuckFactory;
+
+type
+  TDuckFactory = class(TAbstractDuckFactory)
+  public
+
+  end;
+
+implementation
+
+end.

@@ -1,0 +1,24 @@
+unit RedHeadDuck;
+
+interface
+
+uses
+  QuackableIntf;
+
+type
+  TRedHeadDuck = class(TInterfacedObject, IQuackable)
+  public
+    procedure Quack;
+  end;
+
+implementation
+
+{ TRedHeadDuck }
+
+procedure TRedHeadDuck.Quack;
+begin
+  WriteLn('Quack');
+end;
+
+end.
+

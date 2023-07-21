@@ -1,0 +1,15 @@
+unit ObserverIntf;
+
+interface
+
+type
+  IQuackObservable = interface;
+
+  IObserver = interface
+    procedure Update(Duck: IQuackObservable);
+  end;
+
+
+implementation
+
+end.

@@ -1,0 +1,27 @@
+unit RubberDuck;
+
+interface
+
+uses
+  QuackableIntf;
+
+type
+  TRubberDuck = class(TInterfacedObject, IQuackable)
+  private
+    FObservable: IObservable;
+  public
+    constructor Create;
+    procedure Quack;
+  end;
+
+implementation
+
+{ TRubberDuck }
+
+procedure TRubberDuck.Quack;
+begin
+  WriteLn('Squeak');
+end;
+
+end.
+

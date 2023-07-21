@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2023/07/21 15:51:56.302,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/07/21 15:52:38.274,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\View.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/07/21 15:52:38.274,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\View.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2023/07/21 15:52:58.795,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\DJApplication.dproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2023/07/21 15:53:07.498,=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\Unit2.pas</Transaction>
+    <Transaction>2023/07/21 15:53:14.990,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\Controller.pas=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\Unit2.pas</Transaction>
+    <Transaction>2023/07/21 15:53:14.990,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\Controller.dfm=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\Unit2.dfm</Transaction>
+    <Transaction>2023/07/21 15:53:25.158,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\ControllerFrm.pas=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\Controller.pas</Transaction>
+    <Transaction>2023/07/21 15:53:25.158,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\ControllerFrm.dfm=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\Controller.dfm</Transaction>
+    <Transaction>2023/07/21 15:53:30.548,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\ViewFrm.dfm=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\View.dfm</Transaction>
+    <Transaction>2023/07/21 15:53:30.548,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\ViewFrm.pas=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\View.pas</Transaction>
+  </Transactions>
+</BorlandProject>
