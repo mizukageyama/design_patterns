@@ -20,9 +20,10 @@ uses
   CountingDuckFactory in 'Factory\CountingDuckFactory.pas',
   Flock in 'Composite\Flock.pas',
   IteratorIntf in 'Iterator\IteratorIntf.pas',
-  FlockIterator in 'Iterator\FlockIterator.pas',
-  QuackObservableIntf in 'Observer\QuackObservableIntf.pas',
-  ObserverIntf in 'Observer\ObserverIntf.pas';
+  ObserverIntf in 'Observer\ObserverIntf.pas',
+  Observable in 'Observer\Observable.pas',
+  Quackologist in 'Observer\Quackologist.pas',
+  GenericIterator in 'Iterator\GenericIterator.pas';
 
 begin
   try

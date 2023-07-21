@@ -2,7 +2,8 @@ unit QuackCounter;
 
 interface
 
-uses QuackableIntf;
+uses
+  QuackableIntf, ObserverIntf;
 
 type
   TQuackCounter = class(TInterfacedObject, IQuackable)
@@ -12,7 +13,10 @@ type
   public
     constructor Create(ADuck: IQuackable);
     procedure Quack;
+    procedure RegisterObserver(Observer: IObserver);
+    procedure NotifyObservers;
     class function GetQuacks: Integer;
+    function ToString: string; override;
   end;
 
 implementation
@@ -29,10 +33,25 @@ begin
   Result := FNumberOfQuacks;
 end;
 
+procedure TQuackCounter.NotifyObservers;
+begin
+  FDuck.NotifyObservers;
+end;
+
 procedure TQuackCounter.Quack;
 begin
   FDuck.Quack;
   FNumberOfQuacks := FNumberOfQuacks + 1;
+end;
+
+procedure TQuackCounter.RegisterObserver(Observer: IObserver);
+begin
+  FDuck.RegisterObserver(Observer);
+end;
+
+function TQuackCounter.ToString: string;
+begin
+  Result := FDuck.ToString;
 end;
 
 end.

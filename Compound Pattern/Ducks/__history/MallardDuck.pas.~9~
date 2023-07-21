@@ -1,0 +1,49 @@
+unit MallardDuck;
+
+interface
+
+uses
+  QuackableIntf, Observable, ObserverIntf;
+
+type
+  TMallardDuck = class(TInterfacedObject, IQuackable)
+  private
+    FObservable: TObservable;
+  public
+    constructor Create;
+    procedure Quack;
+    procedure RegisterObserver(Observer: IObserver);
+    procedure NotifyObservers;
+    function ToString: String; override;
+  end;
+
+implementation
+
+{ TMallardDuck }
+
+constructor TMallardDuck.Create;
+begin
+  FObservable := TObservable.Create(Self);
+end;
+
+procedure TMallardDuck.NotifyObservers;
+begin
+  FObservable.NotifyObservers;
+end;
+
+procedure TMallardDuck.Quack;
+begin
+  WriteLn('Quack');
+end;
+
+procedure TMallardDuck.RegisterObserver(Observer: IObserver);
+begin
+  FObservable.RegisterObserver(Observer);
+end;
+
+function TMallardDuck.ToString: String;
+begin
+  Result := 'Mallard Duck';
+end;
+
+end.

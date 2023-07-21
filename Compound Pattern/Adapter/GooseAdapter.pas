@@ -3,15 +3,19 @@ unit GooseAdapter;
 interface
 
 uses
-  Goose, QuackableIntf;
+  Goose, QuackableIntf, ObserverIntf, Observable, System.SysUtils;
 
 type
   TGooseAdapter = class(TInterfacedObject, IQuackable)
   private
     FGoose: TGoose;
+    FObservable: TObservable;
   public
     constructor Create(AGoose: TGoose);
     procedure Quack;
+    procedure RegisterObserver(Observer: IObserver);
+    procedure NotifyObservers;
+    function ToString: string; override;
   end;
 
 implementation
@@ -19,13 +23,35 @@ implementation
 { TGooseAdapter }
 
 constructor TGooseAdapter.Create(AGoose: TGoose);
+var
+  SelfAsIntf: IQuackObservable;
 begin
   FGoose := AGoose;
+  if Supports(Self, IQuackable, SelfAsIntf) then
+  begin
+    FObservable := TObservable.Create(SelfAsIntf);
+  end;
+end;
+
+procedure TGooseAdapter.NotifyObservers;
+begin
+  FObservable.NotifyObservers;
 end;
 
 procedure TGooseAdapter.Quack;
 begin
   FGoose.Honk;
+  NotifyObservers;
+end;
+
+procedure TGooseAdapter.RegisterObserver(Observer: IObserver);
+begin
+  FObservable.RegisterObserver(Observer);
+end;
+
+function TGooseAdapter.ToString: string;
+begin
+  Result := 'Goose pretending to be a Duck';
 end;
 
 end.

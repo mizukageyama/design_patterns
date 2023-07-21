@@ -1,0 +1,38 @@
+unit Observable;
+
+interface
+
+uses
+  ObserverIntf, System.Generics.Collections;
+
+type
+  TObservable = class(TInterfacedObject, IQuackObservable)
+  private
+    FObservers: TList<IObserver>;
+    FDuck: IQuackObservable;
+  public
+    constructor Create(ADuck: IQuackObservable);
+    procedure RegisterObserver(Observer: IObserver);
+    procedure NotifyObservers;
+  end;
+
+implementation
+
+{ TObservable }
+
+constructor TObservable.Create(ADuck: IQuackObservable);
+begin
+  FDuck := ADuck;
+end;
+
+procedure TObservable.NotifyObservers;
+begin
+  WriteLn('notifying...');
+end;
+
+procedure TObservable.RegisterObserver(Observer: IObserver);
+begin
+  FObservers.Add(Observer);
+end;
+
+end.

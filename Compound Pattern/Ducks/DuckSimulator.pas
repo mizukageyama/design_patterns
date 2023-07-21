@@ -4,7 +4,8 @@ interface
 
 uses
   QuackableIntf, DuckCall, MallardDuck, RedHeadDuck, RubberDuck, Goose,
-  GooseAdapter, QuackCounter, System.SysUtils, AbstractDuckFactory, Flock;
+  GooseAdapter, QuackCounter, System.SysUtils, AbstractDuckFactory, Flock,
+  Quackologist;
 
 type
   TDuckSimulator = class
@@ -44,13 +45,15 @@ end;
 
 procedure TDuckSimulator.Simulate(DuckFactory: TAbstractDuckFactory);
 begin
+  //Factory
   var MallardDuck: IQuackable := DuckFactory.CreateMallardDuck;
   var RedHeadDuck: IQuackable := DuckFactory.CreateRedHeadDuck;
   var DuckCall: IQuackable := DuckFactory.CreateDuckCall;
   var RubberDuck: IQuackable := DuckFactory.CreateRubberDuck;
+  //Adapter
   var GooseDuck: IQuackable := TGooseAdapter.Create(TGoose.Create);
-  WriteLn(sLineBreak + 'Duck Simulator: With Composite - Flocks');
 
+  //Composite With Iterator
   var FlockOfDucks := TFlock.Create;
 
   FlockOfDucks.Add(RedHeadDuck);
@@ -72,13 +75,16 @@ begin
 
   FlockOfDucks.Add(FlockOfMallards);
 
-  WriteLn(sLineBreak + 'Duck Simulator: Whole Flock Simulation');
+  //Observer
+  WriteLn(sLineBreak + 'Duck Simulator: With Observer');
+  var Quackologist := TQuackologist.Create;
+  FlockOfDucks.RegisterObserver(Quackologist);
+
   Simulate(FlockOfDucks);
 
-  WriteLn(sLineBreak + 'Duck Simulator: Mallard Flock Simulation');
-  Simulate(FlockOfMallards);
-
-  WriteLn(sLineBreak + 'The ducks quacked ' + TQuackCounter.GetQuacks.ToString + ' times');
+  //Decorator (QuackCounter)
+  WriteLn(sLineBreak + 'The ducks quacked ' +
+    TQuackCounter.GetQuacks.ToString + ' times');
 end;
 
 end.

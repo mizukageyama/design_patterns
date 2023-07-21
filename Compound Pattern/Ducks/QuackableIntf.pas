@@ -2,8 +2,12 @@ unit QuackableIntf;
 
 interface
 
+uses
+  ObserverIntf;
+
 type
-  IQuackable = interface   ['{41989334-830B-4E29-8984-3BD6E1093DAB}']
+  IQuackable = interface(IQuackObservable)
+  ['{382EBE5C-48F8-4F7B-AA66-4E40CE19A1CD}']
     procedure Quack;
   end;
 

@@ -103,9 +103,10 @@
         <DCCReference Include="Factory\CountingDuckFactory.pas"/>
         <DCCReference Include="Composite\Flock.pas"/>
         <DCCReference Include="Iterator\IteratorIntf.pas"/>
-        <DCCReference Include="Iterator\FlockIterator.pas"/>
-        <DCCReference Include="Observer\QuackObservableIntf.pas"/>
         <DCCReference Include="Observer\ObserverIntf.pas"/>
+        <DCCReference Include="Observer\Observable.pas"/>
+        <DCCReference Include="Observer\Quackologist.pas"/>
+        <DCCReference Include="Iterator\GenericIterator.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

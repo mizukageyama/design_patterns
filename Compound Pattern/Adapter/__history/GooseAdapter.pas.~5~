@@ -1,0 +1,37 @@
+unit GooseAdapter;
+
+interface
+
+uses
+  Goose, QuackableIntf;
+
+type
+  TGooseAdapter = class(TInterfacedObject, IQuackable)
+  private
+    FGoose: TGoose;
+  public
+    constructor Create(AGoose: TGoose);
+    procedure Quack;
+    function ToString: string;
+  end;
+
+implementation
+
+{ TGooseAdapter }
+
+constructor TGooseAdapter.Create(AGoose: TGoose);
+begin
+  FGoose := AGoose;
+end;
+
+procedure TGooseAdapter.Quack;
+begin
+  FGoose.Honk;
+end;
+
+function TGooseAdapter.ToString: string;
+begin
+  Result := 'Goose pretending to be a Duck';
+end;
+
+end.
