@@ -1,0 +1,16 @@
+unit QuackableIntf;
+
+interface
+
+uses
+  IteratorIntf;
+
+type
+  IQuackable = interface
+    procedure Quack;
+    function CreateIterator: IIterator;
+  end;
+
+implementation
+
+end.

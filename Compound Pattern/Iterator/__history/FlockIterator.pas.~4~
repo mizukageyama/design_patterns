@@ -1,0 +1,44 @@
+unit FlockIterator;
+
+interface
+
+uses
+  IteratorIntf, QuackableIntf, System.Generics.Collections;
+
+type
+  FFlockIterator = class(TInterfacedObject, IIterator)
+  private
+    FQuackers: TList<IQuackable>;
+    FPosition: Integer;
+  public
+    constructor Create(AQuackers: TList<IQuackable>);
+    function HasNext: Boolean;
+    function Next: TObject;
+  end;
+
+implementation
+
+{ FFlockIterator }
+
+constructor FFlockIterator.Create(AQuackers: TList<IQuackable>);
+begin
+  FQuackers := AQuackers;
+  FPosition := 0;
+end;
+
+function FFlockIterator.HasNext: Boolean;
+begin
+  if FPosition >= FQuackers.Count then
+    Result := False
+  else
+    Result := True;
+end;
+
+function FFlockIterator.Next: TObject;
+begin
+  var Item: TObject := FQuackers.Items[FPosition] as TObject;
+  FPosition := FPosition + 1;
+  Result := Item;
+end;
+
+end.

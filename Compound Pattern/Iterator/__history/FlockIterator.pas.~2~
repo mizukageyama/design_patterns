@@ -1,0 +1,21 @@
+unit FlockIterator;
+
+interface
+
+uses
+  IteratorIntf, QuackableIntf;
+
+type
+  FFlockIterator = class(TInterfacedObject, IIterator)
+  private
+    FQuackers: TList<IQuackable>;
+  public
+    constructor Create;
+    procedure Add(Quacker: IQuackable);
+    procedure Quack;
+
+  end;
+
+implementation
+
+end.

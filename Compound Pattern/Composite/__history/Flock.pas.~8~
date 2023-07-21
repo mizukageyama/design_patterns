@@ -1,0 +1,37 @@
+unit Flock;
+
+interface
+
+uses
+  QuackableIntf, System.Generics.Collections, IteratorIntf;
+
+type
+  TFlock = class(TInterfacedObject, IQuackable)
+  private
+    FQuackers: TList<IQuackable>;
+  public
+    constructor Create;
+    procedure Add(Quacker: IQuackable);
+    procedure Quack;
+  end;
+
+implementation
+
+{ TFlock }
+
+procedure TFlock.Add(Quacker: IQuackable);
+begin
+    FQuackers.Add(Quacker);
+end;
+
+constructor TFlock.Create;
+begin
+  FQuackers := TList<IQuackable>.Create;
+end;
+
+procedure TFlock.Quack;
+begin
+  var Iterator: IIterator := FQuackers.Iterator;
+end;
+
+end.

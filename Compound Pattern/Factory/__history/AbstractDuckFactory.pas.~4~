@@ -1,0 +1,18 @@
+unit AbstractDuckFactory;
+
+interface
+
+uses
+  QuackableIntf;
+
+type
+  TAbstractDuckFactory = class abstract
+  public
+    function CreateMallardDuck: IQuackable; virtual; abstract;
+
+  end;
+
+
+implementation
+
+end.

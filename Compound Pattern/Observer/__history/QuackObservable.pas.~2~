@@ -1,0 +1,13 @@
+unit QuackObservable;
+
+interface
+
+type
+  IQuackObservable = interface
+    procedure RegisterObserver(Observer TObserver);
+    procedure NotifyObservers;
+  end;
+
+implementation
+
+end.

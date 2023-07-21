@@ -1,0 +1,14 @@
+unit FlockIterator;
+
+interface
+
+uses IteratorIntf;
+
+type
+  FFlockIterator = class(TInterfacedObject, IIterator)
+
+  end;
+
+implementation
+
+end.

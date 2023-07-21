@@ -1,0 +1,41 @@
+unit DuckFactory;
+
+interface
+
+uses
+  AbstractDuckFactory, QuackableIntf;
+
+type
+  TDuckFactory = class(TAbstractDuckFactory)
+  public
+    function CreateMallardDuck: IQuackable; override;
+    function CreateRedHeadDuck: IQuackable; override;
+    function CreateDuckCall: IQuackable; override;
+    function CreateRubberDuck: IQuackable; override;
+  end;
+
+implementation
+
+{ TDuckFactory }
+
+function TDuckFactory.CreateDuckCall: IQuackable;
+begin
+  Result :=
+end;
+
+function TDuckFactory.CreateMallardDuck: IQuackable;
+begin
+
+end;
+
+function TDuckFactory.CreateRedHeadDuck: IQuackable;
+begin
+
+end;
+
+function TDuckFactory.CreateRubberDuck: IQuackable;
+begin
+
+end;
+
+end.

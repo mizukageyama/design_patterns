@@ -1,0 +1,43 @@
+unit DuckSimulator;
+
+interface
+
+uses
+  QuackableIntf, DuckCall, MallardDuck, RedHeadDuck, RubberDuck, Goose,
+  GooseAdapter, QuackCounter;
+
+type
+  TDuckSimulator = class
+  public
+    procedure Simulate; overload;
+    procedure Simulate(Duck: IQuackable); overload;
+  end;
+
+implementation
+
+{ TDuckSimulator }
+
+procedure TDuckSimulator.Simulate(Duck: IQuackable);
+begin
+  Duck.Quack;
+end;
+
+procedure TDuckSimulator.Simulate;
+begin
+  var MallardDuck: IQuackable := TQuackCounter.Create(TMallardDuck.Create);
+  var RedHeadDuck: IQuackable := TQuackCounter.Create(TRedHeadDuck.Create);
+  var DuckCall: IQuackable := TQuackCounter.Create(TDuckCall.Create);
+  var RubberDuck: IQuackable := TQuackCounter.Create(TRubberDuck.Create);
+  var GooseDuck: IQuackable := TQuackCounter.Create(
+    TGooseAdapter.Create(TGoose.Create));
+
+  WriteLn(sLineBreak + 'Duck Simulator');
+
+  Simulate(MallardDuck);
+  Simulate(RedHeadDuck);
+  Simulate(DuckCall);
+  Simulate(RubberDuck);
+  Simulate(GooseDuck);
+end;
+
+end.

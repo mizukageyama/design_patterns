@@ -1,0 +1,39 @@
+program CompoundPattern;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils,
+  QuackableIntf in 'Ducks\QuackableIntf.pas',
+  MallardDuck in 'Ducks\MallardDuck.pas',
+  RedHeadDuck in 'Ducks\RedHeadDuck.pas',
+  DuckCall in 'Ducks\DuckCall.pas',
+  RubberDuck in 'Ducks\RubberDuck.pas',
+  DuckSimulator in 'Ducks\DuckSimulator.pas',
+  Goose in 'Adapter\Goose.pas',
+  GooseAdapter in 'Adapter\GooseAdapter.pas',
+  QuackCounter in 'Decorator\QuackCounter.pas',
+  AbstractDuckFactory in 'Factory\AbstractDuckFactory.pas',
+  DuckFactory in 'Factory\DuckFactory.pas',
+  CountingDuckFactory in 'Factory\CountingDuckFactory.pas',
+  Flock in 'Composite\Flock.pas',
+  IteratorIntf in 'Iterator\IteratorIntf.pas',
+  FlockIterator in 'Iterator\FlockIterator.pas',
+  ObserverIntf in 'Observer\ObserverIntf.pas',
+  QuackObservableIntf in 'Observer\QuackObservableIntf.pas';
+
+begin
+  try
+    var Simulator := TDuckSimulator.Create;
+    var DuckFactory: TAbstractDuckFactory := TCountingDuckFactory.Create;
+
+    Simulator.Simulate(DuckFactory);
+
+    ReadLn;
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+end.
