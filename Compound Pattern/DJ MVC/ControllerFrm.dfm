@@ -2,7 +2,7 @@ object ControllerForm: TControllerForm
   Left = 0
   Top = 0
   Caption = 'Controller'
-  ClientHeight = 170
+  ClientHeight = 114
   ClientWidth = 227
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -10,23 +10,26 @@ object ControllerForm: TControllerForm
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Menu = mmDJControl
   TextHeight = 15
   object pnlInput: TPanel
     Left = 0
-    Top = 41
+    Top = 0
     Width = 227
-    Height = 53
+    Height = 38
     Align = alClient
     BevelOuter = bvNone
     Padding.Top = 5
     Padding.Bottom = 5
     TabOrder = 0
-    ExplicitHeight = 47
+    ExplicitTop = 41
+    ExplicitWidth = 221
+    ExplicitHeight = 44
     object lblEnter: TLabel
       Left = 0
       Top = 5
       Width = 105
-      Height = 43
+      Height = 28
       Align = alClient
       Caption = 'Enter BPM: '
       Font.Charset = DEFAULT_CHARSET
@@ -36,8 +39,6 @@ object ControllerForm: TControllerForm
       Font.Style = []
       ParentFont = False
       Layout = tlCenter
-      ExplicitLeft = 1
-      ExplicitTop = 1
       ExplicitWidth = 89
       ExplicitHeight = 23
     end
@@ -45,7 +46,7 @@ object ControllerForm: TControllerForm
       Left = 105
       Top = 5
       Width = 122
-      Height = 43
+      Height = 28
       Align = alRight
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -54,49 +55,21 @@ object ControllerForm: TControllerForm
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 104
-      ExplicitTop = 1
+      ExplicitLeft = 99
       ExplicitHeight = 31
-    end
-  end
-  object pnlTitle: TPanel
-    Left = 0
-    Top = 0
-    Width = 227
-    Height = 41
-    Align = alTop
-    TabOrder = 1
-    ExplicitLeft = 8
-    ExplicitTop = -12
-    ExplicitWidth = 185
-    object lblTitle: TLabel
-      Left = 1
-      Top = 1
-      Width = 225
-      Height = 35
-      Align = alTop
-      Caption = 'DJ Control'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -18
-      Font.Name = 'Segoe UI'
-      Font.Style = [fsBold]
-      ParentFont = False
-      Layout = tlCenter
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 163
     end
   end
   object pnlButton: TPanel
     Left = 0
-    Top = 128
+    Top = 72
     Width = 227
     Height = 42
     Align = alBottom
     Padding.Top = 5
     Padding.Bottom = 5
-    TabOrder = 2
+    TabOrder = 1
+    ExplicitTop = 119
+    ExplicitWidth = 221
     object btnIncrease: TButton
       Left = 116
       Top = 6
@@ -111,8 +84,7 @@ object ControllerForm: TControllerForm
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 126
-      ExplicitHeight = 38
+      ExplicitLeft = 110
     end
     object btnDecrease: TButton
       Left = 1
@@ -128,12 +100,11 @@ object ControllerForm: TControllerForm
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 1
-      ExplicitHeight = 38
     end
   end
   object btnSet: TButton
     Left = 0
-    Top = 94
+    Top = 38
     Width = 227
     Height = 34
     Align = alBottom
@@ -144,9 +115,28 @@ object ControllerForm: TControllerForm
     Font.Name = 'Segoe UI'
     Font.Style = []
     ParentFont = False
-    TabOrder = 3
-    ExplicitLeft = 1
-    ExplicitTop = 1
-    ExplicitWidth = 225
+    TabOrder = 2
+    OnClick = btnSetClick
+    ExplicitTop = 85
+    ExplicitWidth = 221
+  end
+  object mmDJControl: TMainMenu
+    Left = 24
+    Top = 1
+    object DJControl1: TMenuItem
+      Caption = 'DJ Control'
+      object Start1: TMenuItem
+        Caption = 'Start'
+        OnClick = Start1Click
+      end
+      object Stop1: TMenuItem
+        Caption = 'Stop'
+        OnClick = Stop1Click
+      end
+      object Quit1: TMenuItem
+        Caption = 'Quit'
+        OnClick = Quit1Click
+      end
+    end
   end
 end

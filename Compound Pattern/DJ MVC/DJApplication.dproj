@@ -106,6 +106,9 @@
             <Form>ControllerForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="BeatModelIntf.pas"/>
+        <DCCReference Include="BeatObserverIntf.pas"/>
+        <DCCReference Include="BPMObserverIntf.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -1,0 +1,45 @@
+unit ViewFrm;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.ComCtrls, System.Math;
+
+type
+  TViewForm = class(TForm)
+    pnlBeat: TPanel;
+    pnlInfo: TPanel;
+    pbBeatBar: TProgressBar;
+    lblBeatInfo: TLabel;
+    tmrPerBeat: TTimer;
+    Timer1: TTimer;
+    procedure FormCreate(Sender: TObject);
+    procedure tmrPerBeatTimer(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ViewForm: TViewForm;
+
+implementation
+
+{$R *.dfm}
+
+procedure TViewForm.FormCreate(Sender: TObject);
+begin
+  tmrPerBeat.Enabled := True;
+  tmrPerBeat.Interval := Round((60/120) * 1000);
+  ShowMessage(tmrPerBeat.Interval.ToString);
+end;
+
+procedure TViewForm.tmrPerBeatTimer(Sender: TObject);
+begin
+  pbBeatBar.StepBy(4);
+  pbBeatBar.StepIt;
+end;
+
+end.

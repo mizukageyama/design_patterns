@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.ComCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.ComCtrls, System.Math,
+  BeatObserverIntf, BPMObserverIntf;
 
 type
   TViewForm = class(TForm)
@@ -13,14 +14,19 @@ type
     pbBeatBar: TProgressBar;
     lblBeatInfo: TLabel;
     tmrPerBeat: TTimer;
-    Timer1: TTimer;
     procedure FormCreate(Sender: TObject);
     procedure tmrPerBeatTimer(Sender: TObject);
-    procedure Timer1Timer(Sender: TObject);
   private
     { Private declarations }
   public
-    { Public declarations }
+    procedure TurnOn;
+    procedure TurnOff;
+    procedure SetBPM(BPM: Integer);
+    function GetBPM: Integer;
+    procedure RegisterObserver(O: IBeatObserver); overload;
+    procedure RemoveObserver(O: IBPMObserver); overload;
+    procedure RegisterObserver(O: IBPMObserver); overload;
+    procedure RemoveObserver(O: IBeatObserver); overload;
   end;
 
 var
@@ -33,26 +39,53 @@ implementation
 procedure TViewForm.FormCreate(Sender: TObject);
 begin
   tmrPerBeat.Enabled := True;
-  Timer1.Enabled := False;
+  tmrPerBeat.Interval := Round((60/120) * 1000);
 end;
 
-procedure TViewForm.Timer1Timer(Sender: TObject);
+function TViewForm.GetBPM: Integer;
 begin
-//  if pbBeatBar.Position = 95 then
-//  begin
-//    tmrPerBeat.Enabled := True;
-//    pbBeatBar.Position := 0;
-//  end;
+//
+end;
 
+procedure TViewForm.RegisterObserver(O: IBPMObserver);
+begin
+//
+end;
+
+procedure TViewForm.RegisterObserver(O: IBeatObserver);
+begin
+//
+end;
+
+procedure TViewForm.RemoveObserver(O: IBPMObserver);
+begin
+//
+end;
+
+procedure TViewForm.RemoveObserver(O: IBeatObserver);
+begin
+//
+end;
+
+procedure TViewForm.SetBPM(BPM: Integer);
+begin
+//
 end;
 
 procedure TViewForm.tmrPerBeatTimer(Sender: TObject);
 begin
-  pbBeatBar.Step := 95;
+  pbBeatBar.StepBy(4);
   pbBeatBar.StepIt;
-  tmrPerBeat.Enabled := False;
-  Sleep(1000);
-  pbBeatBar.Position := 0;
+end;
+
+procedure TViewForm.TurnOff;
+begin
+//
+end;
+
+procedure TViewForm.TurnOn;
+begin
+//
 end;
 
 end.

@@ -1,0 +1,22 @@
+unit BeatModelIntf;
+
+interface
+
+uses
+  BeatObserverIntf, BPMObserverIntf;
+
+type
+  IBeatModel = interface
+    procedure OnBeat;
+    procedure OffBeat;
+    procedure SetBPM(BPM: Integer);
+    function GetBPM: Integer;
+    procedure RegisterObserver(O: IBeatObserver); overload;
+    procedure RemoveObserver(O: IBPMObserver); overload;
+    procedure RegisterObserver(O: IBeatObserver); overload;
+    procedure RemoveObserver(O: IBPMObserver); overload;
+  end;
+
+implementation
+
+end.

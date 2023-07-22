@@ -19,16 +19,20 @@ object ViewForm: TViewForm
     Height = 31
     Align = alClient
     TabOrder = 0
-    ExplicitHeight = 32
+    ExplicitWidth = 271
+    ExplicitHeight = 22
     object pbBeatBar: TProgressBar
       Left = 1
       Top = 1
       Width = 275
       Height = 29
       Align = alClient
-      Max = 140
+      Max = 5
       Smooth = True
+      BarColor = clHotLight
       TabOrder = 0
+      ExplicitWidth = 269
+      ExplicitHeight = 20
     end
   end
   object pnlInfo: TPanel
@@ -38,6 +42,8 @@ object ViewForm: TViewForm
     Height = 32
     Align = alBottom
     TabOrder = 1
+    ExplicitTop = 22
+    ExplicitWidth = 271
     object lblBeatInfo: TLabel
       Left = 1
       Top = 1
@@ -61,12 +67,6 @@ object ViewForm: TViewForm
     Interval = 50
     OnTimer = tmrPerBeatTimer
     Left = 16
-    Top = 16
-  end
-  object Timer1: TTimer
-    Interval = 300
-    OnTimer = Timer1Timer
-    Left = 184
     Top = 16
   end
 end
