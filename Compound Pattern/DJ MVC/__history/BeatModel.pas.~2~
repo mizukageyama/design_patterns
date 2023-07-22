@@ -1,0 +1,12 @@
+unit BeatModel;
+
+interface
+
+type
+  TBeatModel = class
+
+  end;
+
+implementation
+
+end.

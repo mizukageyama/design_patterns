@@ -1,0 +1,14 @@
+unit BeatModel;
+
+interface
+
+uses BeatModelIntf;
+
+type
+  TBeatModel = class(TInterfacedObject, IBeatModel)
+
+  end;
+
+implementation
+
+end.

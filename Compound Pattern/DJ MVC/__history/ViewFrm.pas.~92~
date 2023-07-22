@@ -1,0 +1,83 @@
+unit ViewFrm;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.ComCtrls, System.Math,
+  BeatObserverIntf, BPMObserverIntf, BeatModelIntf, ControllerIntf;
+
+type
+  TViewForm = class(TForm, IBeatObserver, IBPMObserver)
+    pnlBeat: TPanel;
+    pnlInfo: TPanel;
+    pbBeatBar: TProgressBar;
+    lblBeatInfo: TLabel;
+    tmrPerBeat: TTimer;
+    procedure FormCreate(Sender: TObject);
+    procedure tmrPerBeatTimer(Sender: TObject);
+  private
+    { Private declarations }
+    FController: IController;
+    FModel: IBeatModel;
+  public
+    { Public declarations }
+    procedure UpdateBeat;
+    procedure UpdateBPM;
+    constructor Create(AOwner: TComponent; AController: IController;
+      AModel: IBeatModel);
+  end;
+
+var
+  ViewForm: TViewForm;
+
+implementation
+
+{$R *.dfm}
+
+constructor TViewForm.Create(AOwner: TComponent; AController: IController;
+  AModel: IBeatModel);
+begin
+  inherited Create(AOwner);
+  FController := AController;
+  FModel := AModel;
+  FModel.RegisterObserver(Self);
+  FModel.RegisterObserver(Self);
+end;
+
+procedure TViewForm.FormCreate(Sender: TObject);
+begin
+  tmrPerBeat.Enabled := True;
+  tmrPerBeat.Interval := Round((60/120) * 1000);
+end;
+
+procedure TViewForm.tmrPerBeatTimer(Sender: TObject);
+begin
+  pbBeatBar.StepBy(4);
+  pbBeatBar.StepIt;
+end;
+
+procedure TViewForm.UpdateBeat;
+begin
+// if (model != null) {
+//			int bpm = model.getBPM();
+//			if (bpm == 0) {
+//				if (bpmOutputLabel != null) {
+//        			bpmOutputLabel.setText("offline");
+//				}
+//			} else {
+//				if (bpmOutputLabel != null) {
+//        			bpmOutputLabel.setText("Current BPM: " + model.getBPM());
+//				}
+//			}
+//		}
+end;
+
+procedure TViewForm.UpdateBPM;
+begin
+//	if (beatBar != null) {
+//			 beatBar.setValue(100);
+//		}
+end;
+
+end.

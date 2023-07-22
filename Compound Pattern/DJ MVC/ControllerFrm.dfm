@@ -22,9 +22,8 @@ object ControllerForm: TControllerForm
     Padding.Top = 5
     Padding.Bottom = 5
     TabOrder = 0
-    ExplicitTop = 41
     ExplicitWidth = 221
-    ExplicitHeight = 44
+    ExplicitHeight = 29
     object lblEnter: TLabel
       Left = 0
       Top = 5
@@ -68,7 +67,7 @@ object ControllerForm: TControllerForm
     Padding.Top = 5
     Padding.Bottom = 5
     TabOrder = 1
-    ExplicitTop = 119
+    ExplicitTop = 63
     ExplicitWidth = 221
     object btnIncrease: TButton
       Left = 116
@@ -84,6 +83,7 @@ object ControllerForm: TControllerForm
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 0
+      OnClick = btnIncreaseClick
       ExplicitLeft = 110
     end
     object btnDecrease: TButton
@@ -100,6 +100,7 @@ object ControllerForm: TControllerForm
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 1
+      OnClick = btnDecreaseClick
     end
   end
   object btnSet: TButton
@@ -117,7 +118,7 @@ object ControllerForm: TControllerForm
     ParentFont = False
     TabOrder = 2
     OnClick = btnSetClick
-    ExplicitTop = 85
+    ExplicitTop = 29
     ExplicitWidth = 221
   end
   object mmDJControl: TMainMenu

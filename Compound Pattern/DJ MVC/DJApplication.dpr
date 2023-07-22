@@ -3,16 +3,20 @@ program DJApplication;
 uses
   Vcl.Forms,
   ViewFrm in 'ViewFrm.pas' {ViewForm},
-  ControllerFrm in 'ControllerFrm.pas' {ControllerForm},
   BeatModelIntf in 'BeatModelIntf.pas',
   BeatObserverIntf in 'BeatObserverIntf.pas',
-  BPMObserverIntf in 'BPMObserverIntf.pas';
+  BPMObserverIntf in 'BPMObserverIntf.pas',
+  ControllerIntf in 'ControllerIntf.pas',
+  BeatController in 'BeatController.pas',
+  BeatModel in 'BeatModel.pas',
+  ControllerFrm in 'ControllerFrm.pas' {ControllerForm};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TControllerForm, ControllerForm);
   Application.CreateForm(TViewForm, ViewForm);
   Application.CreateForm(TControllerForm, ControllerForm);
   Application.Run;

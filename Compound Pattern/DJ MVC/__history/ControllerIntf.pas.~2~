@@ -1,0 +1,12 @@
+unit ControllerIntf;
+
+interface
+
+type
+  IController = interface
+
+  end;
+
+implementation
+
+end.

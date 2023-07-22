@@ -30,6 +30,7 @@ object ViewForm: TViewForm
       Max = 5
       Smooth = True
       BarColor = clHotLight
+      BackgroundColor = clHighlight
       TabOrder = 0
       ExplicitWidth = 269
       ExplicitHeight = 20
@@ -42,8 +43,6 @@ object ViewForm: TViewForm
     Height = 32
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 22
-    ExplicitWidth = 271
     object lblBeatInfo: TLabel
       Left = 1
       Top = 1

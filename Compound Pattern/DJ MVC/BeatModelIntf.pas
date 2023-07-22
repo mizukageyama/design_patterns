@@ -7,6 +7,7 @@ uses
 
 type
   IBeatModel = interface
+    procedure Initialize;
     procedure TurnOn;
     procedure TurnOff;
     procedure SetBPM(BPM: Integer);
