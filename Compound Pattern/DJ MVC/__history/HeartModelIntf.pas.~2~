@@ -1,0 +1,22 @@
+unit HeartModelIntf;
+
+interface
+
+uses
+  BeatObserverIntf, BPMObserverIntf;
+
+type
+  IHeartModel = interface ['{3EFF64D7-CA20-4FD9-A559-91CBDE5C8C24}']
+    procedure TurnOn;
+    procedure TurnOff;
+    procedure SetBPM(BPM: Integer);
+    function GetBPM: Integer;
+    procedure RegisterObserver(O: IBeatObserver); overload;
+    procedure RemoveObserver(O: IBPMObserver); overload;
+    procedure RegisterObserver(O: IBPMObserver); overload;
+    procedure RemoveObserver(O: IBeatObserver); overload;
+  end;
+
+implementation
+
+end.

@@ -1,0 +1,88 @@
+unit HeartModel;
+
+interface
+
+uses
+  BeatModelIntf, BeatObserverIntf, BPMObserverIntf, System.Generics.Collections,
+  VCL.Dialogs;
+
+type
+  TBeatModel = class(TInterfacedObject, IBeatModel)
+  private
+    FBPM: Integer;
+    FBeatObservers: TList<IBeatObserver>;
+    FBPMObservers: TList<IBPMObserver>;
+  public
+    constructor Create;
+    procedure TurnOn;
+    procedure TurnOff;
+    procedure SetBPM(BPM: Integer);
+    function GetBPM: Integer;
+    procedure RegisterObserver(O: IBeatObserver); overload;
+    procedure RemoveObserver(O: IBPMObserver); overload;
+    procedure RegisterObserver(O: IBPMObserver); overload;
+    procedure RemoveObserver(O: IBeatObserver); overload;
+    procedure NotifyBPMObserver;
+  end;
+implementation
+
+{ TBeatModel }
+
+function TBeatModel.GetBPM: Integer;
+begin
+  Result := FBPM;
+end;
+
+procedure TBeatModel.NotifyBPMObserver;
+begin
+  for var Beat in FBeatObservers do
+    Beat.UpdateBeat;
+
+  for var BPM in FBPMObservers do
+    BPM.UpdateBPM;
+end;
+
+constructor TBeatModel.Create;
+begin
+  FBPM := 90;
+  FBeatObservers := TList<IBeatObserver>.Create;
+  FBPMObservers := TList<IBPMObserver>.Create;
+end;
+
+procedure TBeatModel.RegisterObserver(O: IBeatObserver);
+begin
+  FBeatObservers.Add(O);
+end;
+
+procedure TBeatModel.RegisterObserver(O: IBPMObserver);
+begin
+  FBPMObservers.Add(O);
+end;
+
+procedure TBeatModel.RemoveObserver(O: IBPMObserver);
+begin
+  FBPMObservers.Remove(O);
+end;
+
+procedure TBeatModel.RemoveObserver(O: IBeatObserver);
+begin
+  FBeatObservers.Remove(O);
+end;
+
+procedure TBeatModel.SetBPM(BPM: Integer);
+begin
+  FBPM := BPM;
+  NotifyBPMObserver;
+end;
+
+procedure TBeatModel.TurnOff;
+begin
+  SetBPM(0);
+end;
+
+procedure TBeatModel.TurnOn;
+begin
+  SetBPM(90);
+end;
+
+end.

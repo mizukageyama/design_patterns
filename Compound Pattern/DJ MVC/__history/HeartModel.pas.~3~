@@ -1,0 +1,83 @@
+unit HeartModel;
+
+interface
+
+uses
+  BeatModelIntf, BeatObserverIntf, BPMObserverIntf, System.Generics.Collections,
+  VCL.Dialogs, HeartModelIntf;
+
+type
+  TBeatModel = class(TInterfacedObject, IHeartModel)
+  private
+    FBPM: Integer;
+    FTime: Integer;
+    FBeatObservers: TList<IBeatObserver>;
+    FBPMObservers: TList<IBPMObserver>;
+  public
+    constructor Create;
+    procedure Run;
+    function GetHeartRate: Integer;
+    procedure RegisterObserver(O: IBeatObserver); overload;
+    procedure RemoveObserver(O: IBPMObserver); overload;
+    procedure RegisterObserver(O: IBPMObserver); overload;
+    procedure RemoveObserver(O: IBeatObserver); overload;
+  end;
+implementation
+
+{ TBeatModel }
+
+constructor TBeatModel.Create;
+begin
+  FBPM := 90;
+  FTime := 1000;
+end;
+
+function TBeatModel.GetHeartRate: Integer;
+begin
+
+end;
+
+procedure TBeatModel.RegisterObserver(O: IBPMObserver);
+begin
+  FBPMObservers.Add(O);
+end;
+
+procedure TBeatModel.RegisterObserver(O: IBeatObserver);
+begin
+  FBeatObservers.Add(O);
+end;
+
+procedure TBeatModel.RemoveObserver(O: IBeatObserver);
+begin
+  FBeatObservers.Remove(O);
+end;
+
+procedure TBeatModel.Run;
+begin
+  var LastRate := -1;
+  Randomize;
+  while True do
+  begin
+    var Change := Random(10) + 1;
+    if (Random(2) + 1) = 0 then
+      Change := 0 - Change;
+    var Rate := 6000/(FTime + Change);
+    if (Rate < 120) and (Rate > 50) then
+    begin
+      FTime := FTime + Change;
+      //NotifyBeatObservers;
+      if Rate <> LastRate then
+      begin
+        LastRate := Rate;
+        //NotifyBPMObservers;
+      end;
+    end;
+  end;
+end;
+
+procedure TBeatModel.RemoveObserver(O: IBPMObserver);
+begin
+  FBPMObservers.Remove(O);
+end;
+
+end.

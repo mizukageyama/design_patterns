@@ -1,0 +1,67 @@
+unit HeartController;
+
+interface
+
+uses
+  ControllerIntf, BeatModelIntf, Forms, ControllerFrm, VCL.Dialogs,
+  System.SysUtils, HeartModelIntf;
+
+type
+  THeartController = class(TInterfacedObject, IController)
+  private
+    FModel: IHeartModel;
+  public
+    constructor Create(AModel: IBeatModel);
+    procedure Start;
+    procedure Stop;
+    procedure IncreaseBPM;
+    procedure DecreaseBPM;
+    procedure SetBPM(BPM: Integer);
+  end;
+
+implementation
+
+{ TBeatController }
+
+//constructor TBeatController.Create(Owner: TControllerForm; AModel: IBeatModel);
+//begin
+//  FModel := AModel;
+//  FControllerView := Owner;
+//  FControllerView.DisableStop;
+//  FControllerView.EnableStart;
+//  FControllerView.DisableSet;
+//end;
+
+{ THeartController }
+
+constructor THeartController.Create(AModel: IBeatModel);
+begin
+
+end;
+
+procedure THeartController.DecreaseBPM;
+begin
+
+end;
+
+procedure THeartController.IncreaseBPM;
+begin
+
+end;
+
+procedure THeartController.SetBPM(BPM: Integer);
+begin
+
+end;
+
+procedure THeartController.Start;
+begin
+
+end;
+
+procedure THeartController.Stop;
+begin
+
+end;
+
+end.
