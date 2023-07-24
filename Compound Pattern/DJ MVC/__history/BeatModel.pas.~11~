@@ -1,0 +1,74 @@
+unit BeatModel;
+
+interface
+
+uses
+  BeatModelIntf, BeatObserverIntf, BPMObserverIntf, System.Generics.Collections;
+
+type
+  TBeatModel = class(TInterfacedObject, IBeatModel)
+  private
+    FBPM: Integer;
+    BeatObservers: TList<IBeatObserver>;
+    BPMObservers: TList<IBPMObserver>;
+  public
+    constructor Create;
+    procedure TurnOn;
+    procedure TurnOff;
+    procedure SetBPM(BPM: Integer);
+    function GetBPM: Integer;
+    procedure RegisterObserver(O: IBeatObserver); overload;
+    procedure RemoveObserver(O: IBPMObserver); overload;
+    procedure RegisterObserver(O: IBPMObserver); overload;
+    procedure RemoveObserver(O: IBeatObserver); overload;
+  end;
+implementation
+
+{ TBeatModel }
+
+function TBeatModel.GetBPM: Integer;
+begin
+  Result := FBPM;
+end;
+
+constructor TBeatModel.Create;
+begin
+  FBPM := 90;
+end;
+
+procedure TBeatModel.RegisterObserver(O: IBeatObserver);
+begin
+
+end;
+
+procedure TBeatModel.RegisterObserver(O: IBPMObserver);
+begin
+
+end;
+
+procedure TBeatModel.RemoveObserver(O: IBPMObserver);
+begin
+
+end;
+
+procedure TBeatModel.RemoveObserver(O: IBeatObserver);
+begin
+
+end;
+
+procedure TBeatModel.SetBPM(BPM: Integer);
+begin
+
+end;
+
+procedure TBeatModel.TurnOff;
+begin
+
+end;
+
+procedure TBeatModel.TurnOn;
+begin
+  SetBPM(90);
+end;
+
+end.

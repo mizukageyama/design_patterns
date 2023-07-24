@@ -3,15 +3,16 @@ unit BeatController;
 interface
 
 uses
-  ControllerIntf, BeatModelIntf, Forms;
+  ControllerIntf, BeatModelIntf, Forms, ControllerFrm, VCL.Dialogs,
+  System.SysUtils;
 
 type
   TBeatController = class(TInterfacedObject, IController)
   private
     FModel: IBeatModel;
-    FDJView: TForm;
+    FControllerView: TControllerForm;
   public
-    constructor Create(AModel: IBeatModel);
+    constructor Create(Owner: TControllerForm; AModel: IBeatModel);
     procedure Start;
     procedure Stop;
     procedure IncreaseBPM;
@@ -23,41 +24,45 @@ implementation
 
 { TBeatController }
 
-uses ControllerFrm;
-
-constructor TBeatController.Create(AModel: IBeatModel);
+constructor TBeatController.Create(Owner: TControllerForm; AModel: IBeatModel);
 begin
   FModel := AModel;
-  FDJView := TControllerForm.Create(Self, AModel);
-  FModel.Initialize;
+  FControllerView := Owner;
+  FControllerView.DisableStop;
+  FControllerView.EnableStart;
+  FControllerView.DisableSet;
 end;
 
 procedure TBeatController.DecreaseBPM;
 begin
-  var BPM := FModel.getBPM;
-  FModel.SetBPM(BPM - 1);
+  SetBPM(FModel.getBPM - 1);
 end;
 
 procedure TBeatController.IncreaseBPM;
 begin
-  var BPM := FModel.getBPM;
-  FModel.SetBPM(BPM + 1);
+  SetBPM(FModel.getBPM + 1);
 end;
 
 procedure TBeatController.SetBPM(BPM: Integer);
 begin
+  if BPM = 0 then
+    Stop;
   FModel.SetBPM(BPM);
 end;
 
 procedure TBeatController.Start;
 begin
   FModel.TurnOn;
-  //FDJView.DisableStart;
+  FControllerView.DisableStart;
+  FControllerView.EnableStop;
+  FControllerView.EnableSet;
 end;
 
 procedure TBeatController.Stop;
 begin
-//
+  FControllerView.EnableStart;
+  FControllerView.DisableStop;
+  FControllerView.DisableSet;
 end;
 
 end.

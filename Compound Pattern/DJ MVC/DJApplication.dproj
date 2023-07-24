@@ -102,7 +102,6 @@
         </DelphiCompile>
         <DCCReference Include="ViewFrm.pas">
             <Form>ViewForm</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="BeatModelIntf.pas"/>
         <DCCReference Include="BeatObserverIntf.pas"/>

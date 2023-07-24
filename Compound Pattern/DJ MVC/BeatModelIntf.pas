@@ -6,8 +6,7 @@ uses
   BeatObserverIntf, BPMObserverIntf;
 
 type
-  IBeatModel = interface
-    procedure Initialize;
+  IBeatModel = interface ['{90E9295B-1F20-4426-9E48-3BBF65E70C19}']
     procedure TurnOn;
     procedure TurnOff;
     procedure SetBPM(BPM: Integer);

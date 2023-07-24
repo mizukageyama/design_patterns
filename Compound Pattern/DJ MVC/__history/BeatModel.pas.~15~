@@ -1,0 +1,84 @@
+unit BeatModel;
+
+interface
+
+uses
+  BeatModelIntf, BeatObserverIntf, BPMObserverIntf, System.Generics.Collections,
+  VCL.Dialogs;
+
+type
+  TBeatModel = class(TInterfacedObject, IBeatModel)
+  private
+    FBPM: Integer;
+    FBeatObservers: TList<IBeatObserver>;
+    FBPMObservers: TList<IBPMObserver>;
+  public
+    constructor Create;
+    procedure TurnOn;
+    procedure TurnOff;
+    procedure SetBPM(BPM: Integer);
+    function GetBPM: Integer;
+    procedure RegisterObserver(O: IBeatObserver); overload;
+    procedure RemoveObserver(O: IBPMObserver); overload;
+    procedure RegisterObserver(O: IBPMObserver); overload;
+    procedure RemoveObserver(O: IBeatObserver); overload;
+    procedure NotifyBPMObserver;
+  end;
+implementation
+
+{ TBeatModel }
+
+function TBeatModel.GetBPM: Integer;
+begin
+  Result := FBPM;
+end;
+
+procedure TBeatModel.NotifyBPMObserver;
+begin
+  //Set BPM and Caption here?
+  ShowMessage('Notify');
+end;
+
+constructor TBeatModel.Create;
+begin
+  FBPM := 90;
+end;
+
+procedure TBeatModel.RegisterObserver(O: IBeatObserver);
+begin
+  FBeatObservers.Add(O);
+end;
+
+procedure TBeatModel.RegisterObserver(O: IBPMObserver);
+begin
+  FBPMObservers.Add(O);
+end;
+
+procedure TBeatModel.RemoveObserver(O: IBPMObserver);
+begin
+  FBPMObservers.Remove(O);
+end;
+
+procedure TBeatModel.RemoveObserver(O: IBeatObserver);
+begin
+  FBeatObservers.Remove(O);
+end;
+
+procedure TBeatModel.SetBPM(BPM: Integer);
+begin
+  FBPM := BPM;
+
+end;
+
+procedure TBeatModel.TurnOff;
+begin
+  SetBPM(0);
+  NotifyBPMObserver;
+end;
+
+procedure TBeatModel.TurnOn;
+begin
+  SetBPM(90);
+end;
+
+end.

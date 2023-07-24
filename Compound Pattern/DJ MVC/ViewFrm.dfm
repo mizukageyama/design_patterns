@@ -10,7 +10,6 @@ object ViewForm: TViewForm
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  OnCreate = FormCreate
   TextHeight = 15
   object pnlBeat: TPanel
     Left = 0
@@ -43,6 +42,8 @@ object ViewForm: TViewForm
     Height = 32
     Align = alBottom
     TabOrder = 1
+    ExplicitTop = 22
+    ExplicitWidth = 271
     object lblBeatInfo: TLabel
       Left = 1
       Top = 1
