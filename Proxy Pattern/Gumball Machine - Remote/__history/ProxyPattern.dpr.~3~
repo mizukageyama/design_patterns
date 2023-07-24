@@ -18,12 +18,8 @@ uses
 begin
 
   try
-    var GumballMachine := TGumballMachine.Create(4, 'Scranton'); //online
+    var GumballMachine := TGumballMachine.Create(4, 'Scranton');
     var GumballMonitor := TGumballMonitor.Create(GumballMachine);
-
-    //get remote machines
-    //GumballMachines TList<TGumballMachine>
-    //iterate
     GumballMonitor.Report;
 
     ReadLn;
