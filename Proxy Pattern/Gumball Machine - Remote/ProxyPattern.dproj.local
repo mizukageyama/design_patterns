@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/07/20 13:28:03.000.655,C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\ProxyPattern.dproj</Transaction>
+    <Transaction>2023/07/20 13:46:43.000.711,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Gumball Machine\StateIntf.pas</Transaction>
+    <Transaction>2023/07/20 13:46:43.000.603,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Gumball Machine\NoQuarterState.pas</Transaction>
+    <Transaction>2023/07/20 13:46:43.000.741,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Gumball Machine\WinnerState.pas</Transaction>
+    <Transaction>2023/07/20 13:46:43.000.635,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Gumball Machine\SoldOutState.pas</Transaction>
+    <Transaction>2023/07/20 13:46:43.000.534,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Gumball Machine\GumballMachineWithState.pas</Transaction>
+    <Transaction>2023/07/20 13:46:43.000.572,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Gumball Machine\HasQuarterState.pas</Transaction>
+    <Transaction>2023/07/20 13:46:43.000.673,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Gumball Machine\SoldState.pas</Transaction>
+    <Transaction>2023/07/20 13:46:53.000.337,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Gumball Machine\GumballMachineWithState.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Gumball Machine\GumballMachine.pas</Transaction>
+    <Transaction>2023/07/20 13:51:15.000.208,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Unit1.pas</Transaction>
+    <Transaction>2023/07/20 13:51:28.000.344,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Gumball Machine\GumballMonitor.pas</Transaction>
+  </Transactions>
+</BorlandProject>

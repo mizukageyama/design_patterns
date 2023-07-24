@@ -60,6 +60,7 @@ end;
 
 procedure TBeatController.Stop;
 begin
+  FModel.TurnOff;
   FControllerView.EnableStart;
   FControllerView.DisableStop;
   FControllerView.DisableSet;

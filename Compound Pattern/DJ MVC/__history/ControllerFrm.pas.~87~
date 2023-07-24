@@ -52,27 +52,27 @@ uses BeatController;
 
 procedure TControllerForm.btnDecreaseClick(Sender: TObject);
 begin
-    try
-      if edtBPM.Text = '' then
-        edtBPM.Text := '-1'
-      else
-        edtBPM.Text := (StrToInt(edtBPM.Text) - 1).ToString;
-    except
-      ShowMessage('Invalid Input');
-    end;
+  try
+    if (edtBPM.Text = '') or ((StrToInt(edtBPM.Text) - 1) = 0) then
+      edtBPM.Text := '0'
+    else
+      edtBPM.Text := (StrToInt(edtBPM.Text) - 1).ToString;
+  except
+    ShowMessage('Invalid Input');
+  end;
   FController.DecreaseBPM;
 end;
 
 procedure TControllerForm.btnIncreaseClick(Sender: TObject);
 begin
-    try
-      if edtBPM.Text = '' then
-        edtBPM.Text := '1'
-      else
-        edtBPM.Text := (StrToInt(edtBPM.Text) + 1).ToString;
-    except
-      ShowMessage('Invalid Input');
-    end;
+  try
+    if edtBPM.Text = '' then
+      edtBPM.Text := '1'
+    else
+      edtBPM.Text := (StrToInt(edtBPM.Text) + 1).ToString;
+  except
+    ShowMessage('Invalid Input');
+  end;
   FController.IncreaseBPM;
 end;
 
@@ -95,6 +95,7 @@ begin
   btnSet.Enabled := False;
   btnDecrease.Enabled := False;
   btnIncrease.Enabled := False;
+  edtBPM.Enabled := False;
 end;
 
 procedure TControllerForm.DisableStart;
@@ -112,6 +113,7 @@ begin
   btnSet.Enabled := True;
   btnDecrease.Enabled := True;
   btnIncrease.Enabled := True;
+  edtBPM.Enabled := True;
 end;
 
 procedure TControllerForm.EnableStart;
@@ -131,7 +133,7 @@ begin
   FBeatViewForm := TViewForm.Create(Self);
   FBeatViewForm.Initialize(FModel);
   var Temp: IBPMObserver :=  FBeatViewForm;
-  //FModel.RegisterObserver(FBeatViewForm as IBeatObserver);
+  FModel.RegisterObserver(FBeatViewForm as IBeatObserver);
   FModel.RegisterObserver(Temp);
 end;
 
@@ -142,14 +144,15 @@ end;
 
 procedure TControllerForm.Start1Click(Sender: TObject);
 begin
+  edtBPM.Text := '90';
   FBeatViewForm.Show;
   FController.Start;
 end;
 
 procedure TControllerForm.Stop1Click(Sender: TObject);
 begin
-  FBeatViewForm.Close;
   FModel.TurnOff;
+  FController.Stop;
 end;
 
 end.

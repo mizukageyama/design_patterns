@@ -3,7 +3,8 @@ unit BeatController;
 interface
 
 uses
-  ControllerIntf, BeatModelIntf, Forms, ControllerFrm;
+  ControllerIntf, BeatModelIntf, Forms, ControllerFrm, VCL.Dialogs,
+  System.SysUtils;
 
 type
   TBeatController = class(TInterfacedObject, IController)
@@ -29,22 +30,23 @@ begin
   FControllerView := Owner;
   FControllerView.DisableStop;
   FControllerView.EnableStart;
+  FControllerView.DisableSet;
 end;
 
 procedure TBeatController.DecreaseBPM;
 begin
-  var BPM := FModel.getBPM;
-  FModel.SetBPM(BPM - 1);
+  SetBPM(FModel.getBPM - 1);
 end;
 
 procedure TBeatController.IncreaseBPM;
 begin
-  var BPM := FModel.getBPM;
-  FModel.SetBPM(BPM + 1);
+  SetBPM(FModel.getBPM + 1);
 end;
 
 procedure TBeatController.SetBPM(BPM: Integer);
 begin
+  if BPM = 0 then
+    Stop;
   FModel.SetBPM(BPM);
 end;
 
@@ -53,12 +55,14 @@ begin
   FModel.TurnOn;
   FControllerView.DisableStart;
   FControllerView.EnableStop;
+  FControllerView.EnableSet;
 end;
 
 procedure TBeatController.Stop;
 begin
   FControllerView.EnableStart;
   FControllerView.DisableStop;
+  FControllerView.DisableSet;
 end;
 
 end.

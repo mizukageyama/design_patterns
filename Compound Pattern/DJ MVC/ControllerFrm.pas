@@ -151,7 +151,6 @@ end;
 
 procedure TControllerForm.Stop1Click(Sender: TObject);
 begin
-  FModel.TurnOff;
   FController.Stop;
 end;
 
