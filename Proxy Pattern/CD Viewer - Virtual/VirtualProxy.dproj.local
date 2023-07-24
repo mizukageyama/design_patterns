@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2023/07/24 12:45:11.871,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/07/24 12:46:10.494,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\CDFrm.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2023/07/24 12:46:10.494,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\CDFrm.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/07/24 12:53:02.437,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\VirtualProxy.dproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2023/07/24 12:56:50.151,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas</Transaction>
+    <Transaction>2023/07/24 12:57:03.007,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageLoaderIntf.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas</Transaction>
+    <Transaction>2023/07/24 12:57:33.385,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas</Transaction>
+    <Transaction>2023/07/24 12:58:10.047,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageLoader.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas</Transaction>
+    <Transaction>2023/07/24 13:15:14.847,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas</Transaction>
+    <Transaction>2023/07/24 13:15:23.220,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageLoaderProxy.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas</Transaction>
+    <Transaction>2023/07/24 13:56:04.690,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

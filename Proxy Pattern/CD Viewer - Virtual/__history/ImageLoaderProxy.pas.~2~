@@ -1,0 +1,28 @@
+unit ImageLoaderProxy;
+
+interface
+
+uses ImageLoader, ImageLoaderIntf;
+
+type
+  TImageLoaderProxy = class(TInterfacedObject, IImageLoader)
+  private
+    FImageLoader: IImageLoader;
+  public
+    constructor Create;
+    function LoadImage(filename: string): string;
+  end;
+
+implementation
+
+constructor TImageLoaderProxy.Create;
+begin
+  FImageLoader := TImageLoader.Create;
+end;
+
+function TImageLoaderProxy.LoadImage(filename: string): string;
+begin
+  // You can add additional logic here if needed before delegating the call to the actual loader.
+  Result := FImageLoader.LoadImageFromURL(filename);
+end;
+end.

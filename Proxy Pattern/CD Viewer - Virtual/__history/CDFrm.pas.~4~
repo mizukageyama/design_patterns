@@ -1,0 +1,33 @@
+unit CDFrm;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus;
+
+type
+  TCDForm = class(TForm)
+    mmFavCDs: TMainMenu;
+    FavoriteCDs1: TMenuItem;
+    BuddhaBar1: TMenuItem;
+    BuddhaBar2: TMenuItem;
+    NorthExposure1: TMenuItem;
+    Ima1: TMenuItem;
+    MXM1: TMenuItem;
+    Karma1: TMenuItem;
+    AmbientMusicforAirport1: TMenuItem;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  CDForm: TCDForm;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -27,6 +27,17 @@
     <Transaction>2023/07/22 16:19:06.000.736,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\BeatModel.pas=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\Unit1.pas</Transaction>
     <Transaction>2023/07/24 09:30:12.299,=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\Unit1.pas</Transaction>
     <Transaction>2023/07/24 09:33:03.824,=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\ControllerFrm.pas</Transaction>
+    <Transaction>2023/07/24 11:55:30.157,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\HeartModelIntf.pas=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\BeatModelIntf.pas</Transaction>
+    <Transaction>2023/07/24 11:57:16.309,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\HeartController.pas=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\BeatController.pas</Transaction>
+    <Transaction>2023/07/24 12:00:33.580,=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\BeatController.pas</Transaction>
+    <Transaction>2023/07/24 12:00:33.611,=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\BeatModelIntf.pas</Transaction>
+    <Transaction>2023/07/24 12:02:07.377,=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\Unit1.pas</Transaction>
+    <Transaction>2023/07/24 12:02:15.750,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\HeartAdapter.pas=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\Unit1.pas</Transaction>
+    <Transaction>2023/07/24 12:04:16.807,=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\Unit1.pas</Transaction>
+    <Transaction>2023/07/24 12:04:24.550,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\HeartAdapter.pas=</Transaction>
+    <Transaction>2023/07/24 12:04:40.763,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\HeartAdapter.pas=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\Unit1.pas</Transaction>
+    <Transaction>2023/07/24 12:16:16.417,C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\HeartModel.pas=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\BeatModel.pas</Transaction>
+    <Transaction>2023/07/24 12:16:38.903,=C:\Users\User\Documents\GitHub\design_patterns\Compound Pattern\DJ MVC\BeatModel.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="ViewFrm.pas"/>

@@ -1,0 +1,76 @@
+unit ImageLoader;
+
+interface
+
+uses
+  ImageLoaderIntf, REST.Client, REST.Types, System.SysUtils, System.Classes;
+
+type
+  TImageLoader = class(TInterfacedObject, IImageLoader)
+  private
+    FRESTClient: TRESTClient;
+  public
+    constructor Create;
+    destructor Destroy; override;
+    function LoadImageFromURL(url: string): string;
+  end;
+
+implementation
+
+{ TImageLoader }
+
+constructor TImageLoader.Create;
+begin
+  FRESTClient := FRESTClient.Create(nil);
+
+end;
+
+destructor TImageLoader.Destroy;
+begin
+  FRESTClient.Free;
+  inherited;
+end;
+
+function TImageLoader.LoadImageFromURL(URL: string): string;
+var
+  ImageStream: TMemoryStream;
+  Response: TRESTResponse;
+  Request: TRESTRequest;
+begin
+  ImageStream := TMemoryStream.Create;
+  try
+    try
+      Request.Client := FRESTClient;
+      Request.Response := Response;
+
+      Request.Method := TRESTRequestMethod.rmGET;
+      Request.Resource := URL;
+      Request.Execute;
+
+
+     if Response.StatusCode = 200 then // Check if the request was successful
+      begin
+        // Convert the TBytes to a TMemoryStream before loading it.
+        ImageStream.Clear;
+        ImageStream.WriteData(Response.RawBytes, Length(Response.RawBytes));
+        ImageStream.Position := 0;
+        // Here, you can save the image to a file, display it, or process it as needed.
+        // For this example, we'll just return a message.
+        Result := 'Loaded image from URL: ' + url;
+      end
+      else
+      begin
+        Result := 'Error loading image from URL: ' + Response.StatusText;
+      end;
+    except
+      on E: Exception do
+      begin
+        Result := 'Error loading image from URL: ' + E.Message;
+      end;
+    end;
+  finally
+    ImageStream.Free;
+  end;
+end;
+
+end.

@@ -1,0 +1,63 @@
+unit ImageLoader;
+
+interface
+
+uses
+  ImageLoaderIntf, REST.Client, REST.Types, System.SysUtils, System.Classes;
+
+type
+  TImageLoader = class(TInterfacedObject, IImageLoader)
+  private
+    FRESTClient: TRESTClient;
+  public
+    constructor Create;
+    destructor Destroy; override;
+    function LoadImageFromURL(url: string): string;
+  end;
+
+implementation
+
+{ TImageLoader }
+
+constructor TImageLoader.Create;
+begin
+  FRESTClient := FRESTClient.Create(nil);
+
+end;
+
+destructor TImageLoader.Destroy;
+begin
+  FRESTClient.Free;
+  inherited;
+end;
+
+function TImageLoader.LoadImageFromURL(URL: string): string;
+var
+  ImageStream: TMemoryStream;
+  Response: TRESTResponse;
+  Request: TRESTRequest;
+begin
+  ImageStream := TMemoryStream.Create;
+  try
+    try
+      Request.Method := TRESTRequestMethod.rmGET;
+      Request.Resource := URL;
+      Request.Execute;
+      FRESTClient.BaseURL := url;
+      FRESTClient.ResetToDefaults;
+      FRESTClient.Accept := 'image/jpeg';
+      FRESTClient.GET(ImageStream);
+      //Display
+      Result := 'Loaded image from URL: ' + url;
+    except
+      on E: Exception do
+      begin
+        Result := 'Error loading image from URL: ' + E.Message;
+      end;
+    end;
+  finally
+    ImageStream.Free;
+  end;
+end;
+
+end.
