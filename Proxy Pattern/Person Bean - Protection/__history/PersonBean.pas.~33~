@@ -1,0 +1,131 @@
+unit PersonBean;
+
+interface
+
+uses
+  PersonBeanIntf, System.Rtti, System.SysUtils, System.Classes;
+
+type
+  TPersonBean = class(TInterfacedObject, IPersonBean)
+  private
+    FName: string;
+    FGender: string;
+    FInterest: string;
+    FRating: Integer;
+    FRatingCount: Integer;
+  public
+    constructor Create;
+    function GetName: string;
+    function GetGender: string;
+    function GetInterest: string;
+    function GetHotOrNotRating: Integer;
+    procedure SetName(Name: string); virtual;
+    procedure SetGender(Gender: string); virtual;
+    procedure SetInterest(Interest: string); virtual;
+    procedure SetHotOrNotRating(Rating: Integer); virtual;
+  end;
+
+
+function GetOwnerProxy(PersonBean: TPersonBean): TPersonBean;
+function GetNonOwnerProxy(PersonBean: TPersonBean): TPersonBean;
+
+implementation
+
+{ TPersonBean }
+
+constructor TPersonBean.Create;
+begin
+  FRatingCount := 0;
+end;
+
+function TPersonBean.GetGender: string;
+begin
+  Result := FGender;
+end;
+
+function TPersonBean.GetHotOrNotRating: Integer;
+begin
+  if FRatingCount = 0 then
+    Result := 0;
+  Result := FRating div FRatingCount;
+end;
+
+function TPersonBean.GetInterest: string;
+begin
+  Result := FInterest;
+end;
+
+function TPersonBean.GetName: string;
+begin
+  Result := FName;
+end;
+
+function GetNonOwnerProxy(PersonBean: TPersonBean): TPersonBean;
+var
+  PersonBeanObj: TPersonBean;
+  VMI: TVirtualMethodInterceptor;
+begin
+  VMI := nil;
+  PersonBeanObj := PersonBean;
+  try
+    VMI := TVirtualMethodInterceptor.Create(TPersonBean);
+    VMI.OnBefore := procedure(Instance: TObject; Method: TRttiMethod;
+      const Args: TArray<TValue>; out DoInvoke: Boolean; out Result: TValue)
+    begin
+        if Method.Name.StartsWith('Set') and (Method.Name <> 'SetHotOrNotRating') then
+        begin
+          raise Exception.Create('You cannot set other person''s information.');
+        end;
+    end;
+    VMI.Proxify(PersonBeanObj);
+    Result := PersonBeanObj;
+  finally
+//    PersonBeanObj.Free;
+//    VMI.Free;
+  end;
+end;
+
+function GetOwnerProxy(PersonBean: TPersonBean): TPersonBean;
+var
+  PersonBeanObj: TPersonBean;
+  VMI: TVirtualMethodInterceptor;
+begin
+  PersonBeanObj := PersonBean;
+  try
+    VMI := TVirtualMethodInterceptor.Create(TPersonBean);
+    VMI.OnBefore := procedure(Instance: TObject; Method: TRttiMethod;
+      const Args: TArray<TValue>; out DoInvoke: Boolean; out Result: TValue)
+    begin
+      if Method.Name = 'SetHotOrNotRating' then
+        raise Exception.Create('You cannot change your own rating.');
+    end;
+    VMI.Proxify(PersonBeanObj);
+    Result := PersonBeanObj;
+  finally
+//    PersonBeanObj.Free;
+//    VMI.Free;
+  end;
+end;
+
+procedure TPersonBean.SetGender(Gender: string);
+begin
+  FGender := Gender;
+end;
+
+procedure TPersonBean.SetHotOrNotRating(Rating: Integer);
+begin
+  FRating := FRating + Rating;
+  FRatingCount := FRatingCount + 1;
+end;
+
+procedure TPersonBean.SetInterest(Interest: string);
+begin
+  FInterest := Interest;
+end;
+
+procedure TPersonBean.SetName(Name: string);
+begin
+  FName := Name;
+end;
+
+end.

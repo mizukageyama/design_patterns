@@ -1,0 +1,51 @@
+program ProtectionDynamicProxy;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils,
+  PersonBeanIntf in 'PersonBeanIntf.pas',
+  PersonBean in 'PersonBean.pas';
+
+begin
+  try
+    var Joe: TPersonBean := TPersonBean.Create;
+		Joe.SetName('Joe Javabean');
+		Joe.SetInterest('cars, computers, music');
+		Joe.SetHotOrNotRating(7);
+
+    var OwnerProxy := GetOwnerProxy(Joe);
+		WriteLn('Name is ' + OwnerProxy.GetName);
+		OwnerProxy.SetInterest('bowling, Go');
+		WriteLn('Interests set from owner proxy');
+
+		try
+			OwnerProxy.SetHotOrNotRating(10);
+		except
+		  WriteLn('Can''t set rating from owner proxy');
+    end;
+
+		WriteLn('Rating is ' + OwnerProxy.GetHotOrNotRating.ToString);
+
+		var NonOwnerProxy := GetNonOwnerProxy(Joe);
+		WriteLn('Name is ' + NonOwnerProxy.GetName);
+
+		try
+			NonOwnerProxy.SetInterest('bowling, Go');
+		except
+			WriteLn('Can''t set interests from non owner proxy');
+    end;
+
+    NonOwnerProxy.SetHotOrNotRating(3);
+
+		WriteLn('Rating set from non owner proxy');
+		WriteLn('Rating is ' + NonOwnerProxy.GetHotOrNotRating.ToString);
+
+    ReadLn;
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+end.
