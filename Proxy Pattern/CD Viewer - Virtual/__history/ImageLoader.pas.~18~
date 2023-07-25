@@ -1,0 +1,32 @@
+unit ImageLoader;
+
+interface
+
+uses
+  ImageLoaderIntf, System.Net.HttpClientComponent, System.Classes;
+
+type
+  TImageLoader = class(TInterfacedObject, IImageLoader)
+  public
+    function LoadImageFromURL(URL: string; NetClient: TNetHTTPClient):
+      TMemoryStream;
+  end;
+
+implementation
+
+{ TImageLoader }
+
+function TImageLoader.LoadImageFromURL(URL: string; NetClient: TNetHTTPClient):
+  TMemoryStream;
+var
+  ImageStream: TMemoryStream;
+begin
+  ImageStream := TMemoryStream.Create;
+  try
+    //-------
+  finally
+    ImageStream.Free;
+  end;
+end;
+
+end.

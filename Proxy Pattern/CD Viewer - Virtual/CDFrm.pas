@@ -5,28 +5,28 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, System.Generics.Collections,
-  ImageLoaderIntf, ImageLoaderProxy, Vcl.ExtCtrls;
+  ImageLoaderIntf, ImageLoaderProxy, Vcl.ExtCtrls, System.Net.URLClient,
+  System.Net.HttpClient, System.Net.HttpClientComponent, Vcl.Imaging.jpeg,
+  System.Actions, Vcl.ActnList, Vcl.StdCtrls;
 
 type
   TCDForm = class(TForm)
     mmFavCDs: TMainMenu;
     FavoriteCDs1: TMenuItem;
-    BuddhaBar1: TMenuItem;
-    BuddhaBar2: TMenuItem;
-    NorthExposure1: TMenuItem;
-    Ima1: TMenuItem;
-    MXM1: TMenuItem;
-    Karma1: TMenuItem;
-    AmbientMusicforAirport1: TMenuItem;
     imgDisplay: TImage;
-    procedure BuddhaBar1Click(Sender: TObject);
+    NetHTTPClient1: TNetHTTPClient;
+    NetHTTPRequest1: TNetHTTPRequest;
+    lblLoading: TLabel;
     procedure FormCreate(Sender: TObject);
+    procedure OnMenuItemClicked(Sender: TObject);
   private
     { Private declarations }
     FFavoriteCDs: TDictionary<string, string>;
-    FImageLoader: IImageLoader;
+    FImageLoaderProxy: IImageLoader;
   public
     { Public declarations }
+    procedure LoadImage(URL: string);
+    procedure LoadingThread(URL: string);
   end;
 
 var
@@ -36,59 +36,75 @@ implementation
 
 {$R *.dfm}
 
-procedure TCDForm.BuddhaBar1Click(Sender: TObject);
-var
-  ImageURL: string;
-  ImageStream: TMemoryStream;
-  ImageBitmap: TBitmap;
+procedure TCDForm.OnMenuItemClicked(Sender: TObject);
 begin
-  ImageURL := 'http://images.amazon.com/images/P/B000003S2K.01.LZZZZZZZ.jpg';
-  ImageStream := TMemoryStream.Create;
-  try
-    try
-      // Load the image using the image loader proxy
-      FImageLoader.LoadImageFromURL(ImageURL);
-      ShowMessage('Image loaded successfully from URL.');
-    except
-      on E: Exception do
-      begin
-        ShowMessage('Error loading image from URL: ' + E.Message);
-        Exit;
-      end;
-    end;
-
-    // Load the image data from the image loader
-    ImageStream.Position := 0;
-    ImageBitmap := TBitmap.Create;
-    try
-      ImageBitmap.LoadFromStream(ImageStream);
-      // Display the loaded image in the image control
-      imgDisplay.Picture.Assign(ImageBitmap);
-    finally
-      ImageBitmap.Free;
-    end;
-  finally
-    ImageStream.Free;
-  end;
+  var Item := Sender as TMenuItem;
+  LoadImage(FFavoriteCDs[Item.Caption]);
 end;
 
 procedure TCDForm.FormCreate(Sender: TObject);
 begin
-  FImageLoader := TImageLoaderProxy.Create;
-//  FFavoriteCDs.Add('Ambient: Music for Airports',
-//    'http://images.amazon.com/images/P/B000003S2K.01.LZZZZZZZ.jpg');
-//  FFavoriteCDs.Add('Buddha Bar',
-//    'http://images.amazon.com/images/P/B00009XBYK.01.LZZZZZZZ.jpg');
-//  FFavoriteCDs.Add('Ima',
-//    'http://images.amazon.com/images/P/B000005IRM.01.LZZZZZZZ.jpg');
-//  FFavoriteCDs.Add('Karma',
-//    'http://images.amazon.com/images/P/B000005DCB.01.LZZZZZZZ.gif');
-//  FFavoriteCDs.Add('MCMXC A.D.',
-//    'http://images.amazon.com/images/P/B000002URV.01.LZZZZZZZ.jpg');
-//  FFavoriteCDs.Add('Northern Exposure',
-//    'http://images.amazon.com/images/P/B000003SFN.01.LZZZZZZZ.jpg');
-//  FFavoriteCDs.Add('Selected Ambient Works, Vol. 2',
-//    'http://images.amazon.com/images/P/B000002MNZ.01.LZZZZZZZ.jpg');
+  FImageLoaderProxy := TImageLoaderProxy.Create;
+
+  FFavoriteCDs := TDictionary<string, string>.Create;
+  FFavoriteCDs.Add('Ambient: Music for Airports',
+    'https://m.media-amazon.com/images/I/51r4KfKcqxL._UF894,1000_QL80_.jpg');
+  FFavoriteCDs.Add('Buddha Bar',
+    'https://m.media-amazon.com/images/I/61II2JL4SdL._UF1000,1000_QL80_.jpg');
+  FFavoriteCDs.Add('Ima',
+    'https://m.media-amazon.com/images/I/513yuIQlVvL._UF1000,1000_QL80_.jpg');
+  FFavoriteCDs.Add('Karma',
+    'https://m.media-amazon.com/images/I/71CqgQgjCML.jpg');
+  FFavoriteCDs.Add('MCMXC A.D.',
+    'https://m.media-amazon.com/images/I/41SYlElj-XL._UF894,1000_QL80_.jpg');
+  FFavoriteCDs.Add('Northern Exposure',
+    'https://m.media-amazon.com/images/I/41FQCE0XGQL._UF894,1000_QL80_.jpg');
+  FFavoriteCDs.Add('Selected Ambient Works, Vol. 2',
+    'https://m.media-amazon.com/images/I/81Ahsu5yLeL._UF1000,1000_QL80_.jpg');
+
+  for var Key in FFavoriteCDs.Keys.ToArray do
+  begin
+     var MenuItem := TMenuItem.Create(mmFavCDs);
+     MenuItem.Caption := Key;
+     MenuItem.OnClick := OnMenuItemClicked;
+     mmFavCDs.Items[0].Add(MenuItem);
+  end;
+end;
+
+procedure TCDForm.LoadImage(URL: string);
+begin
+  lblLoading.Caption := 'Loading CD cover, please wait...';
+  imgDisplay.Picture.Assign(nil);
+
+  LoadingThread(URL);
+end;
+
+procedure TCDForm.LoadingThread(URL: string);
+begin
+  TThread.CreateAnonymousThread(
+    procedure
+    begin
+      try
+        var ImageStream := FImageLoaderProxy.LoadImageFromURL(URL,
+          NetHTTPClient1);
+        var ImageJPG := TJPEGImage.Create;
+
+        ImageJPG.LoadFromStream(ImageStream);
+        TThread.Synchronize(nil,
+          procedure
+          begin
+            imgDisplay.Picture.Assign(ImageJPG);
+            lblLoading.Caption := '';
+          end
+        );
+      except
+      begin
+        lblLoading.Caption := '';
+        ShowMessage('Something went wrong');
+      end;
+      end;
+    end
+  ).Start;
 end;
 
 end.

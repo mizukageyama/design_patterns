@@ -1,0 +1,15 @@
+unit ImageLoaderIntf;
+
+interface
+
+uses
+  System.Net.HttpClientComponent;
+
+type
+  IImageLoader = interface
+    function LoadImageFromURL(URL: string; NetClient: TNetHTTPClient): string;
+  end;
+
+implementation
+
+end.

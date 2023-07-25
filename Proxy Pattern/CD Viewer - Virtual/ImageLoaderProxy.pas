@@ -2,7 +2,8 @@ unit ImageLoaderProxy;
 
 interface
 
-uses ImageLoader, ImageLoaderIntf;
+uses
+  ImageLoader, ImageLoaderIntf, System.Net.HttpClientComponent, System.Classes;
 
 type
   TImageLoaderProxy = class(TInterfacedObject, IImageLoader)
@@ -10,7 +11,8 @@ type
     FImageLoader: IImageLoader;
   public
     constructor Create;
-    function LoadImageFromURL(URL: string): string;
+    function LoadImageFromURL(URL: string; NetClient: TNetHTTPClient):
+      TMemoryStream;
   end;
 
 implementation
@@ -20,9 +22,10 @@ begin
   FImageLoader := TImageLoader.Create;
 end;
 
-function TImageLoaderProxy.LoadImageFromURL(URL: string): string;
+function TImageLoaderProxy.LoadImageFromURL(URL: string; NetClient: TNetHTTPClient):
+  TMemoryStream;
 begin
-  // You can add additional logic here if needed before delegating the call to the actual loader.
-  Result := FImageLoader.LoadImageFromURL(URL);
+  Result := FImageLoader.LoadImageFromURL(URL, NetClient);
 end;
+
 end.

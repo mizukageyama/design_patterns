@@ -1,0 +1,34 @@
+unit ImageLoaderThread;
+
+interface
+
+uses
+  System.SysUtils, Classes, Graphics, Threading, Vcl.ExtCtrls;
+
+type
+  TImageLoaderThread = class(TThread)
+  private
+    FURL: string;
+    FImage: TImage;
+  protected
+    procedure Execute; override;
+  public
+    constructor Create(const AURL: string; AImage: TImage);
+  end;
+
+implementation
+
+{ TImageLoaderThread }
+
+constructor TImageLoaderThread.Create(const AURL: string; AImage: TImage);
+begin
+
+end;
+
+procedure TImageLoaderThread.Execute;
+begin
+  inherited;
+
+end;
+
+end.

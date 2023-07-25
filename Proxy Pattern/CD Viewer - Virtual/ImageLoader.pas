@@ -3,74 +3,32 @@ unit ImageLoader;
 interface
 
 uses
-  ImageLoaderIntf, REST.Client, REST.Types, System.SysUtils, System.Classes;
+  ImageLoaderIntf, System.Net.HttpClientComponent, System.Classes,
+  System.SysUtils;
 
 type
   TImageLoader = class(TInterfacedObject, IImageLoader)
-  private
-    FRESTClient: TRESTClient;
   public
-    constructor Create;
-    destructor Destroy; override;
-    function LoadImageFromURL(url: string): string;
+    function LoadImageFromURL(URL: string; NetClient: TNetHTTPClient):
+      TMemoryStream;
   end;
 
 implementation
 
 { TImageLoader }
 
-constructor TImageLoader.Create;
-begin
-  FRESTClient := TRESTClient.Create(nil);
-end;
-
-destructor TImageLoader.Destroy;
-begin
-  FRESTClient.Free;
-  inherited;
-end;
-
-function TImageLoader.LoadImageFromURL(URL: string): string;
+function TImageLoader.LoadImageFromURL(URL: string; NetClient: TNetHTTPClient):
+  TMemoryStream;
 var
   ImageStream: TMemoryStream;
-  Response: TRESTResponse;
-  Request: TRESTRequest;
 begin
   ImageStream := TMemoryStream.Create;
   try
-    try
-      Request := TRESTRequest.Create(nil);
-      Response := TRESTResponse.Create(nil);
-      Request.Client := FRESTClient;
-      Request.Response := Response;
-
-      Request.Method := TRESTRequestMethod.rmGET;
-      Request.Resource := URL;
-      Request.Execute;
-
-
-     if Response.StatusCode = 200 then // Check if the request was successful
-      begin
-        // Convert the TBytes to a TMemoryStream before loading it.
-        ImageStream.Clear;
-        ImageStream.WriteData(Response.RawBytes, Length(Response.RawBytes));
-        ImageStream.Position := 0;
-        // Here, you can save the image to a file, display it, or process it as needed.
-        // For this example, we'll just return a message.
-        Result := 'Loaded image from URL: ' + url;
-      end
-      else
-      begin
-        Result := 'Error loading image from URL: ' + Response.StatusText;
-      end;
-    except
-      on E: Exception do
-      begin
-        Result := 'Error loading image from URL: ' + E.Message;
-      end;
-    end;
-  finally
-    ImageStream.Free;
+    NetClient.Get(URL, ImageStream);
+    ImageStream.Position := 0;
+    Result := ImageStream;
+  except
+   raise Exception.Create('Something went wrong');
   end;
 end;
 
