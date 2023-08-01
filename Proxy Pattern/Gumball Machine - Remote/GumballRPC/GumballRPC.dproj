@@ -101,6 +101,7 @@
         <DCCReference Include="StateIntf.pas"/>
         <DCCReference Include="WinnerState.pas"/>
         <DCCReference Include="GumballMachineIntf.pas"/>
+        <DCCReference Include="GumballMachineLocator.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

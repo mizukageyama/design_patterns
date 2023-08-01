@@ -21,7 +21,8 @@ uses
   SoldState in 'SoldState.pas',
   StateIntf in 'StateIntf.pas',
   WinnerState in 'WinnerState.pas',
-  GumballMachineIntf in 'GumballMachineIntf.pas';
+  GumballMachineIntf in 'GumballMachineIntf.pas',
+  GumballMachineLocator in 'GumballMachineLocator.pas';
 
 {$R *.res}
 

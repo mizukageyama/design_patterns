@@ -1,0 +1,35 @@
+unit GumballMachineLocator;
+
+interface
+
+uses
+  GumballMachineIntf, System.Generics.Collections, WebModule;
+
+type
+  TGumballMachines = class
+  private
+    FGumbalMachines: TDictionary<string, IGumballMachine>;
+  public
+    constructor Create;
+    function GetMachineByLocation(Location: string): IGumballMachine;
+  end;
+
+implementation
+
+{ TGumballMachines }
+
+constructor TGumballMachines.Create;
+begin
+  FGumbalMachines := TDictionary<string, IGumballMachine>.Create;
+  FGumbalMachines.Add('davao', DavaoGumballMachine);
+  FGumbalMachines.Add('cdo', CDOGumballMachine);
+  FGumbalMachines.Add('gensan', GensanGumballMachine);
+end;
+
+function TGumballMachines.GetMachineByLocation(
+  Location: String): IGumballMachine;
+begin
+  Result := FGumbalMachines[Location];
+end;
+
+end.

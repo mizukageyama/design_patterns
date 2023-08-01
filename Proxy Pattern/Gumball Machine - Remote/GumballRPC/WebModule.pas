@@ -28,20 +28,21 @@ implementation
 
 uses 
   System.IOUtils,
-  MVCFramework.Commons;
+  MVCFramework.Commons, GumballMachineLocator;
 
 procedure TMyWebModule.WebModuleCreate(Sender: TObject);
 begin
   FMVC := TMVCEngine.Create(Self);
 
-  if not Assigned(DavaoGumballMachine) then
-    DavaoGumballMachine := TGumballMachine.Create(10, 'Davao');
+  DavaoGumballMachine := TGumballMachine.Create(10, 'Davao');
+  CDOGumballMachine := TGumballMachine.Create(40, 'CDO');
+  GensanGumballMachine := TGumballMachine.Create(0, 'Gensan');
 
-  if not Assigned(CDOGumballMachine) then
-    CDOGumballMachine := TGumballMachine.Create(40, 'CDO');
-
-  if not Assigned(GensanGumballMachine) then
-    GensanGumballMachine := TGumballMachine.Create(0, 'Gensan');
+  FMVC.PublishObject(function: TObject
+    begin
+      Result := TGumballMachineLocator.Create;
+    end, '/locator'
+  );
 
   FMVC.PublishObject(function: TObject
     begin
