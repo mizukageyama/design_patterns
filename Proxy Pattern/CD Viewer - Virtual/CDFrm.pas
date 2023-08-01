@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, System.Generics.Collections,
-  ImageLoaderIntf, ImageLoaderProxy, Vcl.ExtCtrls, System.Net.URLClient,
+  ImageIntf, ImageProxy, Vcl.ExtCtrls, System.Net.URLClient,
   System.Net.HttpClient, System.Net.HttpClientComponent, Vcl.Imaging.jpeg,
   System.Actions, Vcl.ActnList, Vcl.StdCtrls;
 
@@ -22,7 +22,7 @@ type
   private
     { Private declarations }
     FFavoriteCDs: TDictionary<string, string>;
-    FImageLoaderProxy: IImageLoader;
+    FImageLoaderProxy: IImage;
   public
     { Public declarations }
     procedure LoadImage(URL: string);
@@ -60,7 +60,7 @@ begin
   FFavoriteCDs.Add('Selected Ambient Works, Vol. 2',
     'https://m.media-amazon.com/images/I/81Ahsu5yLeL._UF1000,1000_QL80_.jpg');
 
-  FImageLoaderProxy := TImageLoaderProxy
+  FImageLoaderProxy := TImageProxy
     .Create(FFavoriteCDs['Ambient: Music for Airports'], NetHTTPClient1);
 
   for var Key in FFavoriteCDs.Keys.ToArray do

@@ -102,9 +102,9 @@
             <Form>CDForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ImageLoader.pas"/>
-        <DCCReference Include="ImageLoaderIntf.pas"/>
-        <DCCReference Include="ImageLoaderProxy.pas"/>
+        <DCCReference Include="Image.pas"/>
+        <DCCReference Include="ImageIntf.pas"/>
+        <DCCReference Include="ImageProxy.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
