@@ -14,18 +14,15 @@ type
     mmFavCDs: TMainMenu;
     FavoriteCDs1: TMenuItem;
     imgDisplay: TImage;
-    NetHTTPClient1: TNetHTTPClient;
-    NetHTTPRequest1: TNetHTTPRequest;
-    lblLoading: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure OnMenuItemClicked(Sender: TObject);
   private
     { Private declarations }
     FFavoriteCDs: TDictionary<string, string>;
-    FImageLoaderProxy: IImage;
+    FImageProxy: TImageProxy;
+    FImageLoaded: Boolean;
   public
     { Public declarations }
-    procedure LoadImage(URL: string);
   end;
 
 var
@@ -35,15 +32,8 @@ implementation
 
 {$R *.dfm}
 
-procedure TCDForm.OnMenuItemClicked(Sender: TObject);
-begin
-  var Item := Sender as TMenuItem;
-  LoadImage(FFavoriteCDs[Item.Caption]);
-end;
-
 procedure TCDForm.FormCreate(Sender: TObject);
 begin
-
   FFavoriteCDs := TDictionary<string, string>.Create;
   FFavoriteCDs.Add('Ambient: Music for Airports',
     'https://m.media-amazon.com/images/I/51r4KfKcqxL._UF894,1000_QL80_.jpg');
@@ -60,9 +50,6 @@ begin
   FFavoriteCDs.Add('Selected Ambient Works, Vol. 2',
     'https://m.media-amazon.com/images/I/81Ahsu5yLeL._UF1000,1000_QL80_.jpg');
 
-  FImageLoaderProxy := TImageProxy
-    .Create(FFavoriteCDs['Ambient: Music for Airports'], NetHTTPClient1);
-
   for var Key in FFavoriteCDs.Keys.ToArray do
   begin
      var MenuItem := TMenuItem.Create(mmFavCDs);
@@ -70,11 +57,23 @@ begin
      MenuItem.OnClick := OnMenuItemClicked;
      mmFavCDs.Items[0].Add(MenuItem);
   end;
+
+  FImageProxy := TImageProxy.Create(FFavoriteCDs['Ambient: Music for Airports']);
+  FImageLoaded := False;
+  FImageProxy.Draw(imgDisplay, 0, 0);
 end;
 
-procedure TCDForm.LoadImage(URL: string);
+procedure TCDForm.OnMenuItemClicked(Sender: TObject);
 begin
-  //CALL PROXY?
+  var Item := Sender as TMenuItem;
+  var ImageURL := FFavoriteCDs[Item.Caption];
+
+  imgDisplay.Picture := nil;
+  FImageProxy.Free;
+  FImageProxy := TImageProxy.Create(ImageURL);
+
+  FImageProxy.Draw(imgDisplay, 0, 0);
+  FImageLoaded := False;
 end;
 
 end.

@@ -1,0 +1,19 @@
+unit ImageIntf;
+
+interface
+
+uses
+  System.Net.HttpClientComponent, System.Classes;
+
+type
+  IImage = interface
+    function LoadImageFromURL(URL: string; NetClient: TNetHTTPClient):
+      TMemoryStream;
+    function GetImageWidth: Integer;
+    function GetImageHeight: Integer;
+    procedure Paint;
+  end;
+
+implementation
+
+end.

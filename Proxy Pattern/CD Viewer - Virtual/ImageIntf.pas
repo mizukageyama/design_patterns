@@ -3,15 +3,14 @@ unit ImageIntf;
 interface
 
 uses
-  System.Net.HttpClientComponent, System.Classes;
+  System.Net.HttpClientComponent, System.Classes, Vcl.Graphics, Vcl.Controls,
+  System.Types;
 
 type
   IImage = interface
-    function LoadImageFromURL(URL: string; NetClient: TNetHTTPClient):
-      TMemoryStream;
     function GetImageWidth: Integer;
     function GetImageHeight: Integer;
-    procedure Paint;
+    procedure Draw(const c: TComponent; g: TCanvas; x, y: Integer);
   end;
 
 implementation

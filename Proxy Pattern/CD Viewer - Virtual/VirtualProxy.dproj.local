@@ -15,8 +15,11 @@
     <Transaction>2023/07/25 10:13:47.000.021,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas</Transaction>
     <Transaction>2023/07/25 10:13:55.000.472,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageLoaderThread.pas</Transaction>
     <Transaction>2023/07/25 10:17:31.000.359,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageLoaderThread.pas=</Transaction>
-    <Transaction>2023/08/01 17:03:14.669,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageIntf.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageLoaderIntf.pas</Transaction>
-    <Transaction>2023/08/01 17:03:28.462,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Image.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageLoader.pas</Transaction>
-    <Transaction>2023/08/01 17:03:35.756,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageProxy.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageLoaderProxy.pas</Transaction>
+    <Transaction>2023/08/01 17:03:14.000.669,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageIntf.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageLoaderIntf.pas</Transaction>
+    <Transaction>2023/08/01 17:03:28.000.462,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Image.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageLoader.pas</Transaction>
+    <Transaction>2023/08/01 17:03:35.000.756,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageProxy.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageLoaderProxy.pas</Transaction>
+    <Transaction>2023/08/01 21:30:42.987,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageReal.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Image.pas</Transaction>
+    <Transaction>2023/08/02 02:40:55.319,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageReal.pas=</Transaction>
+    <Transaction>2023/08/02 03:01:29.476,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageIntf.pas=</Transaction>
   </Transactions>
 </BorlandProject>
