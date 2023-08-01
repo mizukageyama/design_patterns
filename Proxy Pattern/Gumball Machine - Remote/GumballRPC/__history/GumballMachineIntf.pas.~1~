@@ -1,0 +1,29 @@
+unit GumballMachineIntf;
+
+interface
+
+uses
+  StateIntf;
+
+type
+  IGumballMachineRemote = interface
+    procedure InsertQuarter;
+    procedure EjectQuarter;
+    procedure TurnCrank;
+    procedure SetState(State: IState);
+    procedure ReleaseBall;
+    function GetCount: Integer;
+    function GetLocation: string;
+    procedure Refill(Count: Integer);
+    function GetState: IState;
+    function GetSoldOutState: IState;
+    function GetNoQuarterState: IState;
+    function GetHasQuarterState: IState;
+    function GetWinnerState: IState;
+    function GetSoldState: IState;
+    function ToString: string;
+  end;
+
+implementation
+
+end.

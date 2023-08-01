@@ -35,7 +35,6 @@ begin
   while MenuIterator.HasNext do
   begin
     MenuObj := MenuIterator.Next;
-
     //Cast TObject to IMenu Interface
     if Supports(MenuObj, IMenu, MenuIntf) then
     begin

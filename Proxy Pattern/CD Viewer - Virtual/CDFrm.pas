@@ -26,7 +26,6 @@ type
   public
     { Public declarations }
     procedure LoadImage(URL: string);
-    procedure LoadingThread(URL: string);
   end;
 
 var
@@ -44,7 +43,6 @@ end;
 
 procedure TCDForm.FormCreate(Sender: TObject);
 begin
-  FImageLoaderProxy := TImageLoaderProxy.Create;
 
   FFavoriteCDs := TDictionary<string, string>.Create;
   FFavoriteCDs.Add('Ambient: Music for Airports',
@@ -62,6 +60,9 @@ begin
   FFavoriteCDs.Add('Selected Ambient Works, Vol. 2',
     'https://m.media-amazon.com/images/I/81Ahsu5yLeL._UF1000,1000_QL80_.jpg');
 
+  FImageLoaderProxy := TImageLoaderProxy
+    .Create(FFavoriteCDs['Ambient: Music for Airports'], NetHTTPClient1);
+
   for var Key in FFavoriteCDs.Keys.ToArray do
   begin
      var MenuItem := TMenuItem.Create(mmFavCDs);
@@ -73,38 +74,7 @@ end;
 
 procedure TCDForm.LoadImage(URL: string);
 begin
-  lblLoading.Caption := 'Loading CD cover, please wait...';
-  imgDisplay.Picture.Assign(nil);
-
-  LoadingThread(URL);
-end;
-
-procedure TCDForm.LoadingThread(URL: string);
-begin
-  TThread.CreateAnonymousThread(
-    procedure
-    begin
-      try
-        var ImageStream := FImageLoaderProxy.LoadImageFromURL(URL,
-          NetHTTPClient1);
-        var ImageJPG := TJPEGImage.Create;
-
-        ImageJPG.LoadFromStream(ImageStream);
-        TThread.Synchronize(nil,
-          procedure
-          begin
-            imgDisplay.Picture.Assign(ImageJPG);
-            lblLoading.Caption := '';
-          end
-        );
-      except
-      begin
-        lblLoading.Caption := '';
-        ShowMessage('Something went wrong');
-      end;
-      end;
-    end
-  ).Start;
+  //CALL PROXY?
 end;
 
 end.

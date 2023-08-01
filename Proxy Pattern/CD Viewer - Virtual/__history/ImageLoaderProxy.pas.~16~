@@ -1,0 +1,88 @@
+unit ImageLoaderProxy;
+
+interface
+
+uses
+  ImageLoader, ImageLoaderIntf, System.Net.HttpClientComponent, System.Classes,
+  Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Imaging.jpeg;
+
+type
+  TImageLoaderProxy = class(TInterfacedObject, IImageLoader)
+  private
+    FImage: TMemoryStream;
+    FImageComponent: TImage;
+    FLoadingComponent: TLabel;
+    FImageURL: string;
+    FRetrievalThread: TThread;
+    FRetrieving: Boolean;
+    FNetClient: TNetHTTPClient;
+    //old
+    FImageLoader: IImageLoader;
+  public
+    constructor Create(AImageURL: string; ANetClient: TNetHTTPClient);
+function LoadImageFromURL(URL: string; NetClient: TNetHTTPClient):
+      TMemoryStream;
+    procedure Paint;
+  end;
+
+implementation
+
+constructor TImageLoaderProxy.Create(AImageURL: string;
+  ANetClient: TNetHTTPClient);
+begin
+  FImageURL := AImageURL;
+  FImage := nil;
+  FRetrieving := False;
+  FNetClient := ANetClient;
+end;
+
+//function TImageLoaderProxy.LoadImageFromURL(URL: string; ):
+//  TMemoryStream;
+//begin
+//  FImageLoader := TImageLoader.Create;
+//  Result := FImageLoader.LoadImageFromURL(URL, NetClient);
+//end;
+
+function TImageLoaderProxy.LoadImageFromURL(URL: string;
+  NetClient: TNetHTTPClient): TMemoryStream;
+begin
+
+end;
+
+procedure TImageLoaderProxy.Paint;
+begin
+  if FImage <> nil then
+  begin
+    var ImageJPG := TJPEGImage.Create;
+    FImageComponent.Picture.Assign(ImageJPG);
+    FLoadingComponent.Caption := '';
+  end;
+
+end;
+
+//TThread.CreateAnonymousThread(
+//    procedure
+//    begin
+//      try
+//        var ImageStream := FImageLoaderProxy.LoadImageFromURL(URL,
+//          NetHTTPClient1);
+//        var ImageJPG := TJPEGImage.Create;
+//
+//        ImageJPG.LoadFromStream(ImageStream);
+//        TThread.Synchronize(nil,
+//          procedure
+//          begin
+//            imgDisplay.Picture.Assign(ImageJPG);
+//            lblLoading.Caption := '';
+//          end
+//        );
+//      except
+//      begin
+//        lblLoading.Caption := '';
+//        ShowMessage('Something went wrong');
+//      end;
+//      end;
+//    end
+//  ).Start;
+
+end.

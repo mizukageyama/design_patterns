@@ -1,0 +1,49 @@
+unit ImageLoaderProxy;
+
+interface
+
+uses
+  ImageLoader, ImageLoaderIntf, System.Net.HttpClientComponent, System.Classes,
+  Vcl.ExtCtrls;
+
+type
+  TImageLoaderProxy = class(TInterfacedObject, IImageLoader)
+  private
+    FImage: TMemoryStream;
+    FImageURL: string;
+    FRetrievalThread: TThread;
+    FRetrieving: Boolean;
+    FNetClient: TNetHTTPClient;
+    //old
+    FImageLoader: IImageLoader;
+  public
+    constructor Create(AImageURL: string; ANetClient: TNetHTTPClient);
+//    function LoadImageFromURL(URL: string; ):
+//      TMemoryStream;
+    procedure Paint;
+  end;
+
+implementation
+
+constructor TImageLoaderProxy.Create(AImageURL: string;
+  ANetClient: TNetHTTPClient);
+begin
+  FImageURL := AImageURL;
+  FImage := nil;
+  FRetrieving := False;
+  FNetClient := ANetClient;
+end;
+
+//function TImageLoaderProxy.LoadImageFromURL(URL: string; ):
+//  TMemoryStream;
+//begin
+//  FImageLoader := TImageLoader.Create;
+//  Result := FImageLoader.LoadImageFromURL(URL, NetClient);
+//end;
+
+procedure TImageLoaderProxy.Paint;
+begin
+
+end;
+
+end.

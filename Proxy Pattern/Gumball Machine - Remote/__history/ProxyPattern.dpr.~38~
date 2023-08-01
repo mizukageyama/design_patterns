@@ -1,0 +1,50 @@
+program ProxyPattern;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils,
+  HasQuarterState in 'HasQuarterState.pas',
+  NoQuarterState in 'NoQuarterState.pas',
+  SoldOutState in 'SoldOutState.pas',
+  SoldState in 'SoldState.pas',
+  StateIntf in 'StateIntf.pas',
+  WinnerState in 'WinnerState.pas',
+  GumballMonitor in 'GumballMonitor.pas',
+  GumballMachineProxy in 'GumballMachineProxy.pas',
+  GumballMachineIntf in 'GumballMachineIntf.pas',
+  System.Generics.Collections;
+
+begin
+  try
+    var Location := TArray<string>.Create('davao', 'gensan', 'cdo');
+    var GumballMachines := TList<TGumballMachineProxy>.Create;
+
+    for var I := 0 to Length(Location) - 1 do
+    begin
+      GumballMachines.Add(TGumballMachineProxy.Create(0, Location[I]));
+    end;
+
+    var GumballMonitor := TGumballMonitor.Create(GumballMachines);
+    GumballMonitor.Report;
+
+    WriteLn('.... Insert Quarter on Davao ...');
+    GumballMachines[0].InsertQuarter;
+
+    WriteLn('.... Refill 100 bumball on Gensan ...');
+    GumballMachines[1].Refill(100);
+
+    WriteLn('.... Insert Quarter and Turn Crank on CDO ...');
+    GumballMachines[2].InsertQuarter;
+    GumballMachines[2].TurnCrank;
+
+    GumballMonitor.Report;
+
+    ReadLn;
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+end.

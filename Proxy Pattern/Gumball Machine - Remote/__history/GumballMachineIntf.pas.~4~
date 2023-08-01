@@ -1,0 +1,29 @@
+unit GumballMachineIntf;
+
+interface
+
+uses
+  StateIntf;
+
+type
+  IGumballMachine = class abstract
+    procedure InsertQuarter; virtual; abstract;
+    procedure EjectQuarter; virtual; abstract;
+    procedure TurnCrank; virtual; abstract;
+    procedure SetState(State: IState); virtual;
+    procedure ReleaseBall; virtual; abstract;
+    function GetCount: Integer; virtual; abstract;
+    function GetLocation: string; virtual; abstract;
+    procedure Refill(Count: Integer); virtual; abstract;
+    function GetState: string; virtual; abstract;
+    function GetSoldOutState: IState; virtual;
+    function GetNoQuarterState: IState; virtual;
+    function GetHasQuarterState: IState; virtual;
+    function GetWinnerState: IState; virtual;
+    function GetSoldState: IState; virtual;
+  end;
+
+implementation
+
+end.
+

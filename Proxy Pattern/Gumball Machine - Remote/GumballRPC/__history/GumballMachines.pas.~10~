@@ -1,0 +1,71 @@
+unit GumballMachines;
+
+interface
+
+uses
+  GumballMachine, System.Generics.Collections, System.SysUtils;
+
+type
+  TGumballMachines = class
+  private
+    FGumballMachines: TDictionary<string, TGumballMachineRemote>;
+  public
+    constructor Create;
+    function Add(NumberOfGumballs: Integer; Location: string): string;
+    function GetMachineStatus(Location: string): string;
+    function GetMachine(Location: string): TGumballMachineRemote;
+  end;
+
+implementation
+
+{ TGumballMachines }
+
+function TGumballMachines.Add(NumberOfGumballs: Integer; Location: string): string;
+begin
+try
+  var NewMachine := TGumballMachineRemote.Create(NumberOfGumballs, Location);
+  FGumballMachines.Add(Location, NewMachine);
+  Result := 'added';
+except
+  on E:Exception do
+  raise Exception.Create(e.ToString);
+end;
+end;
+
+constructor TGumballMachines.Create;
+begin
+  FGumballMachines := TDictionary<string, TGumballMachineRemote>.Create;
+end;
+
+function TGumballMachines.GetMachine(Location: string): TGumballMachineRemote;
+var
+  Machine: TGumballMachineRemote;
+begin
+  if FGumballMachines.TryGetValue(Location, Machine) then
+  begin
+    Result := Machine;
+  end
+  else
+  begin
+    raise Exception.Create('No remote machine in that location');
+  end;
+end;
+
+function TGumballMachines.GetMachineStatus(Location: string): string;
+var
+  Machine: TGumballMachineRemote;
+begin
+  if FGumballMachines.TryGetValue(Location, Machine) then
+  begin
+    var Status := 'Gumball Machine: ' + Machine.GetLocation + sLineBreak +
+      'Current inventory: ' + Machine.GetCount.ToString + sLineBreak +
+      'Current state: ' + Machine.GetState.ToString;
+    Result := Status;
+  end
+  else
+  begin
+    raise Exception.Create('No remote machine in that location');
+  end;
+end;
+
+end.

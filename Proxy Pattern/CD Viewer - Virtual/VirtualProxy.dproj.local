@@ -12,8 +12,8 @@
     <Transaction>2023/07/24 13:15:14.000.847,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas</Transaction>
     <Transaction>2023/07/24 13:15:23.000.220,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageLoaderProxy.pas</Transaction>
     <Transaction>2023/07/24 13:56:04.000.690,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas</Transaction>
-    <Transaction>2023/07/25 10:13:47.021,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas</Transaction>
-    <Transaction>2023/07/25 10:13:55.472,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageLoaderThread.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas</Transaction>
-    <Transaction>2023/07/25 10:17:31.359,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageLoaderThread.pas=</Transaction>
+    <Transaction>2023/07/25 10:13:47.000.021,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas</Transaction>
+    <Transaction>2023/07/25 10:13:55.000.472,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageLoaderThread.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas</Transaction>
+    <Transaction>2023/07/25 10:17:31.000.359,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageLoaderThread.pas=</Transaction>
   </Transactions>
 </BorlandProject>

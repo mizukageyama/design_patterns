@@ -21,9 +21,9 @@ uses
 
 begin
   try
-    var PancakeHouseMenu := TPancakeHouseMenu.Create('BREAKFAST');
-    var DinerMenu:= TDinerMenu.Create('LUNCH');
-    var CafeMenu := TCafeMenu.Create('DINNER');
+    var PancakeHouseMenu: IMenu := TPancakeHouseMenu.Create('BREAKFAST');
+    var DinerMenu: IMenu := TDinerMenu.Create('LUNCH');
+    var CafeMenu: IMenu := TCafeMenu.Create('DINNER');
 
     var Menus := TList<IMenu>.Create([PancakeHouseMenu, DinerMenu, CafeMenu]);
 

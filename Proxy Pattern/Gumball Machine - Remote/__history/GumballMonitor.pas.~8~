@@ -1,0 +1,33 @@
+unit GumballMonitor;
+
+interface
+
+uses
+  GumballMachineProxy, System.SysUtils;
+
+type
+  TGumballMonitor = class
+  private
+    FMachine: TGumballMachineProxy;
+  public
+    constructor Create(AMachine: TGumballMachineProxy);
+    procedure Report;
+  end;
+
+implementation
+
+{ TGumballMonitor }
+
+constructor TGumballMonitor.Create(AMachine: TGumballMachineProxy);
+begin
+  FMachine := AMachine;
+end;
+
+procedure TGumballMonitor.Report;
+begin
+  WriteLn(sLineBreak + 'Gumball Machine: ' + FMachine.GetLocation);
+  WriteLn('Current inventory: ' + FMachine.GetCount.ToString);
+  WriteLn('Current state: ' + FMachine.GetState);
+end;
+
+end.

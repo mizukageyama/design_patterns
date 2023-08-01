@@ -2,10 +2,10 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2023/07/25 10:36:55.000.106,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2023/07/25 11:00:24.945,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Person Bean - Protection\ProtectionDynamicProxy.dproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\Project3.dproj</Transaction>
-    <Transaction>2023/07/25 11:00:48.153,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Person Bean - Protection\Unit1.pas</Transaction>
-    <Transaction>2023/07/25 11:01:09.383,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Person Bean - Protection\PersonBeanIntf.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Person Bean - Protection\Unit1.pas</Transaction>
-    <Transaction>2023/07/25 11:09:43.507,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Person Bean - Protection\Unit1.pas</Transaction>
-    <Transaction>2023/07/25 11:09:49.974,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Person Bean - Protection\PersonBean.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Person Bean - Protection\Unit1.pas</Transaction>
+    <Transaction>2023/07/25 11:00:24.000.945,C:\Users\User\Documents\Embarcadero\Studio\Projects\Project3.dproj=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Person Bean - Protection\ProtectionDynamicProxy.dproj</Transaction>
+    <Transaction>2023/07/25 11:00:48.000.153,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Person Bean - Protection\Unit1.pas</Transaction>
+    <Transaction>2023/07/25 11:01:09.000.383,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Person Bean - Protection\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Person Bean - Protection\PersonBeanIntf.pas</Transaction>
+    <Transaction>2023/07/25 11:09:43.000.507,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Person Bean - Protection\Unit1.pas</Transaction>
+    <Transaction>2023/07/25 11:09:49.000.974,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Person Bean - Protection\Unit1.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\Person Bean - Protection\PersonBean.pas</Transaction>
   </Transactions>
 </BorlandProject>

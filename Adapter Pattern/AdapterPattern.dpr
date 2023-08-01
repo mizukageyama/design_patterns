@@ -20,10 +20,10 @@ uses
 begin
   try
     var Duck := TMallardDuck.Create;
-    var DuckAdapter := TDuckAdapter.Create(Duck);
+    var DuckAdapter: ITurkey := TDuckAdapter.Create(Duck);
 
     var Turkey := TWildTurkey.Create;
-    var TurkeyAdapter := TTurkeyAdapter.Create(Turkey);
+    var TurkeyAdapter: IDuck := TTurkeyAdapter.Create(Turkey);
 
     WriteLn('The Turkey says...');
     Turkey.Gobble;

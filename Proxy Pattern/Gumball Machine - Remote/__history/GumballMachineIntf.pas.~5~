@@ -1,0 +1,64 @@
+unit GumballMachineIntf;
+
+interface
+
+uses
+  StateIntf;
+
+type
+  IGumballMachine = class abstract
+    procedure InsertQuarter; virtual; abstract;
+    procedure EjectQuarter; virtual; abstract;
+    procedure TurnCrank; virtual; abstract;
+    procedure SetState(State: IState); virtual;
+    procedure ReleaseBall; virtual; abstract;
+    function GetCount: Integer; virtual; abstract;
+    function GetLocation: string; virtual; abstract;
+    procedure Refill(Count: Integer); virtual; abstract;
+    function GetState: string; virtual; abstract;
+    function GetSoldOutState: IState; virtual;
+    function GetNoQuarterState: IState; virtual;
+    function GetHasQuarterState: IState; virtual;
+    function GetWinnerState: IState; virtual;
+    function GetSoldState: IState; virtual;
+  end;
+
+implementation
+
+uses
+  System.SysUtils;
+
+{ IGumballMachine }
+
+function IGumballMachine.GetHasQuarterState: IState;
+begin
+  raise Exception.Create('This is only on the remote gumball');
+end;
+
+function IGumballMachine.GetNoQuarterState: IState;
+begin
+  raise Exception.Create('This is only on the remote gumball');
+end;
+
+function IGumballMachine.GetSoldOutState: IState;
+begin
+  raise Exception.Create('This is only on the remote gumball');
+end;
+
+function IGumballMachine.GetSoldState: IState;
+begin
+  raise Exception.Create('This is only on the remote gumball');
+end;
+
+function IGumballMachine.GetWinnerState: IState;
+begin
+  raise Exception.Create('This is only on the remote gumball');
+end;
+
+procedure IGumballMachine.SetState(State: IState);
+begin
+  raise Exception.Create('This is only on the remote gumball');
+end;
+
+end.
+
