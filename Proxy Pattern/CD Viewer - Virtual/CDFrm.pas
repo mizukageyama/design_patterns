@@ -20,7 +20,6 @@ type
     { Private declarations }
     FFavoriteCDs: TDictionary<string, string>;
     FImageProxy: TImageProxy;
-    FImageLoaded: Boolean;
   public
     { Public declarations }
   end;
@@ -59,8 +58,7 @@ begin
   end;
 
   FImageProxy := TImageProxy.Create(FFavoriteCDs['Ambient: Music for Airports']);
-  FImageLoaded := False;
-  FImageProxy.Draw(imgDisplay, 0, 0);
+  FImageProxy.Paint(imgDisplay, 0, 0);
 end;
 
 procedure TCDForm.OnMenuItemClicked(Sender: TObject);
@@ -72,8 +70,7 @@ begin
   FImageProxy.Free;
   FImageProxy := TImageProxy.Create(ImageURL);
 
-  FImageProxy.Draw(imgDisplay, 0, 0);
-  FImageLoaded := False;
+  FImageProxy.Paint(imgDisplay, 0, 0);
 end;
 
 end.

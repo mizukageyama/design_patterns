@@ -4,13 +4,13 @@ interface
 
 uses
   System.Net.HttpClientComponent, System.Classes, Vcl.Graphics, Vcl.Controls,
-  System.Types;
+  System.Types, Vcl.ExtCtrls, Vcl.StdCtrls;
 
 type
   IImage = interface
     function GetImageWidth: Integer;
     function GetImageHeight: Integer;
-    procedure Draw(const c: TComponent; g: TCanvas; x, y: Integer);
+    procedure Paint(const c: TImage; x, y: Integer);
   end;
 
 implementation

@@ -5,19 +5,20 @@ interface
 uses
   System.Net.HttpClientComponent, System.Classes,
   Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Imaging.jpeg, System.SysUtils, Vcl.Dialogs,
-  Vcl.Graphics, Vcl.Controls, System.Types;
+  Vcl.Graphics, Vcl.Controls, System.Types, ImageIntf;
 type
-  TImageProxy = class(TImage)
+  TImageProxy = class(TInterfacedObject, IImage)
   private
     FImage: TJPEGImage;
-    FNetClient: TNetHTTPClient;
     FImageURL: string;
     FRetrievalThread: TThread;
     FRetrieving: Boolean;
     procedure RetrieveImage(c: TImage);
   public
     constructor Create(AImageURL: string);
-    procedure Draw(const c: TImage; x, y: Integer);
+    function GetImageWidth: Integer;
+    function GetImageHeight: Integer;
+    procedure Paint(const c: TImage; x, y: Integer);
   end;
 
 implementation
@@ -59,7 +60,23 @@ begin
   end;
 end;
 
-procedure TImageProxy.Draw(const c: TImage; x, y: Integer);
+function TImageProxy.GetImageHeight: Integer;
+begin
+  if FImage <> nil then
+    Result := FImage.Height
+  else
+    Result := 300;
+end;
+
+function TImageProxy.GetImageWidth: Integer;
+begin
+  if FImage <> nil then
+    Result := FImage.Width
+  else
+    Result := 200;
+end;
+
+procedure TImageProxy.Paint(const c: TImage; x, y: Integer);
 begin
   if FImage <> nil then
     c.Picture.Assign(FImage)
@@ -69,7 +86,6 @@ begin
     if not FRetrieving then
     begin
       FRetrieving := True;
-
       FRetrievalThread := TThread.CreateAnonymousThread(
         procedure begin RetrieveImage(c); end);
       FRetrievalThread.Start;
