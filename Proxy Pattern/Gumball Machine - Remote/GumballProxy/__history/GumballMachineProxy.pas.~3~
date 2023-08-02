@@ -1,0 +1,169 @@
+unit GumballMachineProxy;
+
+interface
+
+uses
+  StateIntf, System.SysUtils, GumballMachineIntf, MVCFramework.JSONRPC.Client,
+  MVCFramework.JSONRPC;
+
+type
+  TGumballMachineProxy = class(TInterfacedObject, IGumballMachine)
+  private
+    FCount: Integer;
+    FLocation: string;
+    FExecutor: IMVCJSONRPCExecutor;
+    procedure SetState(State: IState);
+    function GetSoldOutState: IState;
+    function GetNoQuarterState: IState;
+    function GetHasQuarterState: IState;
+    function GetWinnerState: IState;
+    function GetSoldState: IState;
+  public
+    constructor Create(ALocation: string);
+    procedure InsertQuarter;
+    procedure EjectQuarter;
+    procedure TurnCrank;
+    procedure ReleaseBall;
+    function GetCount: Integer;
+    function GetLocation: string;
+    procedure Refill(Count: Integer);
+    function GetState: string;
+    function ToString: string; override;
+  end;
+
+implementation
+
+{ TGumballMachineProxy }
+
+constructor TGumballMachineProxy.Create(ALocation: string);
+begin
+  FExecutor := TMVCJSONRPCExecutor.Create('http://localhost:8080');
+  FLocation := ALocation;
+end;
+
+procedure TGumballMachineProxy.EjectQuarter;
+var
+  lNotification: IJSONRPCNotification;
+begin
+  lNotification := TJSONRPCNotification.Create;
+  lNotification.Method := 'EjectQuarter';
+  FExecutor.ExecuteNotification('/' + FLocation, lNotification);
+end;
+
+function TGumballMachineProxy.GetCount: Integer;
+var
+  lReq: IJSONRPCRequest;
+  lResp: IJSONRPCResponse;
+begin
+  lReq := TJSONRPCRequest.Create;
+  lReq.Method := 'GetCount';
+  lReq.RequestID := Random(1000);
+  lResp := FExecutor.ExecuteRequest('/' + FLocation, lReq);
+  Result := lResp.Result.AsInteger;
+end;
+
+function TGumballMachineProxy.GetHasQuarterState: IState;
+begin
+  Result := nil;
+end;
+
+function TGumballMachineProxy.GetLocation: string;
+var
+  lReq: IJSONRPCRequest;
+  lResp: IJSONRPCResponse;
+begin
+  lReq := TJSONRPCRequest.Create;
+  lReq.Method := 'GetLocation';
+  lReq.RequestID := Random(1000);
+  lResp := FExecutor.ExecuteRequest('/' + FLocation, lReq);
+  Result := lResp.Result.AsString;
+end;
+
+function TGumballMachineProxy.GetNoQuarterState: IState;
+begin
+  Result := nil;
+end;
+
+function TGumballMachineProxy.GetSoldOutState: IState;
+begin
+  Result := nil;
+end;
+
+function TGumballMachineProxy.GetSoldState: IState;
+begin
+  Result := nil;
+end;
+
+function TGumballMachineProxy.GetState: String;
+var
+  lReq: IJSONRPCRequest;
+  lResp: IJSONRPCResponse;
+begin
+  lReq := TJSONRPCRequest.Create;
+  lReq.Method := 'GetState';
+  lReq.RequestID := Random(1000);
+  lResp := FExecutor.ExecuteRequest('/' + FLocation, lReq);
+  Result := lResp.Result.AsString;
+end;
+
+function TGumballMachineProxy.GetWinnerState: IState;
+begin
+  Result := nil;
+end;
+
+procedure TGumballMachineProxy.InsertQuarter;
+var
+  lNotification: IJSONRPCNotification;
+begin
+  lNotification := TJSONRPCNotification.Create;
+  lNotification.Method := 'InsertQuarter';
+  FExecutor.ExecuteNotification('/' + FLocation, lNotification);
+end;
+
+procedure TGumballMachineProxy.Refill(Count: Integer);
+var
+  lNotification: IJSONRPCNotification;
+begin
+  lNotification := TJSONRPCNotification.Create;
+  lNotification.Method := 'Refill';
+  lNotification.Params.AddByName('Count', Count);
+  FExecutor.ExecuteNotification('/' + FLocation, lNotification);
+end;
+
+procedure TGumballMachineProxy.ReleaseBall;
+var
+  lNotification: IJSONRPCNotification;
+begin
+  lNotification := TJSONRPCNotification.Create;
+  lNotification.Method := 'ReleaseBall';
+  FExecutor.ExecuteNotification('/' + FLocation, lNotification);
+end;
+
+procedure TGumballMachineProxy.SetState(State: IState);
+begin
+
+end;
+
+function TGumballMachineProxy.ToString: string;
+begin
+  var StrResult := TStringBuilder.Create;
+  StrResult.Append(sLineBreak + 'Mighty Gumball, Inc.');
+  StrResult.Append(sLineBreak + 'Delphi-enabled Standing Gumball Model #2004' +
+    sLineBreak);
+  StrResult.Append('Inventory: ' + FCount.ToString + ' gumball');
+  if FCount <> 1 then
+    StrResult.Append('s');
+  StrResult.Append(sLineBreak + 'Machine is ' + GetState + sLineBreak);
+  Result := StrResult.ToString;
+end;
+
+procedure TGumballMachineProxy.TurnCrank;
+var
+  lNotification: IJSONRPCNotification;
+begin
+  lNotification := TJSONRPCNotification.Create;
+  lNotification.Method := 'TurnCrank';
+  FExecutor.ExecuteNotification('/' + FLocation, lNotification);
+end;
+
+end.

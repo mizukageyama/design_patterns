@@ -29,7 +29,8 @@ end;
 
 procedure TWinnerState.Dispense;
 begin
-  WriteLn('YOU''RE A WINNER! You get two gumballs for your quarter', '');
+  WriteLn(FGumballMachine.FLocation +
+    ': YOU''RE A WINNER! You get two gumballs for your quarter');
   FGumballMachine.ReleaseBall;
   if FGumballMachine.GetCount = 0 then
     FGumballMachine.SetState(FGumballMachine.GetSoldOutState)
@@ -40,7 +41,7 @@ begin
       FGumballMachine.SetState(FGumballMachine.GetNoQuarterState)
     else
     begin
-      WriteLn('Oops, out of gumballs!', '');
+      WriteLn(FGumballMachine.FLocation + ': Oops, out of gumballs!');
       FGumballMachine.SetState(FGumballMachine.GetSoldOutState);
     end;
   end;
@@ -48,22 +49,25 @@ end;
 
 procedure TWinnerState.EjectQuarter;
 begin
-   WriteLn('Quarter returned', '');
+  WriteLn(FGumballMachine.FLocation + ': Quarter returned');
 end;
 
 procedure TWinnerState.InsertQuarter;
 begin
-   WriteLn('Please wait, we''re already giving you a Gumball', '');
+  WriteLn(FGumballMachine.FLocation +
+    ': Please wait, we''re already giving you a Gumball');
 end;
 
 function TWinnerState.ToString: string;
 begin
-		Result := 'despensing two gumballs for your quarter, because YOU''RE A WINNER!';
+  Result := 'despensing two gumballs for your quarter, ' +
+    'because YOU''RE A WINNER!';
 end;
 
 procedure TWinnerState.TurnCrank;
 begin
-   WriteLn('Turning again doesn''t get you another gumball!', '');
+  WriteLn(FGumballMachine.FLocation +
+    ': Turning again doesn''t get you another gumball!');
 end;
 
 end.

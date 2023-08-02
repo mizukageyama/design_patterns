@@ -19,7 +19,8 @@ type
     function GetWinnerState: IState;
     function GetSoldState: IState;
   public
-    constructor Create(ANumberOfGumballs: Integer; ALocation: string);
+    constructor Create(ALocation: string);
+    class function Locate(ALocation: string): TGumballMachineProxy;
     procedure InsertQuarter;
     procedure EjectQuarter;
     procedure TurnCrank;
@@ -35,11 +36,16 @@ implementation
 
 { TGumballMachineProxy }
 
-constructor TGumballMachineProxy.Create(ANumberOfGumballs: Integer;
-  ALocation: string);
+constructor TGumballMachineProxy.Create(ALocation: string);
 begin
   FExecutor := TMVCJSONRPCExecutor.Create('http://localhost:8080');
   FLocation := ALocation;
+end;
+
+class function TGumballMachineProxy.Locate(ALocation: string):
+  TGumballMachineProxy;
+begin
+  Result := Self.Create(ALocation);
 end;
 
 procedure TGumballMachineProxy.EjectQuarter;

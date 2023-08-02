@@ -13,10 +13,10 @@ type
     FHasQuarterState: IState;
     FSoldState: IState;
     FWinnerState: IState;
+  public
     FState: IState;
     FCount: Integer;
     FLocation: string;
-  public
     constructor Create(ANumberOfGumballs: Integer; ALocation: string); overload;
     procedure InsertQuarter;
     procedure EjectQuarter;
@@ -110,13 +110,14 @@ end;
 
 procedure TGumballMachine.Refill(Count: Integer);
 begin
+  WriteLn(FLocation + ': Refilling machine...');
   FCount := Count;
   FState := FNoQuarterState;
 end;
 
 procedure TGumballMachine.ReleaseBall;
 begin
-  WriteLn('A gumball comes rolling out the slot...');
+  WriteLn(FLocation + ': A gumball comes rolling out the slot...');
   if FCount <> 0 then
     FCount := FCount - 1;
 end;

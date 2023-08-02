@@ -57,7 +57,8 @@ begin
      mmFavCDs.Items[0].Add(MenuItem);
   end;
 
-  FImageProxy := TImageProxy.Create(FFavoriteCDs['Ambient: Music for Airports']);
+  //Default selected album
+  FImageProxy := TImageProxy.Create(FFavoriteCDs['MCMXC A.D.']);
   FImageProxy.Paint(imgDisplay, 0, 0);
 end;
 
@@ -65,11 +66,9 @@ procedure TCDForm.OnMenuItemClicked(Sender: TObject);
 begin
   var Item := Sender as TMenuItem;
   var ImageURL := FFavoriteCDs[Item.Caption];
-
   imgDisplay.Picture := nil;
-  FImageProxy.Free;
-  FImageProxy := TImageProxy.Create(ImageURL);
 
+  FImageProxy := TImageProxy.Create(ImageURL);
   FImageProxy.Paint(imgDisplay, 0, 0);
 end;
 

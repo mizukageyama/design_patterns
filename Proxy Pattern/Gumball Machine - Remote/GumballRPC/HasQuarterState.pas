@@ -29,19 +29,20 @@ end;
 
 procedure THasQuarterState.Dispense;
 begin
-  WriteLn('A gumball comes rolling out the slot...', 'ReleaseBall');
-  WriteLn('No gumball dispensedd', 'ReleaseBall');
+  WriteLn(FGumballMachine.FLocation +
+    ': A gumball comes rolling out the slot...');
+  WriteLn('No gumball dispensedd');
 end;
 
 procedure THasQuarterState.EjectQuarter;
 begin
   FGumballMachine.SetState(FGumballMachine.GetNoQuarterState);
-  WriteLn('Quarter returned', 'EjectQuarter');
+  WriteLn(FGumballMachine.FLocation + ': Quarter returned');
 end;
 
 procedure THasQuarterState.InsertQuarter;
 begin
-  WriteLn('You can''t insert another quarter', 'InsertQuarter');
+  WriteLn(FGumballMachine.FLocation + ': You can''t insert another quarter');
 end;
 
 function THasQuarterState.ToString: string;
@@ -51,7 +52,7 @@ end;
 
 procedure THasQuarterState.TurnCrank;
 begin
-  WriteLn('You turned...', 'TurnCrank');
+  WriteLn(FGumballMachine.FLocation + ': You turned...');
 
   Randomize;
   var Winner: Integer := Random(10);

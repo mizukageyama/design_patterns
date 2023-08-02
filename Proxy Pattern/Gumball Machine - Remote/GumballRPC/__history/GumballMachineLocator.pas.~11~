@@ -1,0 +1,39 @@
+unit GumballMachineLocator;
+
+interface
+
+uses
+  GumballMachineIntf, System.Generics.Collections, WebModule, JsonDataObjects,
+  MVCFramework, MVCFramework.Logger,
+  GumballMachine, MVCFramework.Serializer.JsonDataObjects;
+
+type
+  TGumballMachineLocator = class
+  private
+    FGumbalMachines: TDictionary<string, TGumballMachine>;
+  public
+    constructor Create;
+    function GetMachineByLocation(Location: string): TGumballMachine;
+  end;
+
+implementation
+
+{ TGumballMachineLocator }
+
+constructor TGumballMachineLocator.Create;
+begin
+  FGumbalMachines := TDictionary<string, TGumballMachine>.Create;
+  FGumbalMachines.Add('davao', DavaoGumballMachine as TGumballMachine);
+  FGumbalMachines.Add('cdo', CDOGumballMachine as TGumballMachine);
+  FGumbalMachines.Add('gensan', GensanGumballMachine as TGumballMachine);
+end;
+
+function TGumballMachineLocator.GetMachineByLocation(
+  Location: String): TGumballMachine;
+begin
+    var GM := FGumbalMachines[Location];
+    Result := GM;
+    //Result.
+end;
+
+end.

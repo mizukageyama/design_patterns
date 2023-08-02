@@ -19,7 +19,7 @@ begin
 
     for var I := 0 to Length(Location) - 1 do
     begin
-      GumballMachines.Add(TGumballMachineProxy.Create(0, Location[I]));
+      GumballMachines.Add(TGumballMachineProxy.Locate(Location[I]));
     end;
 
     var GumballMonitor := TGumballMonitor.Create(GumballMachines);

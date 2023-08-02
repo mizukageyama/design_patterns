@@ -34,19 +34,20 @@ begin
     FGumballMachine.SetState(FGumballMachine.GetNoQuarterState)
   else
   begin
-    WriteLn('Oops, out of gumballs!', '');
+    WriteLn(FGumballMachine.FLocation + ': Oops, out of gumballs!');
     FGumballMachine.SetState(FGumballMachine.GetSoldOutState);
   end;
 end;
 
 procedure TSoldState.EjectQuarter;
 begin
-   WriteLn('Sorry, you already turned the crank', '');
+   WriteLn(FGumballMachine.FLocation + ': Sorry, you already turned the crank');
 end;
 
 procedure TSoldState.InsertQuarter;
 begin
-   WriteLn('Please wait, we''re already giving you a gumball', '');
+   WriteLn(FGumballMachine.FLocation +
+    ': Please wait, we''re already giving you a gumball');
 end;
 
 function TSoldState.ToString: string;
@@ -56,7 +57,8 @@ end;
 
 procedure TSoldState.TurnCrank;
 begin
-   WriteLn('Turning twice doesn''t get you another gumball!', '');
+   WriteLn(FGumballMachine.FLocation +
+    ': Turning twice doesn''t get you another gumball!');
 end;
 
 end.

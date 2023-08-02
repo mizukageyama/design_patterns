@@ -31,8 +31,8 @@ end;
 function TGumballMachineLocator.GetMachineByLocation(
   Location: String): IGumballMachine;
 begin
-    var GM:= FGumbalMachines[Location] as TGumballMachine;
-    Result := TGumballMachine.Create(GM.GetCount, GM.GetLocation);
+    var GM := FGumbalMachines[Location] as TGumballMachine;
+    Result := GM;
 end;
 
 end.

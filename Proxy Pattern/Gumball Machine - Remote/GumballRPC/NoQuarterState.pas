@@ -29,17 +29,17 @@ end;
 
 procedure TNoQuarterState.Dispense;
 begin
-   WriteLn('You need to pay first', '');
+   WriteLn(FGumballMachine.FLocation + ': You need to pay first');
 end;
 
 procedure TNoQuarterState.EjectQuarter;
 begin
-   WriteLn('You haven''t inserted a quarter', '');
+   WriteLn(FGumballMachine.FLocation + ': You haven''t inserted a quarter');
 end;
 
 procedure TNoQuarterState.InsertQuarter;
 begin
-  WriteLn('You inserted a quarter', '');
+  WriteLn(FGumballMachine.FLocation + ': You inserted a quarter');
   FGumballMachine.SetState(FGumballMachine.GetHasQuarterState);
 end;
 
@@ -50,7 +50,7 @@ end;
 
 procedure TNoQuarterState.TurnCrank;
 begin
-   WriteLn('You turned, but there''s no quarter', '');
+   WriteLn(FGumballMachine.FLocation + ': You turned, but there''s no quarter');
 end;
 
 end.

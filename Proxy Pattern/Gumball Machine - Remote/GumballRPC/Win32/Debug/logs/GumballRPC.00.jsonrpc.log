@@ -1,0 +1,30 @@
+2023-08-02 11:16:19:712  [TID 8988    ][INFO      ] TMyObjectWithHooks.OnBeforeRoutingHook >>  [jsonrpc]
+2023-08-02 11:16:19:712  [TID 8988    ][INFO      ] {
+	"jsonrpc": "2.0",
+	"id": 1234,
+	"method": "GetMachineByLocation",
+	"params": {
+		"Location": "davao"
+	}
+}
+ [jsonrpc]
+2023-08-02 11:16:19:712  [TID 8988    ][INFO      ] TMyObjectWithHooks.OnBeforeRoutingHook <<  [jsonrpc]
+2023-08-02 11:16:19:722  [TID 8988    ][INFO      ] TMyObjectWithHooks.OnBeforeCallHook >>  [jsonrpc]
+2023-08-02 11:16:19:722  [TID 8988    ][INFO      ] {
+	"jsonrpc": "2.0",
+	"id": 1234,
+	"method": "GetMachineByLocation",
+	"params": {
+		"Location": "davao"
+	}
+}
+ [jsonrpc]
+2023-08-02 11:16:19:723  [TID 8988    ][INFO      ] TMyObjectWithHooks.OnBeforeCallHook <<  [jsonrpc]
+2023-08-02 11:16:19:724  [TID 8988    ][INFO      ] TMyObjectWithHooks.OnAfterCallHook >>  [jsonrpc]
+2023-08-02 11:16:19:724  [TID 8988    ][INFO      ] {
+	"jsonrpc": "2.0",
+	"id": 1234,
+	"result": {}
+}
+ [jsonrpc]
+2023-08-02 11:16:19:724  [TID 8988    ][INFO      ] TMyObjectWithHooks.OnAfterCallHook <<  [jsonrpc]
