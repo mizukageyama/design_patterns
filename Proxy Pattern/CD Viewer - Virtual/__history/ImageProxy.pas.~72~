@@ -5,19 +5,20 @@ interface
 uses
   System.Net.HttpClientComponent, System.Classes,
   Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Imaging.jpeg, System.SysUtils, Vcl.Dialogs,
-  Vcl.Graphics, Vcl.Controls, System.Types;
+  Vcl.Graphics, Vcl.Controls, System.Types, ImageIntf;
 type
-  TImageProxy = class(TImage)
+  TImageProxy = class(TInterfacedObject, IImage)
   private
-    FImage: TJPEGImage;
-    FNetClient: TNetHTTPClient;
+    FImage: TImage;
     FImageURL: string;
     FRetrievalThread: TThread;
     FRetrieving: Boolean;
-    procedure RetrieveImage(c: TImage);
   public
     constructor Create(AImageURL: string);
-    procedure Draw(const c: TImage; x, y: Integer);
+    function GetImageWidth: Integer;
+    function GetImageHeight: Integer;
+    procedure Paint(const c: TImage; x, y: Integer);
+    procedure RetrieveImage(Image: TImage);
   end;
 
 implementation
@@ -29,7 +30,7 @@ begin
   FRetrieving := False;
 end;
 
-procedure TImageProxy.RetrieveImage(c: TImage);
+procedure TImageProxy.RetrieveImage(Image: TImage);
 var
   ImageStream: TMemoryStream;
   HTTPClient: TNetHTTPClient;
@@ -38,6 +39,7 @@ begin
     HTTPClient := TNetHTTPClient.Create(nil);
     ImageStream := TMemoryStream.Create;
     try
+      FImage := Image;
       HTTPClient.Get(FImageURL, ImageStream);
       ImageStream.Position := 0;
       FImage := TJPEGImage.Create;
@@ -53,23 +55,38 @@ begin
       FRetrievalThread.Synchronize(nil,
         procedure
         begin
-          c.Canvas.Draw(0, 0, FImage);
+          c.Picture.Assign(FImage);
         end);
     end;
   end;
 end;
 
-procedure TImageProxy.Draw(const c: TImage; x, y: Integer);
+function TImageProxy.GetImageHeight: Integer;
 begin
   if FImage <> nil then
-    c.Canvas.Draw(x, y, FImage)
+    Result := FImage.Height
+  else
+    Result := 300;
+end;
+
+function TImageProxy.GetImageWidth: Integer;
+begin
+  if FImage <> nil then
+    Result := FImage.Width
+  else
+    Result := 200;
+end;
+
+procedure TImageProxy.Paint(const c: TImage; x, y: Integer);
+begin
+  if FImage <> nil then
+    c.Picture.Assign(FImage)
   else
   begin
     c.Canvas.TextOut(x + 15, y + 100, 'Loading CD cover, please wait...');
     if not FRetrieving then
     begin
       FRetrieving := True;
-
       FRetrievalThread := TThread.CreateAnonymousThread(
         procedure begin RetrieveImage(c); end);
       FRetrievalThread.Start;

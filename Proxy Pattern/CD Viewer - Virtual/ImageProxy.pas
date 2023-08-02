@@ -13,12 +13,12 @@ type
     FImageURL: string;
     FRetrievalThread: TThread;
     FRetrieving: Boolean;
-    procedure RetrieveImage(c: TImage);
   public
     constructor Create(AImageURL: string);
     function GetImageWidth: Integer;
     function GetImageHeight: Integer;
-    procedure Paint(const c: TImage; x, y: Integer);
+    procedure Paint(const ImageComponent: TImage; X, Y: Integer);
+    procedure RetrieveImage(ImageComponent: TImage);
   end;
 
 implementation
@@ -30,7 +30,7 @@ begin
   FRetrieving := False;
 end;
 
-procedure TImageProxy.RetrieveImage(c: TImage);
+procedure TImageProxy.RetrieveImage(ImageComponent: TImage);
 var
   ImageStream: TMemoryStream;
   HTTPClient: TNetHTTPClient;
@@ -54,7 +54,7 @@ begin
       FRetrievalThread.Synchronize(nil,
         procedure
         begin
-          c.Picture.Assign(FImage);
+          ImageComponent.Picture.Assign(FImage);
         end);
     end;
   end;
@@ -76,18 +76,19 @@ begin
     Result := 200;
 end;
 
-procedure TImageProxy.Paint(const c: TImage; x, y: Integer);
+procedure TImageProxy.Paint(const ImageComponent: TImage; X, Y: Integer);
 begin
   if FImage <> nil then
-    c.Picture.Assign(FImage)
+    ImageComponent.Picture.Assign(FImage)
   else
   begin
-    c.Canvas.TextOut(x + 15, y + 100, 'Loading CD cover, please wait...');
+    ImageComponent.Canvas.TextOut(x + 15, y + 100,
+      'Loading CD cover, please wait...');
     if not FRetrieving then
     begin
       FRetrieving := True;
       FRetrievalThread := TThread.CreateAnonymousThread(
-        procedure begin RetrieveImage(c); end);
+        procedure begin RetrieveImage(ImageComponent); end);
       FRetrievalThread.Start;
     end;
   end;

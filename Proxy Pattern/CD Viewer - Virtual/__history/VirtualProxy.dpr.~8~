@@ -3,8 +3,7 @@ program VirtualProxy;
 uses
   Vcl.Forms,
   CDFrm in 'CDFrm.pas' {CDForm},
-  ImageProxy in 'ImageProxy.pas',
-  ImageIntf in 'ImageIntf.pas';
+  ImageProxy in 'ImageProxy.pas';
 
 {$R *.res}
 

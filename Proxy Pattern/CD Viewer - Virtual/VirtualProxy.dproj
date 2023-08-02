@@ -103,6 +103,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="ImageProxy.pas"/>
+        <DCCReference Include="ImageIntf.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
