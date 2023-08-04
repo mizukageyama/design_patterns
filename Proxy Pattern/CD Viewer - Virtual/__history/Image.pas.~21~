@@ -1,0 +1,66 @@
+unit Image;
+
+interface
+
+uses
+  System.Net.HttpClientComponent, System.Classes,
+  Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Imaging.jpeg, System.SysUtils, Vcl.Dialogs,
+  Vcl.Graphics, Vcl.Controls, System.Types, ImageIntf;
+
+type
+  TRealImage = class(TInterfacedObject, IImage)
+  private
+    FImage: TJPEGImage;
+    FImageURL: string;
+  public
+    constructor Create(AImageURL: string);
+    function GetImageWidth: Integer;
+    function GetImageHeight: Integer;
+    procedure Paint(const ImageComponent: TImage; X, Y: Integer);
+    function RetrieveImage: TJPEGImage;
+  end;
+
+implementation
+
+constructor TRealImage.Create(AImageURL: string);
+begin
+  FImageURL := AImageURL;
+  FImage := nil;
+end;
+
+function TRealImage.GetImageHeight: Integer;
+begin
+  Result := FImage.Height
+end;
+
+function TRealImage.GetImageWidth: Integer;
+begin
+  Result := FImage.Width
+end;
+
+procedure TRealImage.Paint(const ImageComponent: TImage; X, Y: Integer);
+begin
+  ImageComponent.Height := FImage.Height;
+  ImageComponent.Width := FImage.Width;
+  ImageComponent.Picture.Assign(FImage);
+end;
+
+function TRealImage.RetrieveImage: TJPEGImage;
+var
+  ImageStream: TMemoryStream;
+  HTTPClient: TNetHTTPClient;
+begin
+  try
+    HTTPClient := TNetHTTPClient.Create(nil);
+    ImageStream := TMemoryStream.Create;
+
+    HTTPClient.Get(FImageURL, ImageStream);
+    ImageStream.Position := 0;
+    FImage := TJPEGImage.Create;
+    FImage.LoadFromStream(ImageStream);
+  finally
+    Result := FImage;
+  end;
+end;
+
+end.

@@ -5,11 +5,12 @@ interface
 uses
   System.Net.HttpClientComponent, System.Classes,
   Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Imaging.jpeg, System.SysUtils, Vcl.Dialogs,
-  Vcl.Graphics, Vcl.Controls, System.Types, ImageIntf;
+  Vcl.Graphics, Vcl.Controls, System.Types, ImageIntf, RealImage;
+
 type
   TImageProxy = class(TInterfacedObject, IImage)
   private
-    FImage: TJPEGImage;
+    FImage: TRealImage;
     FImageURL: string;
     FRetrievalThread: TThread;
     FRetrieving: Boolean;
@@ -17,8 +18,8 @@ type
     constructor Create(AImageURL: string);
     function GetImageWidth: Integer;
     function GetImageHeight: Integer;
-    procedure Paint(const ImageComponent: TImage; X, Y: Integer);
-    procedure RetrieveImage(ImageComponent: TImage);
+    procedure Paint(const ImageComponent: TImage);
+    procedure SetImage(ImageComponent: TImage);
   end;
 
 implementation
@@ -33,7 +34,7 @@ end;
 function TImageProxy.GetImageHeight: Integer;
 begin
   if FImage <> nil then
-    Result := FImage.Height
+    Result := FImage.GetImageHeight
   else
     Result := 300;
 end;
@@ -41,58 +42,42 @@ end;
 function TImageProxy.GetImageWidth: Integer;
 begin
   if FImage <> nil then
-    Result := FImage.Width
+    Result := FImage.GetImageWidth
   else
     Result := 200;
 end;
 
-procedure TImageProxy.Paint(const ImageComponent: TImage; X, Y: Integer);
+procedure TImageProxy.Paint(const ImageComponent: TImage);
 begin
   if FImage <> nil then
   begin
-    ImageComponent.Height := FImage.Height;
-    ImageComponent.Width := FImage.Width;
-    ImageComponent.Picture.Assign(FImage);
+    FImage.Paint(ImageComponent);
   end
   else
   begin
-    ImageComponent.Canvas.TextOut(x + 15, y + 100,
+    ImageComponent.Canvas.TextOut(400, 300,
       'Loading CD cover, please wait...');
+    FImage := TRealImage.Create(FImageURL);
     if not FRetrieving then
     begin
       FRetrieving := True;
       FRetrievalThread := TThread.CreateAnonymousThread(
-        procedure begin RetrieveImage(ImageComponent); end);
+        procedure begin SetImage(ImageComponent); end);
       FRetrievalThread.Start;
     end;
   end;
 end;
 
-procedure TImageProxy.RetrieveImage(ImageComponent: TImage);
-var
-  ImageStream: TMemoryStream;
-  HTTPClient: TNetHTTPClient;
+procedure TImageProxy.SetImage(ImageComponent: TImage);
 begin
   try
-    HTTPClient := TNetHTTPClient.Create(nil);
-    ImageStream := TMemoryStream.Create;
-    try
-      HTTPClient.Get(FImageURL, ImageStream);
-      ImageStream.Position := 0;
-      FImage := TJPEGImage.Create;
-      FImage.LoadFromStream(ImageStream);
-    finally
-      HTTPClient.Free;
-      ImageStream.Free;
-    end;
+    FImage.RetrieveImage;
   finally
-    FRetrieving := False;
     if Assigned(FImage) then
     begin
       FRetrievalThread.Synchronize(nil,
         procedure
         begin
-          ImageComponent.Picture.Assign(FImage);
         end);
     end;
   end;

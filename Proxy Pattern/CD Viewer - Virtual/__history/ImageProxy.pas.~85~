@@ -1,0 +1,82 @@
+unit ImageProxy;
+
+interface
+
+uses
+  System.Net.HttpClientComponent, System.Classes,
+  Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Imaging.jpeg, System.SysUtils, Vcl.Dialogs,
+  Vcl.Graphics, Vcl.Controls, System.Types, ImageIntf, Image;
+
+type
+  TImageProxy = class(TInterfacedObject, IImage)
+  private
+    FImage: TRealImage;
+    FImageURL: string;
+    FRetrievalThread: TThread;
+    FRetrieving: Boolean;
+  public
+    constructor Create(AImageURL: string);
+    function GetImageWidth: Integer;
+    function GetImageHeight: Integer;
+    procedure Paint(const ImageComponent: TImage; X, Y: Integer);
+    procedure SetImage(ImageComponent: TImage; X, Y: Integer);
+  end;
+
+implementation
+
+constructor TImageProxy.Create(AImageURL: string);
+begin
+  FImageURL := AImageURL;
+  FImage := nil;
+  FRetrieving := False;
+end;
+
+function TImageProxy.GetImageHeight: Integer;
+begin
+  if FImage <> nil then
+    Result := FImage.GetImageHeight
+  else
+    Result := 300;
+end;
+
+function TImageProxy.GetImageWidth: Integer;
+begin
+  if FImage <> nil then
+    Result := FImage.GetImageWidth
+  else
+    Result := 200;
+end;
+
+procedure TImageProxy.Paint(const ImageComponent: TImage; X, Y: Integer);
+begin
+  if FImage <> nil then
+  begin
+    FImage.Paint(ImageComponent, X, Y);
+  end
+  else
+  begin
+    ImageComponent.Canvas.TextOut(x + 15, y + 100,
+      'Loading CD cover, please wait...');
+    if not FRetrieving then
+    begin
+      FRetrieving := True;
+      FRetrievalThread := TThread.CreateAnonymousThread(
+        procedure begin SetImage(ImageComponent); end);
+      FRetrievalThread.Start;
+    end;
+  end;
+end;
+
+procedure TImageProxy.SetImage(ImageComponent: TImage; X, Y: Integer);
+begin
+  if Assigned(FImage) then
+  begin
+    FRetrievalThread.Synchronize(nil,
+      procedure
+      begin
+        FImage.Paint(ImageComponent, X, Y);
+      end);
+  end;
+end;
+
+end.

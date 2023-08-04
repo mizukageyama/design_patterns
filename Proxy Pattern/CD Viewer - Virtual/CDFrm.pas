@@ -3,11 +3,11 @@ unit CDFrm;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, System.Generics.Collections,
-  ImageIntf, ImageProxy, Vcl.ExtCtrls, System.Net.URLClient,
-  System.Net.HttpClient, System.Net.HttpClientComponent, Vcl.Imaging.jpeg,
-  System.Actions, Vcl.ActnList, Vcl.StdCtrls;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus,
+  System.Generics.Collections, ImageIntf, ImageProxy, Vcl.ExtCtrls,
+  System.Net.URLClient, System.Net.HttpClient, System.Net.HttpClientComponent,
+  Vcl.Imaging.jpeg, System.Actions, Vcl.ActnList, Vcl.StdCtrls;
 
 type
   TCDForm = class(TForm)
@@ -59,7 +59,7 @@ begin
 
   //Default selected album
   FImageProxy := TImageProxy.Create(FFavoriteCDs['MCMXC A.D.']);
-  FImageProxy.Paint(imgDisplay, 0, 0);
+  FImageProxy.Paint(imgDisplay);
 end;
 
 procedure TCDForm.OnMenuItemClicked(Sender: TObject);
@@ -69,7 +69,7 @@ begin
   imgDisplay.Picture := nil;
 
   FImageProxy := TImageProxy.Create(ImageURL);
-  FImageProxy.Paint(imgDisplay, 0, 0);
+  FImageProxy.Paint(imgDisplay);
 end;
 
 end.

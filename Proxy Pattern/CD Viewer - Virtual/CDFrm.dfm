@@ -2,8 +2,8 @@ object CDForm: TCDForm
   Left = 0
   Top = 0
   Caption = 'CD Cover Viewer'
-  ClientHeight = 442
-  ClientWidth = 628
+  ClientHeight = 538
+  ClientWidth = 792
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,12 +14,17 @@ object CDForm: TCDForm
   OnCreate = FormCreate
   TextHeight = 15
   object imgDisplay: TImage
-    Left = 214
-    Top = 121
-    Width = 200
-    Height = 200
+    Left = 0
+    Top = 0
+    Width = 792
+    Height = 538
+    Align = alClient
     Center = True
     Proportional = True
+    ExplicitLeft = 214
+    ExplicitTop = 121
+    ExplicitWidth = 200
+    ExplicitHeight = 200
   end
   object mmFavCDs: TMainMenu
     AutoHotkeys = maManual

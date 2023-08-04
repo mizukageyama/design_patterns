@@ -4,7 +4,8 @@ uses
   Vcl.Forms,
   CDFrm in 'CDFrm.pas' {CDForm},
   ImageProxy in 'ImageProxy.pas',
-  ImageIntf in 'ImageIntf.pas';
+  ImageIntf in 'ImageIntf.pas',
+  RealImage in 'RealImage.pas';
 
 {$R *.res}
 

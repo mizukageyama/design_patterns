@@ -10,7 +10,7 @@ type
   IImage = interface
     function GetImageWidth: Integer;
     function GetImageHeight: Integer;
-    procedure Paint(const c: TImage; x, y: Integer);
+    procedure Paint(const c: TImage);
   end;
 
 implementation

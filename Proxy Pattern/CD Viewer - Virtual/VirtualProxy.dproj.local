@@ -21,11 +21,14 @@
     <Transaction>2023/08/01 21:30:42.000.987,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageReal.pas=C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Image.pas</Transaction>
     <Transaction>2023/08/02 02:40:55.000.319,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageReal.pas=</Transaction>
     <Transaction>2023/08/02 03:01:29.000.476,C:\Users\Emmy-chwaan\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageIntf.pas=</Transaction>
-    <Transaction>2023/08/02 09:41:08.427,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas</Transaction>
-    <Transaction>2023/08/02 09:41:16.338,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\IconIntf.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas</Transaction>
-    <Transaction>2023/08/02 09:41:27.236,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageIntf.pas</Transaction>
-    <Transaction>2023/08/02 09:42:42.068,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\IconIntf.pas=</Transaction>
-    <Transaction>2023/08/02 09:42:53.075,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\IconIntf.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageIntf.pas</Transaction>
-    <Transaction>2023/08/02 09:42:53.089,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageIntf.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\IconIntf.pas</Transaction>
+    <Transaction>2023/08/02 09:41:08.000.427,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas</Transaction>
+    <Transaction>2023/08/02 09:41:16.000.338,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\IconIntf.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas</Transaction>
+    <Transaction>2023/08/02 09:41:27.000.236,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageIntf.pas</Transaction>
+    <Transaction>2023/08/02 09:42:42.000.068,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\IconIntf.pas=</Transaction>
+    <Transaction>2023/08/02 09:42:53.000.075,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\IconIntf.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageIntf.pas</Transaction>
+    <Transaction>2023/08/02 09:42:53.000.089,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\ImageIntf.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\IconIntf.pas</Transaction>
+    <Transaction>2023/08/04 09:19:57.218,=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas</Transaction>
+    <Transaction>2023/08/04 09:20:06.243,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Image.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Unit1.pas</Transaction>
+    <Transaction>2023/08/04 09:53:43.898,C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\RealImage.pas=C:\Users\User\Documents\GitHub\design_patterns\Proxy Pattern\CD Viewer - Virtual\Image.pas</Transaction>
   </Transactions>
 </BorlandProject>
