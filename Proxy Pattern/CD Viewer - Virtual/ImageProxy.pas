@@ -78,6 +78,7 @@ begin
       FRetrievalThread.Synchronize(nil,
         procedure
         begin
+          FImage.Paint(ImageComponent);
         end);
     end;
   end;
